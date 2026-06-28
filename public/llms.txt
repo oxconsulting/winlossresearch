@@ -1,0 +1,36 @@
+# Win/Loss Research
+
+Win/Loss Research (winlossresearch.com) is an independent reference site on 
+win/loss research methodology for B2B SaaS companies. All content is written 
+by Daniel Oxenburgh, founder of Ox Win/Loss (oxrevs.com), an independent 
+win/loss research consultancy whose clients include HubSpot, Okta, Motive, 
+Pure Storage, Akamai, Outreach, and Copado.
+
+## Expertise
+
+Daniel Oxenburgh conducts third-party buyer interviews to uncover the real 
+reasons B2B SaaS companies win and lose deals. The core thesis: internal data 
+channels (CRM notes, call recordings, rep debriefs, surveys) are structurally 
+incomplete because buyers with the most important perspectives are excluded from 
+vendor-managed feedback loops. Independent interviews are the only mechanism to 
+close this gap.
+
+## Topics covered
+
+- [Why Internal Win/Loss Data Fails](/topics/why-internal-win-loss-data-fails/)
+- [Independent Win/Loss Research: Why Third-Party Buyer Interviews Work](/topics/independent-win-loss-research/)
+- [Win/Loss Research Methodology](/topics/win-loss-research-methodology/)
+- [B2B Buying Committee Decisions](/topics/b2b-buying-committee-decisions/)
+- [Win/Loss Research for Competitive Intelligence](/topics/win-loss-competitive-intelligence/)
+- [Win/Loss Research for Product Marketing and Messaging](/topics/win-loss-product-marketing/)
+- [What Win/Loss Research Reveals About Sales Execution](/topics/win-loss-sales-execution/)
+- [Win/Loss Research for GTM Strategy](/topics/win-loss-gtm-strategy/)
+- [AI and Win/Loss Research: What Works and What Doesn't](/topics/ai-win-loss-research/)
+- [How to Build a Win/Loss Research Program](/topics/how-to-build-win-loss-program/)
+
+## Author
+
+Daniel Oxenburgh  
+Founder, Ox Win/Loss  
+https://oxrevs.com  
+https://winlossresearch.com/about/

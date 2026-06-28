@@ -1,0 +1,137 @@
+---
+import Seo from '@jdevalk/astro-seo-graph/Seo.astro';
+import {
+  makeIds,
+  buildWebSite,
+  buildWebPage,
+  buildPiece,
+  buildBreadcrumbList,
+  assembleGraph,
+} from '@jdevalk/seo-graph-core';
+import type { Person } from 'schema-dts';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  publishDate?: Date;
+  updatedDate?: Date;
+  noindex?: boolean;
+  graph?: ReturnType<typeof assembleGraph>;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.url.href,
+  ogImage = 'https://winlossresearch.com/og/default.jpg',
+  ogType = 'website',
+  publishDate,
+  updatedDate,
+  noindex = false,
+  graph: graphProp,
+} = Astro.props;
+
+const siteUrl = 'https://winlossresearch.com';
+const siteName = 'Win/Loss Research';
+
+const ids = makeIds({
+  siteUrl,
+  personUrl: `${siteUrl}/about/`,
+});
+
+// Build site-wide entities for pages that don't pass their own graph
+const person = buildPiece<Person>({
+  '@type': 'Person',
+  '@id': ids.person,
+  name: 'Daniel Oxenburgh',
+  url: `${siteUrl}/about/`,
+  jobTitle: 'Founder',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Ox Win/Loss',
+    url: 'https://oxrevs.com',
+  },
+  sameAs: [
+    'https://www.linkedin.com/in/danieloxenburgh/',
+    'https://oxrevs.com',
+  ],
+});
+
+const website = buildWebSite(
+  {
+    url: `${siteUrl}/`,
+    name: siteName,
+    description:
+      'Independent research and analysis on win/loss methodology for B2B SaaS companies.',
+    publisher: { '@id': ids.person },
+    inLanguage: 'en-US',
+  },
+  ids,
+);
+
+const webPage = buildWebPage(
+  {
+    url: canonicalUrl,
+    name: title,
+    isPartOf: { '@id': ids.website },
+    inLanguage: 'en-US',
+    datePublished: publishDate,
+    dateModified: updatedDate ?? publishDate,
+  },
+  ids,
+  'WebPage',
+);
+
+const defaultGraph = assembleGraph([person, website, webPage]);
+const graph = graphProp ?? defaultGraph;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Seo
+      title={title}
+      titleTemplate={`%s | ${siteName}`}
+      description={description}
+      ogType={ogType}
+      ogImage={ogImage}
+      ogImageWidth={1200}
+      ogImageHeight={675}
+      siteName={siteName}
+      noindex={noindex}
+      graph={graph}
+      extraLinks={[
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'sitemap', href: '/sitemap-index.xml' },
+      ]}
+    />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Win/Loss Research</a>
+        <a href="/topics/">Topics</a>
+        <a href="/perspectives/">Perspectives</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/glossary/">Glossary</a>
+        <a href="/playbook/">Playbook</a>
+        <a href="/about/">About</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>
+        By <a href="/about/">Daniel Oxenburgh</a> — 
+        <a href="https://oxrevs.com" rel="noopener">Ox Win/Loss</a>
+      </p>
+    </footer>
+  </body>
+</html>

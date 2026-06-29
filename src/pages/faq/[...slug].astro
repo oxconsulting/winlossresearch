@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { breadcrumbsFromUrl } from '@jdevalk/astro-seo-graph';
 import {
   makeIds,
   buildWebSite,
@@ -73,8 +74,8 @@ const webPage = buildWebPage(
   'WebPage',
 );
 
-// FAQPage schema — the primary AEO signal for this content type.
-// acceptedAnswer.text is what AI systems extract for direct answers.
+// FAQPage schema — primary AEO signal for this content type
+// acceptedAnswer.text is what AI systems extract for direct answers
 const faqPage = buildPiece<FAQPage>({
   '@type': 'FAQPage',
   '@id': `${canonicalUrl}#faqpage`,
@@ -90,14 +91,12 @@ const faqPage = buildPiece<FAQPage>({
   ],
 });
 
-const breadcrumb = buildBreadcrumbList(
-  [
-    { name: 'Home', url: `${siteUrl}/` },
-    { name: 'FAQ', url: `${siteUrl}/faq/` },
-    { name: entry.data.title, url: canonicalUrl },
-  ],
-  ids,
-);
+const breadcrumbItems = breadcrumbsFromUrl({
+  url: Astro.url,
+  siteUrl,
+  labels: { faq: 'FAQ' },
+});
+const breadcrumb = buildBreadcrumbList({ items: breadcrumbItems, ids });
 
 const graph = assembleGraph([person, website, webPage, faqPage, breadcrumb]);
 ---

@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { breadcrumbsFromUrl } from '@jdevalk/astro-seo-graph';
 import {
   makeIds,
   buildWebSite,
@@ -32,7 +33,6 @@ const ids = makeIds({
   personUrl: `${siteUrl}/about/`,
 });
 
-// Person entity — used as author @id reference in BlogPosting
 const person = buildPiece<Person>({
   '@type': 'Person',
   '@id': ids.person,
@@ -75,7 +75,7 @@ const webPage = buildWebPage(
   'WebPage',
 );
 
-// BlogPosting with explicit author @id — this is the E-E-A-T signal
+// BlogPosting with explicit author @id — the E-E-A-T signal
 const article = buildArticle(
   {
     headline: entry.data.title,
@@ -92,14 +92,12 @@ const article = buildArticle(
   'BlogPosting',
 );
 
-const breadcrumb = buildBreadcrumbList(
-  [
-    { name: 'Home', url: `${siteUrl}/` },
-    { name: 'Perspectives', url: `${siteUrl}/perspectives/` },
-    { name: entry.data.title, url: canonicalUrl },
-  ],
-  ids,
-);
+const breadcrumbItems = breadcrumbsFromUrl({
+  url: Astro.url,
+  siteUrl,
+  labels: { perspectives: 'Perspectives' },
+});
+const breadcrumb = buildBreadcrumbList({ items: breadcrumbItems, ids });
 
 const graph = assembleGraph([person, website, webPage, article, breadcrumb]);
 ---

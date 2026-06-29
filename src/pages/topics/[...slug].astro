@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { breadcrumbsFromUrl } from '@jdevalk/astro-seo-graph';
 import {
   makeIds,
   buildWebSite,
@@ -88,14 +89,12 @@ const article = buildArticle(
   ids,
 );
 
-const breadcrumb = buildBreadcrumbList(
-  [
-    { name: 'Home', url: `${siteUrl}/` },
-    { name: 'Topics', url: `${siteUrl}/topics/` },
-    { name: entry.data.title, url: canonicalUrl },
-  ],
-  ids,
-);
+const breadcrumbItems = breadcrumbsFromUrl({
+  url: Astro.url,
+  siteUrl,
+  labels: { topics: 'Topics' },
+});
+const breadcrumb = buildBreadcrumbList({ items: breadcrumbItems, ids });
 
 const graph = assembleGraph([person, website, webPage, article, breadcrumb]);
 ---

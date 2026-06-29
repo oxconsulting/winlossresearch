@@ -1,83 +1,69 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
-
-const sharedSeo = z.object({
-  title: z.string().min(5).max(120).optional(),
-  description: z.string().min(15).max(160).optional(),
-}).optional();
+import { seoSchema } from '@jdevalk/astro-seo-graph';
 
 const pillars = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/pillars' }),
-  schema: z.object({
+  schema: (ctx) => z.object({
     title: z.string(),
-    excerpt: z.string(),
+    description: z.string(),
     publishDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
-    pillarSlug: z.string(),
-    order: z.number().int().min(1).max(10),
-    seo: sharedSeo,
+    pillar: z.string(),
+    seo: seoSchema(ctx.image).optional(),
   }),
 });
 
 const perspectives = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/perspectives' }),
-  schema: z.object({
+  schema: (ctx) => z.object({
     title: z.string(),
-    excerpt: z.string(),
+    description: z.string(),
     publishDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
-    author: z.string().default('Daniel Oxenburgh'),
     pillar: z.string(),
-    tags: z.array(z.string()).optional(),
-    featured: z.boolean().default(false),
-    seo: sharedSeo,
+    author: z.string().default('Daniel Oxenburgh'),
+    authorTitle: z.string().default('Founder, Ox Win/Loss'),
+    authorUrl: z.string().default('https://oxrevs.com'),
+    seo: seoSchema(ctx.image).optional(),
   }),
 });
 
 const faq = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/faq' }),
-  schema: z.object({
-    question: z.string(),
-    answer: z.string(),
+  schema: (ctx) => z.object({
+    title: z.string(),
+    description: z.string(),
     publishDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     pillar: z.string(),
-    relatedFaq: z.array(z.string()).optional(),
-    seo: sharedSeo,
+    seo: seoSchema(ctx.image).optional(),
   }),
 });
 
 const glossary = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/glossary' }),
-  schema: z.object({
-    term: z.string(),
-    definition: z.string(),
+  schema: (ctx) => z.object({
+    title: z.string(),
+    description: z.string(),
     publishDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     pillar: z.string(),
     relatedTerms: z.array(z.string()).optional(),
-    relatedFaq: z.array(z.string()).optional(),
-    seo: sharedSeo,
+    seo: seoSchema(ctx.image).optional(),
   }),
 });
 
 const playbook = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/playbook' }),
-  schema: z.object({
+  schema: (ctx) => z.object({
     title: z.string(),
-    excerpt: z.string(),
+    description: z.string(),
     publishDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     pillar: z.string(),
-    order: z.number().int().optional(),
-    seo: sharedSeo,
+    seo: seoSchema(ctx.image).optional(),
   }),
 });
 
-export const collections = {
-  pillars,
-  perspectives,
-  faq,
-  glossary,
-  playbook,
-};
+export const collections = { pillars, perspectives, faq, glossary, playbook };

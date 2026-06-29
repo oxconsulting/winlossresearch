@@ -97,7 +97,7 @@ const breadcrumbItems = breadcrumbsFromUrl({
   siteUrl,
   labels: { perspectives: 'Perspectives' },
 });
-const breadcrumb = buildBreadcrumbList({ items: breadcrumbItems, ids });
+const breadcrumb = buildBreadcrumbList({ url: canonicalUrl, items: breadcrumbItems }, ids);
 
 const graph = assembleGraph([person, website, webPage, article, breadcrumb]);
 ---

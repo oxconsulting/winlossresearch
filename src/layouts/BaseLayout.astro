@@ -9,6 +9,7 @@ import {
   assembleGraph,
 } from '@jdevalk/seo-graph-core';
 import type { Person } from 'schema-dts';
+import '../styles/global.css';
 
 interface Props {
   title: string;
@@ -110,7 +111,6 @@ const graph = graphProp ?? defaultGraph;
         { rel: 'sitemap', href: '/sitemap-index.xml' },
       ]}
     />
-    <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body>
     <header>

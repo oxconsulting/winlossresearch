@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pillars = await getCollection('pillars');
+pillars.sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<BaseLayout
+  title="Topics"
+  description="The ten core topics in win/loss research — from why internal data fails to how to build a program that produces defensible findings."
+>
+  <h1>Topics</h1>
+  <p>Ten pillars covering the full scope of win/loss research methodology, competitive intelligence, and GTM strategy.</p>
+  <ul>
+    {pillars.map((pillar) => (
+      <li>
+        <a href={`/topics/${pillar.id}/`}>{pillar.data.title}</a>
+        <p>{pillar.data.description}</p>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

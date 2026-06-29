@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const terms = await getCollection('glossary');
+terms.sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<BaseLayout
+  title="Glossary"
+  description="Definitions of the key terms used in win/loss research — from selection bias and buyer truth to rep debrief and pattern recognition."
+>
+  <h1>Glossary</h1>
+  <p>Precise definitions of the terms practitioners need when evaluating, designing, or running a win/loss research program.</p>
+  <ul>
+    {terms.map((term) => (
+      <li>
+        <a href={`/glossary/${term.id}/`}>{term.data.title}</a>
+        <p>{term.data.description}</p>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

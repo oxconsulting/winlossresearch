@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = await getCollection('perspectives');
+posts.sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+---
+
+<BaseLayout
+  title="Perspectives"
+  description="Daniel Oxenburgh's point-of-view posts on win/loss research — buyer quotes, client observations, and arguments grounded in independent research."
+>
+  <h1>Perspectives</h1>
+  <p>Argument-driven posts on win/loss research, competitive intelligence, and GTM strategy by Daniel Oxenburgh, Founder of Ox Win/Loss.</p>
+  <ul>
+    {posts.map((post) => (
+      <li>
+        <a href={`/perspectives/${post.id}/`}>{post.data.title}</a>
+        <p>{post.data.description}</p>
+        <time datetime={post.data.publishDate.toISOString()}>
+          {post.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

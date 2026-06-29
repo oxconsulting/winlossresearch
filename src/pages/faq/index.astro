@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = await getCollection('faq');
+faqs.sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<BaseLayout
+  title="FAQ"
+  description="Answers to the questions GTM leaders ask about win/loss research — methodology, buyer interviews, competitive intelligence, and program design."
+>
+  <h1>Frequently Asked Questions</h1>
+  <p>Direct answers to the questions CMOs, VP PMMs, and competitive intelligence leaders ask about win/loss research.</p>
+  <ul>
+    {faqs.map((faq) => (
+      <li>
+        <a href={`/faq/${faq.id}/`}>{faq.data.title}</a>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

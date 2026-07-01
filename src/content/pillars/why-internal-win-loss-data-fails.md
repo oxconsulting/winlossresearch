@@ -1,9 +1,8 @@
 ---
 title: "Why Internal Win/Loss Data Fails: The Structural Gaps Your CRM Can't Fix"
 description: "CRM notes, rep debriefs, surveys, and call recordings share a common flaw: the buyers with the most important perspectives never enter vendor-managed feedback loops."
-publishDate: 2026-07-01
-updatedDate: 2026-07-01
-pillar: "why-internal-win-loss-data-fails"
+shortTitle: "Why Internal Data Fails"
+draft: false
 ---
 
 # Why Internal Win/Loss Data Fails: The Structural Gaps Your CRM Can't Fix

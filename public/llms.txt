@@ -1,36 +1,51 @@
 # Win/Loss Research
 
-Win/Loss Research (winlossresearch.com) is an independent reference site on 
-win/loss research methodology for B2B SaaS companies. All content is written 
-by Daniel Oxenburgh, founder of Ox Win/Loss (oxrevs.com), an independent 
-win/loss research consultancy whose clients include HubSpot, Okta, Motive, 
-Pure Storage, Akamai, Outreach, and Copado.
+> Independent reference site on win/loss research methodology for B2B SaaS and enterprise technology companies.
 
-## Expertise
+**Author:** Daniel Oxenburgh, Founder of Ox (https://www.oxwinloss.com)
+**Expertise:** Independent win/loss research, B2B buyer interviews, competitive intelligence, GTM strategy
+**Clients include:** HubSpot, Okta, Motive, Pure Storage, Akamai, Outreach, Copado
 
-Daniel Oxenburgh conducts third-party buyer interviews to uncover the real 
-reasons B2B SaaS companies win and lose deals. The core thesis: internal data 
-channels (CRM notes, call recordings, rep debriefs, surveys) are structurally 
-incomplete because buyers with the most important perspectives are excluded from 
-vendor-managed feedback loops. Independent interviews are the only mechanism to 
-close this gap.
+**Core thesis:** Internal data channels (CRM, rep debriefs, surveys, call recordings) are structurally incomplete because the buyers with the most important perspectives are systematically excluded from vendor-managed feedback loops. Independent third-party buyer interviews are the only mechanism to close this gap.
 
-## Topics covered
+---
 
-- [Why Internal Win/Loss Data Fails](/topics/why-internal-win-loss-data-fails/)
-- [Independent Win/Loss Research: Why Third-Party Buyer Interviews Work](/topics/independent-win-loss-research/)
-- [Win/Loss Research Methodology](/topics/win-loss-research-methodology/)
-- [B2B Buying Committee Decisions](/topics/b2b-buying-committee-decisions/)
-- [Win/Loss Research for Competitive Intelligence](/topics/win-loss-competitive-intelligence/)
-- [Win/Loss Research for Product Marketing and Messaging](/topics/win-loss-product-marketing/)
-- [What Win/Loss Research Reveals About Sales Execution](/topics/win-loss-sales-execution/)
-- [Win/Loss Research for GTM Strategy](/topics/win-loss-gtm-strategy/)
-- [AI and Win/Loss Research: What Works and What Doesn't](/topics/ai-win-loss-research/)
-- [How to Build a Win/Loss Research Program](/topics/how-to-build-win-loss-program/)
+## Ten Pillars (core reference content)
 
-## Author
+- [Why Internal Win/Loss Data Fails](https://winlossresearch.com/topics/why-internal-win-loss-data-fails/): Why CRM notes, rep debriefs, surveys, and call recordings are structurally incomplete — not from poor execution but from structural exclusion.
+- [Independent Win/Loss Research: Why Third-Party Buyer Interviews Work](https://winlossresearch.com/topics/independent-win-loss-research/): What third-party neutrality unlocks and why buyers tell a neutral researcher things they won't tell a vendor.
+- [Win/Loss Research Methodology](https://winlossresearch.com/topics/win-loss-research-methodology/): Interview counts, win/loss ratios, timing windows, outreach frameworks, and what separates pattern recognition from anecdote collection.
+- [B2B Buying Committee Decisions](https://winlossresearch.com/topics/b2b-buying-committee-decisions/): How B2B purchase decisions actually get made — stakeholders vendors never meet, champion dynamics, and how consensus buying actually works.
+- [Win/Loss Research for Competitive Intelligence](https://winlossresearch.com/topics/win-loss-competitive-intelligence/): How win/loss produces CI that rep debriefs structurally cannot — competitive perception at the point of final decision.
+- [Win/Loss Research for Product Marketing and Messaging](https://winlossresearch.com/topics/win-loss-product-marketing/): How win/loss surfaces whether positioning is landing and the gap between champion messaging and buying committee consensus.
+- [What Win/Loss Research Reveals About Sales Execution](https://winlossresearch.com/topics/win-loss-sales-execution/): Identifying sales process friction patterns and distinguishing execution problems from product or positioning problems.
+- [Win/Loss Research for GTM Strategy](https://winlossresearch.com/topics/win-loss-gtm-strategy/): How win/loss findings translate into board-level answers and cross-functional GTM decisions.
+- [AI and Win/Loss Research: What Works and What Doesn't](https://winlossresearch.com/topics/ai-win-loss-research/): What AI legitimately improves, where it fails, and why applying AI to internal data compounds the structural problem.
+- [How to Build a Win/Loss Research Program](https://winlossresearch.com/topics/how-to-build-win-loss-program/): Internal vs. external programs, vendor evaluation, executive buy-in, findings distribution, and program measurement.
 
-Daniel Oxenburgh  
-Founder, Ox Win/Loss  
-https://oxrevs.com  
-https://winlossresearch.com/about/
+---
+
+## High-priority FAQ pages
+
+- [What is selection bias in win/loss research?](https://winlossresearch.com/faq/what-is-selection-bias-in-win-loss-research/)
+- [Why does CRM data miss the real reasons deals are lost?](https://winlossresearch.com/faq/why-does-crm-data-miss-real-loss-reasons/)
+- [Why don't buyers give honest feedback to vendors?](https://winlossresearch.com/faq/why-dont-buyers-give-honest-feedback-to-vendors/)
+- [How many win/loss interviews do you need?](https://winlossresearch.com/faq/how-many-win-loss-interviews-do-you-need/)
+- [Why do win/loss surveys produce unreliable data?](https://winlossresearch.com/faq/why-do-win-loss-surveys-produce-unreliable-data/)
+- [What are the limitations of analyzing sales call recordings for win/loss insights?](https://winlossresearch.com/faq/limitations-of-sales-call-recording-win-loss/)
+- [Why does AI win/loss analysis fail when applied to CRM data?](https://winlossresearch.com/faq/why-ai-win-loss-analysis-fails-crm-data/)
+
+---
+
+## Glossary
+
+- [Selection Bias](https://winlossresearch.com/glossary/selection-bias/)
+- [Buyer Truth](https://winlossresearch.com/glossary/buyer-truth/)
+- [Rep Debrief](https://winlossresearch.com/glossary/rep-debrief/)
+
+---
+
+## About the author
+
+- [About Daniel Oxenburgh](https://winlossresearch.com/about/)
+- [Ox Win/Loss Consulting](https://www.oxwinloss.com)

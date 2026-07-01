@@ -1,0 +1,63 @@
+---
+/**
+ * src/pages/about.astro
+ *
+ * The About page is the E-E-A-T anchor for the site.
+ * The Person entity in the JSON-LD graph points to this URL.
+ * Every Perspectives post byline links here.
+ *
+ * REPLACE THE PLACEHOLDER CONTENT BELOW with Daniel's actual biography,
+ * credentials, client list, and methodology description before DNS is pointed.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_URL } from '../utils/schema';
+---
+
+<BaseLayout
+  title="About Daniel Oxenburgh"
+  description="Daniel Oxenburgh is the founder of Ox Win/Loss, an independent win/loss research consultancy serving B2B SaaS and enterprise technology companies."
+  canonicalUrl={`${SITE_URL}/about/`}
+  pageGraphType="list"
+>
+  <article>
+    <h1>About</h1>
+
+    <p>
+      Daniel Oxenburgh is the founder of{' '}
+      <a href="https://www.oxwinloss.com">Ox Win/Loss</a>, an independent win/loss
+      research consultancy serving B2B SaaS and enterprise technology companies.
+    </p>
+
+    <p>
+      Past clients include HubSpot, Okta, Motive, Pure Storage, Akamai,
+      Outreach, and Copado.
+    </p>
+
+    <h2>Core thesis</h2>
+
+    <p>
+      Internal data channels — CRM notes, rep debriefs, surveys, and call
+      recordings — are structurally incomplete because the buyers with the most
+      important perspectives are systematically excluded from vendor-managed
+      feedback loops. Independent third-party buyer interviews are the only
+      mechanism to close this gap.
+    </p>
+
+    <h2>About this site</h2>
+
+    <p>
+      winlossresearch.com is an independent content resource on win/loss
+      research methodology for B2B GTM and SaaS teams. It is separate from the
+      Ox Win/Loss business site. The content covers methodology, competitive
+      intelligence, product marketing, sales execution, GTM strategy, and
+      program design.
+    </p>
+
+    <p>
+      For win/loss research engagements, visit{' '}
+      <a href="https://www.oxwinloss.com">oxrevs.com</a>.
+    </p>
+
+    {/* TODO: Add LinkedIn URL, headshot, full biography */}
+  </article>
+</BaseLayout>

@@ -1,9 +1,9 @@
 ---
 title: "Why does CRM data miss the real reasons deals are lost?"
 description: "CRM data captures what sales reps observed, not what buyers experienced. The gap exists because buyers never enter vendor-managed feedback systems."
-publishDate: 2026-07-01
-updatedDate: 2026-07-01
 pillar: "why-internal-win-loss-data-fails"
+answer: "CRM data misses the real reasons deals are lost because it only records what sales reps observed, not what buyers experienced. Reps document the version of events they were present for. The buyer's internal deliberations, the stakeholders the sales team never met, and the conversations that happened without the vendor are structurally absent from any CRM system, regardless of how rigorously it is maintained."
+draft: false
 ---
 
 # Why does CRM data miss the real reasons deals are lost?

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="The page you are looking for doesn't exist."
+  noindex={true}
+  pageGraphType="list"
+>
+  <div>
+    <h1>Page not found</h1>
+    <p>The page you're looking for doesn't exist or has moved.</p>
+    <ul>
+      <li><a href="/topics/">Browse all topics</a></li>
+      <li><a href="/faq/">Frequently asked questions</a></li>
+      <li><a href="/glossary/">Glossary</a></li>
+      <li><a href="/">Home</a></li>
+    </ul>
+  </div>
+</BaseLayout>

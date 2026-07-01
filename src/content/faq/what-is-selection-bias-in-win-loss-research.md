@@ -1,9 +1,9 @@
 ---
 title: "What is selection bias in win/loss research?"
-description: "Selection bias in win/loss research occurs when the pool of deals reviewed or buyers interviewed systematically differs from the full population of deals, skewing findings."
-publishDate: 2026-07-01
-updatedDate: 2026-07-01
+description: "Selection bias in win/loss research occurs when the pool of deals or buyers interviewed systematically differs from the full population, skewing findings."
 pillar: "win-loss-research-methodology"
+answer: "Selection bias in win/loss research occurs when the pool of deals reviewed or buyers interviewed is not representative of the full population of deals. The sample differs from the whole in ways that systematically skew findings, producing conclusions that reflect the filtered subset rather than the actual pattern across all deals."
+draft: false
 ---
 
 # What is selection bias in win/loss research?

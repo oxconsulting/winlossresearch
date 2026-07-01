@@ -1,116 +1,185 @@
 ---
+/**
+ * src/layouts/BaseLayout.astro
+ *
+ * CHANGES FROM PRIOR VERSION:
+ * 1. Imports buildPageGraph from utils/schema — pass graph prop to <Seo>
+ * 2. Adds <link rel="sitemap"> and <link rel="alternate" rss> to extraLinks
+ * 3. Fixes title template so homepage doesn't double site name
+ * 4. Adds <ClientRouter> for viewport prefetch
+ * 5. Suppresses redundant Twitter tags (OG fallback handles it)
+ * 6. ogType defaults to 'article' for content pages; callers can override
+ * 7. 'article' pageGraphType branch no longer requires publishDate to fire —
+ *    pillar pages have no publishDate field (evergreen content, by design)
+ *    and were previously falling through to the generic 'list' graph.
+ *
+ * USAGE EXAMPLE (pillar page):
+ *   <BaseLayout
+ *     title="Why Internal Win/Loss Data Fails"
+ *     description="CRM notes, rep debriefs..."
+ *     canonicalUrl={Astro.url.href}
+ *     ogType="article"
+ *     breadcrumbs={[{ name: 'Topics', url: 'https://winlossresearch.com/topics/' }, { name: 'Why Internal Win/Loss Data Fails', url: 'https://winlossresearch.com/topics/why-internal-win-loss-data-fails/' }]}
+ *     pageGraphType="article"
+ *   >
+ *     <slot />
+ *   </BaseLayout>
+ */
 import Seo from '@jdevalk/astro-seo-graph/Seo.astro';
-import {
-  makeIds,
-  buildWebSite,
-  buildWebPage,
-  buildPiece,
-  buildBreadcrumbList,
-  assembleGraph,
-} from '@jdevalk/seo-graph-core';
-import type { Person } from 'schema-dts';
+import { ClientRouter } from 'astro:transitions';
+import { buildPageGraph, SITE_URL, SITE_NAME, type PageGraphOptions } from '../utils/schema';
 import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
   canonicalUrl?: string;
-  ogImage?: string;
+  /**
+   * Open Graph type. Defaults to 'website' for index/list pages; pass 'article'
+   * for pillar pages, Perspectives posts, FAQ pages, and glossary pages.
+   */
   ogType?: 'website' | 'article';
+  /**
+   * OG image URL. Defaults to the static fallback.
+   * Pass a full absolute URL when a per-page OG image exists.
+   */
+  ogImageUrl?: string;
+  /** Optional. Required for Perspectives posts; pillar pages have none. */
   publishDate?: Date;
-  updatedDate?: Date;
+  modifiedDate?: Date;
+  /** Breadcrumb trail, excluding the root. e.g. [{ name: 'FAQ', url: 'https://winlossresearch.com/faq/' }, { name: 'What is...', url: 'https://winlossresearch.com/faq/what-is-.../' }] */
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  /**
+   * Which graph type to build. Matches PageGraphOptions['pageType'].
+   * Defaults to 'home' for the homepage, 'list' for index pages.
+   */
+  pageGraphType?: PageGraphOptions['pageType'];
+  /** FAQ-specific: the full question text */
+  faqQuestion?: string;
+  /** FAQ-specific: the plain-text answer (first paragraph is fine) */
+  faqAnswer?: string;
+  /** Glossary-specific: the term name */
+  termName?: string;
+  /** Glossary-specific: the term definition */
+  termDefinition?: string;
   noindex?: boolean;
-  graph?: ReturnType<typeof assembleGraph>;
 }
 
 const {
   title,
   description,
   canonicalUrl = Astro.url.href,
-  ogImage = 'https://winlossresearch.com/og/default.jpg',
   ogType = 'website',
+  ogImageUrl = `${SITE_URL}/og/default.jpg`,
   publishDate,
-  updatedDate,
+  modifiedDate,
+  breadcrumbs,
+  pageGraphType = 'list',
+  faqQuestion,
+  faqAnswer,
+  termName,
+  termDefinition,
   noindex = false,
-  graph: graphProp,
 } = Astro.props;
 
-const siteUrl = 'https://winlossresearch.com';
-const siteName = 'Win/Loss Research';
+// Build the appropriate graph for this page type
+let graphOptions: PageGraphOptions;
 
-const ids = makeIds({
-  siteUrl,
-  personUrl: `${siteUrl}/about/`,
-});
-
-// Build site-wide entities for pages that don't pass their own graph
-const person = buildPiece<Person>({
-  '@type': 'Person',
-  '@id': ids.person,
-  name: 'Daniel Oxenburgh',
-  url: `${siteUrl}/about/`,
-  jobTitle: 'Founder',
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Ox Win/Loss',
-    url: 'https://oxrevs.com',
-  },
-  sameAs: [
-    'https://www.linkedin.com/in/danieloxenburgh/',
-    'https://oxrevs.com',
-  ],
-});
-
-const website = buildWebSite(
-  {
-    url: `${siteUrl}/`,
-    name: siteName,
-    description:
-      'Independent research and analysis on win/loss methodology for B2B SaaS companies.',
-    publisher: { '@id': ids.person },
-    inLanguage: 'en-US',
-  },
-  ids,
-);
-
-const webPage = buildWebPage(
-  {
+if (pageGraphType === 'faq' && faqQuestion && faqAnswer) {
+  graphOptions = {
+    pageType: 'faq',
     url: canonicalUrl,
     name: title,
-    isPartOf: { '@id': ids.website },
-    inLanguage: 'en-US',
-    datePublished: publishDate,
-    dateModified: updatedDate ?? publishDate,
-  },
-  ids,
-  'WebPage',
-);
+    description,
+    question: faqQuestion,
+    answer: faqAnswer,
+    breadcrumbs,
+  };
+} else if (pageGraphType === 'glossary' && termName && termDefinition) {
+  graphOptions = {
+    pageType: 'glossary',
+    url: canonicalUrl,
+    name: title,
+    description,
+    termName,
+    termDefinition,
+    breadcrumbs,
+  };
+} else if (pageGraphType === 'article') {
+  // publishDate is optional here — pillar pages have none, Article schema
+  // simply omits datePublished/dateModified when absent (see schema.ts)
+  graphOptions = {
+    pageType: 'article',
+    url: canonicalUrl,
+    name: title,
+    description,
+    publishDate,
+    modifiedDate,
+    breadcrumbs,
+    imageUrl: ogImageUrl,
+  };
+} else if (pageGraphType === 'perspectives' && publishDate) {
+  graphOptions = {
+    pageType: 'perspectives',
+    url: canonicalUrl,
+    name: title,
+    description,
+    publishDate,
+    modifiedDate,
+    breadcrumbs,
+    imageUrl: ogImageUrl,
+  };
+} else {
+  graphOptions = {
+    pageType: pageGraphType as 'home' | 'list',
+    url: canonicalUrl,
+    name: title,
+    description,
+  };
+}
 
-const defaultGraph = assembleGraph([person, website, webPage]);
-const graph = graphProp ?? defaultGraph;
+const graph = buildPageGraph(graphOptions);
+
+// For Perspectives posts and dated Article pages: build OG article metadata.
+// Pillar pages (no publishDate) simply get no article:published_time tag —
+// ogType can still be 'article' without it.
+const articleMeta =
+  (pageGraphType === 'perspectives' || pageGraphType === 'article') && publishDate
+    ? {
+        publishedTime: publishDate,
+        modifiedTime: modifiedDate ?? publishDate,
+        authors: [`${SITE_URL}/about/`],
+        section: 'Win/Loss Research',
+      }
+    : undefined;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <Seo
       title={title}
-      titleTemplate={`%s | ${siteName}`}
+      titleTemplate={`%s | ${SITE_NAME}`}
       description={description}
+      canonical={canonicalUrl}
       ogType={ogType}
-      ogImage={ogImage}
+      ogImage={ogImageUrl}
+      ogImageAlt={`${title} — Win/Loss Research`}
       ogImageWidth={1200}
       ogImageHeight={675}
-      siteName={siteName}
+      siteName={SITE_NAME}
+      locale="en_US"
       noindex={noindex}
+      article={articleMeta}
       graph={graph}
       extraLinks={[
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'sitemap', href: '/sitemap-index.xml' },
+        { rel: 'alternate', type: 'application/rss+xml', href: '/feed.xml', title: `${SITE_NAME} — Perspectives` },
       ]}
     />
+    <ClientRouter defaultStrategy="viewport" />
   </head>
   <body>
     <header>
@@ -124,10 +193,13 @@ const graph = graphProp ?? defaultGraph;
         <a href="/about/">About</a>
       </nav>
     </header>
+
     <main>
       <slot />
     </main>
-    <footer></footer>
+
+    <footer>
+      <!-- Footer content -->
+    </footer>
   </body>
 </html>
-

@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://winlossresearch.com/sitemap-index.xml
+
+# Schema map for agent discovery
+Schemamap: https://winlossresearch.com/schemamap.xml
+
+# AI content preferences
+# Allow all search grounding and AI input; opt out of model training reuse
+Content-Signal: ai-train=no, search=yes, ai-input=yes

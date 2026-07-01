@@ -2,11 +2,9 @@
 title: "Feature Gap and Perception Gap Look the Same in Your CRM. They Require Completely Different Fixes."
 description: "CI programs are better at detecting feature gaps than perception gaps, which means the fix they recommend most often is the wrong one."
 publishDate: 2026-07-01
-updatedDate: 2026-07-01
 pillar: "win-loss-competitive-intelligence"
-author: "Daniel Oxenburgh"
-authorTitle: "Founder, Ox Win/Loss"
-authorUrl: "https://oxrevs.com"
+excerpt: "CI programs are better at spotting feature gaps than perception gaps, so the fix they recommend most often is the wrong one."
+draft: false
 ---
 
 # Feature Gap and Perception Gap Look the Same in Your CRM. They Require Completely Different Fixes.

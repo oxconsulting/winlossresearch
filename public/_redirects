@@ -1,0 +1,11 @@
+# Netlify redirects
+# https://docs.netlify.com/routing/redirects/
+
+# Once DNS is pointed: redirect Netlify subdomain to production domain
+# Uncomment these lines after winlossresearch.com DNS is live and Netlify
+# custom domain is configured. The Netlify subdomain will then 301 to production.
+# https://winlossresearch.netlify.app/* https://winlossresearch.com/:splat 301!
+
+# Force trailing slashes (Astro default — belt-and-suspenders)
+# These are handled by Astro's trailingSlash config; add explicit rules
+# here only if you observe non-trailing-slash URLs in GSC.

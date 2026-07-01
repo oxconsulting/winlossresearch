@@ -1,14 +1,10 @@
 ---
 title: "Rep Debrief"
 description: "A rep debrief is a post-deal conversation between a sales rep and their manager or team to review the factors that led to a win or loss."
-publishDate: 2026-07-01
-updatedDate: 2026-07-01
+term: "Rep debrief"
+definition: "A post-deal conversation between a sales representative and their manager or a member of the GTM team to review the factors that led to a win or loss, producing the rep's account of what happened rather than the buyer's."
 pillar: "why-internal-win-loss-data-fails"
-relatedTerms:
-  - "win-loss-interview"
-  - "selection-bias"
-  - "buyer-truth"
-  - "third-party-win-loss-research"
+draft: false
 ---
 
 # Rep Debrief

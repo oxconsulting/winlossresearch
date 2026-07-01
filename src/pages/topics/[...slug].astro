@@ -1,17 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { breadcrumbsFromUrl } from '@jdevalk/astro-seo-graph';
-import {
-  makeIds,
-  buildWebSite,
-  buildWebPage,
-  buildArticle,
-  buildPiece,
-  buildBreadcrumbList,
-  assembleGraph,
-} from '@jdevalk/seo-graph-core';
-import type { Person } from 'schema-dts';
+import { SITE_URL } from '../../utils/schema';
 
 export async function getStaticPaths() {
   const entries = await getCollection('pillars');
@@ -24,79 +14,12 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
-const siteUrl = 'https://winlossresearch.com';
-const siteName = 'Win/Loss Research';
 const canonicalUrl = Astro.url.href;
 
-const ids = makeIds({
-  siteUrl,
-  personUrl: `${siteUrl}/about/`,
-});
-
-const person = buildPiece<Person>({
-  '@type': 'Person',
-  '@id': ids.person,
-  name: 'Daniel Oxenburgh',
-  url: `${siteUrl}/about/`,
-  jobTitle: 'Founder',
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Ox Win/Loss',
-    url: 'https://oxrevs.com',
-  },
-  sameAs: [
-    'https://www.linkedin.com/in/danieloxenburgh/',
-    'https://oxrevs.com',
-  ],
-});
-
-const website = buildWebSite(
-  {
-    url: `${siteUrl}/`,
-    name: siteName,
-    description:
-      'Independent research and analysis on win/loss methodology for B2B SaaS companies.',
-    publisher: { '@id': ids.person },
-    inLanguage: 'en-US',
-  },
-  ids,
-);
-
-const webPage = buildWebPage(
-  {
-    url: canonicalUrl,
-    name: entry.data.title,
-    isPartOf: { '@id': ids.website },
-    inLanguage: 'en-US',
-    datePublished: entry.data.publishDate,
-    dateModified: entry.data.updatedDate ?? entry.data.publishDate,
-  },
-  ids,
-  'WebPage',
-);
-
-const article = buildArticle(
-  {
-    headline: entry.data.title,
-    description: entry.data.description,
-    url: canonicalUrl,
-    datePublished: entry.data.publishDate,
-    dateModified: entry.data.updatedDate ?? entry.data.publishDate,
-    isPartOf: { '@id': ids.webpage },
-    publisher: { '@id': ids.person },
-    inLanguage: 'en-US',
-  },
-  ids,
-);
-
-const breadcrumbItems = breadcrumbsFromUrl({
-  url: Astro.url,
-  siteUrl,
-  labels: { topics: 'Topics' },
-});
-const breadcrumb = buildBreadcrumbList({ url: canonicalUrl, items: breadcrumbItems }, ids);
-
-const graph = assembleGraph([person, website, webPage, article, breadcrumb]);
+const breadcrumbs = [
+  { name: 'Topics', url: `${SITE_URL}/topics/` },
+  { name: entry.data.title, url: canonicalUrl },
+];
 ---
 
 <BaseLayout
@@ -104,9 +27,8 @@ const graph = assembleGraph([person, website, webPage, article, breadcrumb]);
   description={entry.data.description}
   canonicalUrl={canonicalUrl}
   ogType="article"
-  publishDate={entry.data.publishDate}
-  updatedDate={entry.data.updatedDate}
-  graph={graph}
+  pageGraphType="article"
+  breadcrumbs={breadcrumbs}
 >
   <article class="pillar">
     <Content />

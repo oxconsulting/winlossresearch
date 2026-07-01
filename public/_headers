@@ -1,0 +1,29 @@
+# Netlify response headers
+# https://docs.netlify.com/routing/headers/
+
+# Immutable cache for hashed Astro assets
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Static assets
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=86400
+
+# OG images — cache for 1 week (refresh when content changes)
+/og/*
+  Cache-Control: public, max-age=604800
+
+# Discovery headers on all pages — agents reading response headers
+# find sitemap, llms.txt, schema map, and api-catalog without parsing HTML
+/*
+  Link: </sitemap-index.xml>; rel="sitemap"
+  Link: </llms.txt>; rel="describedby"; type="text/plain"
+  Link: </schemamap.xml>; rel="describedby"; type="application/xml"
+  Link: </.well-known/api-catalog>; rel="https://www.iana.org/assignments/relation/describedby"
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

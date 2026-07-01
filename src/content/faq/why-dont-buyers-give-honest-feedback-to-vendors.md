@@ -1,9 +1,9 @@
 ---
 title: "Why don't buyers give honest feedback to vendors?"
 description: "Buyers soften feedback to vendors because there's a relationship to manage, a future cycle to hedge, or no perceived upside in full candor with the losing team."
-publishDate: 2026-07-01
-updatedDate: 2026-07-01
 pillar: "why-internal-win-loss-data-fails"
+answer: "Buyers soften feedback to vendors because there is always something to manage: a relationship that might still have value, a future evaluation cycle they may re-enter, or simply the human instinct to avoid a difficult conversation with someone who won't benefit from the full truth. The result is a polished, diplomatic version of the buyer's actual experience."
+draft: false
 ---
 
 # Why don't buyers give honest feedback to vendors?

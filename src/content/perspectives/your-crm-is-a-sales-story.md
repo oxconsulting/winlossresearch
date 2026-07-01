@@ -2,11 +2,9 @@
 title: "Your CRM Is a Sales Story, Not a Buyer Story"
 description: "Sales reps document what they observed, but buyers experienced something entirely different. That gap is where deals are actually lost."
 publishDate: 2026-07-01
-updatedDate: 2026-07-01
 pillar: "why-internal-win-loss-data-fails"
-author: "Daniel Oxenburgh"
-authorTitle: "Founder, Ox Win/Loss"
-authorUrl: "https://oxrevs.com"
+excerpt: "Sales reps document what they observed, but buyers experienced something entirely different - and that gap is where deals are actually lost."
+draft: false
 ---
 
 # Your CRM Is a Sales Story, Not a Buyer Story

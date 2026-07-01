@@ -1,16 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { breadcrumbsFromUrl } from '@jdevalk/astro-seo-graph';
-import {
-  makeIds,
-  buildWebSite,
-  buildWebPage,
-  buildPiece,
-  buildBreadcrumbList,
-  assembleGraph,
-} from '@jdevalk/seo-graph-core';
-import type { DefinedTerm, Person } from 'schema-dts';
+import { SITE_URL } from '../../utils/schema';
 
 export async function getStaticPaths() {
   const entries = await getCollection('glossary');
@@ -23,83 +14,22 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
-const siteUrl = 'https://winlossresearch.com';
-const siteName = 'Win/Loss Research';
 const canonicalUrl = Astro.url.href;
 
-const ids = makeIds({
-  siteUrl,
-  personUrl: `${siteUrl}/about/`,
-});
-
-const person = buildPiece<Person>({
-  '@type': 'Person',
-  '@id': ids.person,
-  name: 'Daniel Oxenburgh',
-  url: `${siteUrl}/about/`,
-  jobTitle: 'Founder',
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Ox Win/Loss',
-    url: 'https://oxrevs.com',
-  },
-  sameAs: [
-    'https://www.linkedin.com/in/danieloxenburgh/',
-    'https://oxrevs.com',
-  ],
-});
-
-const website = buildWebSite(
-  {
-    url: `${siteUrl}/`,
-    name: siteName,
-    description:
-      'Independent research and analysis on win/loss methodology for B2B SaaS companies.',
-    publisher: { '@id': ids.person },
-    inLanguage: 'en-US',
-  },
-  ids,
-);
-
-const webPage = buildWebPage(
-  {
-    url: canonicalUrl,
-    name: entry.data.title,
-    isPartOf: { '@id': ids.website },
-    inLanguage: 'en-US',
-    datePublished: entry.data.publishDate,
-    dateModified: entry.data.updatedDate ?? entry.data.publishDate,
-  },
-  ids,
-  'WebPage',
-);
-
-// DefinedTerm schema — signals vocabulary authority to search engines and AI systems
-const definedTerm = buildPiece<DefinedTerm>({
-  '@type': 'DefinedTerm',
-  '@id': `${canonicalUrl}#term`,
-  name: entry.data.title,
-  description: entry.data.description,
-  inDefinedTermSet: `${siteUrl}/glossary/`,
-});
-
-const breadcrumbItems = breadcrumbsFromUrl({
-  url: Astro.url,
-  siteUrl,
-  labels: { glossary: 'Glossary' },
-});
-const breadcrumb = buildBreadcrumbList({ url: canonicalUrl, items: breadcrumbItems }, ids);
-
-const graph = assembleGraph([person, website, webPage, definedTerm, breadcrumb]);
+const breadcrumbs = [
+  { name: 'Glossary', url: `${SITE_URL}/glossary/` },
+  { name: entry.data.term, url: canonicalUrl },
+];
 ---
 
 <BaseLayout
   title={entry.data.title}
   description={entry.data.description}
   canonicalUrl={canonicalUrl}
-  publishDate={entry.data.publishDate}
-  updatedDate={entry.data.updatedDate}
-  graph={graph}
+  pageGraphType="glossary"
+  termName={entry.data.term}
+  termDefinition={entry.data.definition}
+  breadcrumbs={breadcrumbs}
 >
   <article class="glossary-term">
     <Content />

@@ -95,7 +95,7 @@ Wins deserve a place in this process too, not as the primary signal but as confi
 - [Why does your CRM misattribute competitive losses?](/faq/why-does-your-crm-misattribute-competitive-losses/)
 - [How do win/loss interviews improve battlecards?](/faq/how-do-win-loss-interviews-improve-battlecards/)
 - [What do buyers say about your competitors that they won't tell your sales team?](/faq/what-buyers-say-about-competitors/)
-- [Why is the competitor you're losing to often not the one in your CRM?](/faq/why-is-the-competitor-youre-losing-to-often-not-the-one-in-your-crm/)
+- [Why is the CRM competitor field not always accurate?](/faq/why-is-the-crm-competitor-field-not-always-accurate/)
 
 ### Related Perspectives
 - [There Are Two Versions of Why You Lost a Deal](/perspectives/two-versions-competitive-deal/)

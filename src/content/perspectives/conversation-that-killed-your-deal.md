@@ -7,6 +7,8 @@ excerpt: "The buying committee meets without you, and no tool records what happe
 draft: false
 ---
 
+# The Conversation That Killed Your Deal Happened Without You
+
 Every platform your team uses to record, transcribe, and analyze sales calls starts from the same place: the conversations you were invited to.
 
 That seems obvious once it's stated plainly, and yet most call-intelligence investments are built around the implicit assumption that the calls your team is on contain the information that decides the deal. Sometimes they do. Often the conversation that actually determines the outcome happens somewhere your team was never going to be in the room for.

@@ -1,5 +1,5 @@
 ---
-title: "Buyer Truth"
+title: "Buyer Truth in Win/Loss Research"
 description: "Buyer truth is the unmediated account of why a buyer made their decision, distinct from what they told the vendor during or after the evaluation."
 term: "Buyer truth"
 definition: "The unmediated account of a buyer's decision - the actual factors, internal dynamics, and perceptions that drove the outcome - as distinct from what the buyer communicated to the vendor during or after the evaluation."

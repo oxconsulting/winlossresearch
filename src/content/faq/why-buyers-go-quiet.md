@@ -6,6 +6,8 @@ answer: "Buyers go quiet, or give vague answers, because honest feedback to a ve
 draft: false
 ---
 
+# Why do buyers go quiet instead of giving honest feedback?
+
 Buyers go quiet, or give vague answers, because honest feedback to a vendor carries real cost and no real benefit to them. Naming the specific person or moment that killed their confidence risks an awkward conversation for no upside, since the relationship is already ending. Going quiet, or giving a safe, generic answer, is the lower-effort choice.
 
 Think about what's actually being asked of a buyer in a post-loss debrief with the vendor's own team. They're being asked to explain, to the people who built and sold the product, exactly why it fell short, often naming a specific rep, a specific moment, or a specific gap. That conversation has no clear upside for the buyer. They've already made their decision and moved on. The only outcomes available to them are an uncomfortable exchange or, more commonly, a polite non-answer that closes the loop without creating friction.

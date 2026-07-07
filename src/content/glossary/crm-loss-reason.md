@@ -7,6 +7,8 @@ pillar: "why-internal-win-loss-data-fails"
 draft: false
 ---
 
+# CRM Loss Reason
+
 A CRM loss reason is the dropdown value a sales rep selects when an opportunity is marked lost, chosen from a fixed list of options like Price, No Decision, Lost to Competitor, or Unresponsive. The rep enters it based on what they observed and were told during the deal. It captures the rep's interpretation of the loss, not the buyer's account of why they actually walked away.
 
 The field exists because sales organizations need a reportable, structured way to roll up loss data across hundreds or thousands of opportunities. A dropdown is easy to query, easy to chart, and easy to defend in a pipeline review. That structure is also its limitation: a buyer's actual reasoning for a decision is rarely a single clean category, and the rep choosing the field is working from a partial picture to begin with.

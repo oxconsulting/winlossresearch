@@ -7,6 +7,8 @@ pillar: "why-internal-win-loss-data-fails"
 draft: false
 ---
 
+# Closed Lost Reason
+
 Closed lost reason is the CRM field populated when an opportunity moves into the Closed Lost stage. In most sales tech stacks the term is used interchangeably with CRM loss reason: it's the same dropdown, tied to the same stage-change event, and it's the field most pipeline reports and loss-reason dashboards pull from.
 
 The naming difference is mostly about which part of the workflow someone is describing. "Closed lost reason" points to the stage transition itself, the moment a rep moves an opportunity from open to Closed Lost in the CRM and the system prompts for a reason before the record can be saved. "CRM loss reason" describes the resulting data more generally. In practice, both terms refer to the same structural artifact: a single categorical value selected by the rep at the moment of closing the deal.

@@ -6,6 +6,8 @@ answer: "Win/loss research relies on structured one-on-one interviews conducted 
 draft: false
 ---
 
+# How is win/loss research different from customer surveys?
+
 Win/loss research relies on structured one-on-one interviews conducted by a neutral researcher, not self-administered forms. Surveys are self-selecting: only buyers willing to spend a few minutes on a form respond, and those who do answer in a way calibrated to remain polite to the vendor they chose or rejected. Interviews remove both the self-selection problem and the politeness incentive.
 
 The self-selection problem starts before a single answer is recorded. A survey link goes out to every buyer in a closed deal, and the buyers most likely to click through are the ones with low friction, low stakes, or a generally neutral experience. The buyer with the most pointed criticism, the one who found the process frustrating or the product underwhelming, is also the buyer least inclined to spend ten minutes filling out a form for a vendor they're walking away from. The respondent pool is skewed before the data collection even begins.

@@ -7,6 +7,8 @@ excerpt: "Survey respondents optimize for politeness; neutral interview subjects
 draft: false
 ---
 
+# Win/Loss Surveys Measure What Buyers Are Willing to Say
+
 A survey measures what a buyer is willing to type into a form. It was never built to measure what they actually thought.
 
 Most GTM teams I work with run some version of a post-decision survey: a short form, sent to buyers after a deal closes, asking what drove the outcome. The instinct behind it is reasonable. You closed a deal or lost one, and you want to know why, at scale, without the cost of running interviews on every opportunity. The mechanism is where it breaks down.

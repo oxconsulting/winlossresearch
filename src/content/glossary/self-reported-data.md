@@ -7,6 +7,8 @@ pillar: "why-internal-win-loss-data-fails"
 draft: false
 ---
 
+# Self-Reported Data
+
 Self-reported data is information about a deal's outcome that comes directly from a participant describing their own actions, observations, or experience. A rep logging a CRM loss reason is producing self-reported data. So is a buyer answering a survey question or speaking with an interviewer. The term doesn't distinguish good data from bad data. It distinguishes data shaped by a single person's perspective from data verified independently of that perspective.
 
 Every method used in win/loss work, internal and independent alike, ultimately runs on self-reported data of some kind. There is no objective sensor recording why a buyer chose a competitor. What exists instead is an account, filtered through that person's memory, incentives, and willingness to share. The question that matters isn't whether the data is self-reported. It's whose self-report is being collected, and under what conditions.

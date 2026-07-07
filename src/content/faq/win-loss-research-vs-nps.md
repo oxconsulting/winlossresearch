@@ -6,6 +6,8 @@ answer: "NPS measures how likely an existing customer is to recommend a company,
 draft: false
 ---
 
+# How is win/loss research different from NPS?
+
 NPS measures how likely an existing customer is to recommend a company, expressed as a single relationship-level score. Win/loss research investigates why one specific deal was won or lost, drawing on the buyer's full account of the evaluation. NPS tracks sentiment over time across a customer base; win/loss research explains the outcome of an individual decision.
 
 The two instruments answer fundamentally different questions, even though both involve asking customers or buyers about their experience. NPS asks an existing customer one question, on a recurring cadence, and produces a single number that's meant to be tracked as a trend. A drop in NPS tells a team that something has shifted across the relationship, but it doesn't say what shifted, when, or for whom specifically. The score is a signal that something is worth investigating, not the investigation itself.

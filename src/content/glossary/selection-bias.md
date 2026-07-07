@@ -1,5 +1,5 @@
 ---
-title: "Selection Bias"
+title: "Selection Bias in Win/Loss Research"
 description: "Selection bias in win/loss research is the distortion that occurs when the deals reviewed or buyers interviewed don't represent the full population of deals."
 term: "Selection bias"
 definition: "The distortion that occurs when the pool of deals reviewed or buyers interviewed does not represent the full population of deals, causing findings to reflect the filtered subset rather than the actual pattern across all deals."

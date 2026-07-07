@@ -7,6 +7,8 @@ pillar: "why-internal-win-loss-data-fails"
 draft: false
 ---
 
+# Internal Myth
+
 An internal myth is a comfortable, unverified explanation for why a deal was won or lost that persists inside a GTM team because it's flattering or easy to repeat, not because anyone has checked it against the buyer's account. Every GTM team has a small canon of these stories: the deal lost to a competitor's lower price, the deal lost because the champion left, the deal that was unwinnable from the start.
 
 What makes an explanation an internal myth isn't that it's false. Some internal myths turn out to be roughly accurate. What makes it a myth is that it became settled fact through repetition rather than verification, and once it's established, the team stops asking whether it's actually true.

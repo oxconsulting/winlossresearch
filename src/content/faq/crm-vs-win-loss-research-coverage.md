@@ -6,6 +6,8 @@ answer: "A CRM captures structured, quantifiable deal mechanics: pipeline stage,
 draft: false
 ---
 
+# What does a CRM capture that win/loss research doesn't?
+
 A CRM captures structured, quantifiable deal mechanics: pipeline stage, deal size, sales cycle length, product mix, and a timestamped activity history of calls and emails. Win/loss research was never built to track that data and doesn't attempt to. The two methods are complementary, not competing, because they capture entirely different categories of information about the same deal.
 
 A CRM is, at its core, a system of record for the sales process itself. It tracks the mechanics that any GTM organization needs to forecast revenue and manage a pipeline: how long a deal sat in each stage, how its size changed as it moved toward close, how many touchpoints occurred and when, which rep owned it, and which product or package was ultimately quoted. None of that data requires interviewing the buyer. It's generated automatically as the deal moves through the process, and it's accurate by design, because it's measuring the process rather than interpreting it.

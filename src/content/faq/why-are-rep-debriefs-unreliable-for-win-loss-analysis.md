@@ -6,6 +6,8 @@ answer: "Rep debriefs are unreliable because they capture only what the buyer ch
 draft: false
 ---
 
+# Why are rep debriefs unreliable for win/loss analysis?
+
 Rep debriefs are unreliable because they capture only what the buyer chose to share with the vendor's own team, filtered through what the rep observed, inferred, and remembered. The buyer's full account of the decision, including details they withheld to protect the relationship, never enters the debrief. Aggregating many unreliable debriefs into a pattern compounds the gap rather than closing it.
 
 A rep debrief is, structurally, a conversation between a vendor representative and a buyer who is managing what to disclose to that representative. Buyers calibrate their answers based on the relationship they're navigating, even when the relationship is ending. They credit a competitor on price because it's the easiest, least personal answer to give. They leave out the detail that a sales engineer went unresponsive for three weeks, or that an internal stakeholder pushed back hard on the proposal in a meeting the rep was never part of. None of that makes it into the debrief, because none of it was shared in the first place.

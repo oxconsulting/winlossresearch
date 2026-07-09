@@ -9,7 +9,19 @@
  *   const graph = buildPageGraph({ pageType: 'article', ... });
  *   // Then: <Seo graph={graph} ... />
  *
- * CHANGE FROM PRIOR VERSION:
+ * CHANGES FROM PRIOR VERSION (homepage build session):
+ * - Split the combined 'home' | 'list' pageType into two distinct union
+ *   members. 'list' is unchanged (still used by the four collection index
+ *   pages: /faq/, /glossary/, /topics/, /perspectives/). 'home' now accepts
+ *   two new optional fields — `pillars` and `faqs` — so the homepage can
+ *   carry an ItemList of the ten pillars and a homepage-scoped FAQPage,
+ *   neither of which it had before. Nothing about 'list', 'article', 'faq',
+ *   'glossary', or 'perspectives' changed.
+ * - The homepage FAQPage's @id (`${SITE_URL}/#faq`) is deliberately distinct
+ *   from an individual FAQ page's @id (`${options.url}#faq`, which resolves
+ *   to that page's own URL) — no collision between the two.
+ *
+ * CHANGE FROM PRIOR VERSION (before this session):
  * - 'article' pageType's publishDate is now optional. The pillars collection
  *   has no publishDate field (evergreen reference content, by design — see
  *   content.config.ts). Previously this branch required publishDate to be
@@ -19,6 +31,18 @@
  *   being hardcoded inline in two places (sameAs, worksFor.url) with no
  *   single source of truth. Same category of drift risk as the prior
  *   oxrevs.com -> oxwinloss.com hardcoded-URL incident.
+ *
+ * CHANGE FROM PRIOR VERSION (Playbook skill session):
+ * - Added the 'playbook' pageType and its HowTo branch. Named to match the
+ *   content-type-based naming already used by every other pageType
+ *   ('article', 'faq', 'glossary', 'perspectives') rather than the
+ *   schema-type-based 'howto' — resolves the naming placeholder left open
+ *   in playbook-page-SKILL.md. Follows the same buildPiece<T>() pattern as
+ *   the 'faq' and 'glossary' branches: do not hand-roll a HowTo object
+ *   anywhere else, and do not pass a `graph` prop directly to BaseLayout —
+ *   BaseLayout does not declare one, and anything passed under that name is
+ *   silently dropped (same failure mode already documented for glossary and
+ *   FAQ pages).
  */
 
 import {
@@ -32,7 +56,15 @@ import {
   assembleGraph,
   type IdFactory,
 } from '@jdevalk/seo-graph-core';
-import type { FAQPage, DefinedTerm, DefinedTermSet, Person } from 'schema-dts';
+import type {
+  FAQPage,
+  DefinedTerm,
+  DefinedTermSet,
+  HowTo,
+  HowToStep,
+  Person,
+  ItemList,
+} from 'schema-dts';
 
 // ─── Site-wide constants ─────────────────────────────────────────────────────
 
@@ -96,7 +128,17 @@ function buildSiteWideEntities() {
 // ─── Page graph types ─────────────────────────────────────────────────────────
 
 export type PageGraphOptions =
-  | { pageType: 'home' | 'list'; url: string; name: string; description: string }
+  | {
+      pageType: 'home';
+      url: string;
+      name: string;
+      description: string;
+      /** The ten pillars, in display order. Renders as an ItemList entity. */
+      pillars?: Array<{ name: string; url: string; description: string }>;
+      /** Homepage meta-FAQ (about the site itself, not topical content). Renders as a homepage-scoped FAQPage entity. */
+      faqs?: Array<{ question: string; answer: string }>;
+    }
+  | { pageType: 'list'; url: string; name: string; description: string }
   | {
       pageType: 'article';
       url: string;
@@ -135,6 +177,21 @@ export type PageGraphOptions =
       modifiedDate?: Date;
       breadcrumbs?: Array<{ name: string; url: string }>;
       imageUrl?: string;
+    }
+  | {
+      pageType: 'playbook';
+      url: string;
+      name: string;
+      description: string;
+      /**
+       * One entry per H2 on the page, in order — whether the play uses the
+       * sequential-step pattern or the decision-framework pattern (see
+       * playbook-page-SKILL.md, "Body Sections"). `name` is the H2 text,
+       * `text` is a plain-text summary of that section (not the full HTML
+       * body) for the HowToStep.text field.
+       */
+      steps: Array<{ name: string; text: string }>;
+      breadcrumbs?: Array<{ name: string; url: string }>;
     };
 
 // ─── Main builder ─────────────────────────────────────────────────────────────
@@ -161,7 +218,8 @@ export function buildPageGraph(options: PageGraphOptions): object {
     (options.pageType === 'article' ||
       options.pageType === 'faq' ||
       options.pageType === 'glossary' ||
-      options.pageType === 'perspectives') &&
+      options.pageType === 'perspectives' ||
+      options.pageType === 'playbook') &&
     options.breadcrumbs?.length
   ) {
     const breadcrumb = buildBreadcrumbList(
@@ -286,6 +344,59 @@ export function buildPageGraph(options: PageGraphOptions): object {
       } as DefinedTermSet,
     });
     pieces.push(definedTerm);
+  }
+
+  // HowTo schema for Playbook pages
+  if (options.pageType === 'playbook') {
+    const howTo = buildPiece<HowTo>({
+      '@type': 'HowTo',
+      '@id': `${options.url}#howto`,
+      name: options.name,
+      description: options.description,
+      step: options.steps.map(
+        (s, i) =>
+          ({
+            '@type': 'HowToStep',
+            position: i + 1,
+            name: s.name,
+            text: s.text,
+          }) as HowToStep,
+      ),
+    });
+    pieces.push(howTo);
+  }
+
+  // ItemList of the ten pillars, homepage only
+  if (options.pageType === 'home' && options.pillars?.length) {
+    const itemList = buildPiece<ItemList>({
+      '@type': 'ItemList',
+      '@id': `${SITE_URL}/#pillars`,
+      name: 'Win/Loss Research Topics',
+      itemListElement: options.pillars.map((p, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: p.name,
+        url: p.url,
+      })),
+    });
+    pieces.push(itemList);
+  }
+
+  // Homepage meta-FAQ (distinct @id from any individual FAQ page's @id)
+  if (options.pageType === 'home' && options.faqs?.length) {
+    const homeFaq = buildPiece<FAQPage>({
+      '@type': 'FAQPage',
+      '@id': `${SITE_URL}/#faq`,
+      mainEntity: options.faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.answer,
+        },
+      })),
+    });
+    pieces.push(homeFaq);
   }
 
   return assembleGraph(pieces, { warnOnDanglingReferences: true });

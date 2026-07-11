@@ -635,6 +635,176 @@ article h2 + ul li:last-child {
 }
 
 /* ------------------------------------------------------------
+   Pillar / play card grid
+   .pillar-grid > .pillar-grid__list > .pillar-grid__item — used on the
+   homepage Topics section, /topics/, and /playbook/.
+   ------------------------------------------------------------ */
+.pillar-grid__list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-6) 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem; /* 16px, matches related-grid */
+}
+
+.pillar-grid__item {
+  background: var(--paper-2);
+  border-radius: var(--radius-sm);
+  padding: 1.125rem 1.25rem; /* 18px / 20px */
+  margin: 0;
+}
+
+.pillar-grid__item a {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.03125rem; /* 16.5px, matches related-grid card title */
+  font-weight: 500;
+  color: var(--ink);
+  border-bottom: none;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-2);
+}
+
+.pillar-grid__item a:hover {
+  color: var(--gold);
+}
+
+.pillar-grid__item p {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: var(--leading-normal);
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------
+   Jump nav — pillar-category tags
+   .jump-nav — homepage section jump links, and the "jump to a topic"
+   nav at the top of FAQ/Glossary/Perspectives index pages.
+   ------------------------------------------------------------ */
+.jump-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: 0;
+  margin: var(--space-6) 0 var(--space-8);
+}
+
+.jump-nav li {
+  margin: 0;
+}
+
+.jump-nav a {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem; /* 12px */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  background: var(--paper-2);
+  border-bottom: none;
+  border-radius: 999px;
+  padding: 0.4375rem 0.875rem; /* 7px / 14px */
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.jump-nav a:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------
+   Grouped index lists — FAQ/Glossary/Perspectives content grouped
+   under each pillar jump target, plus the homepage's compact
+   highlight lists and site-FAQ section.
+   ------------------------------------------------------------ */
+.faq-group,
+.glossary-group,
+.perspectives-group,
+.content-section,
+.site-faq {
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--paper-2);
+}
+
+.faq-group h2 a,
+.glossary-group h2 a,
+.perspectives-group h2 a {
+  color: var(--ink);
+  border-bottom: none;
+}
+
+.faq-group h2 a:hover,
+.glossary-group h2 a:hover,
+.perspectives-group h2 a:hover {
+  color: var(--gold);
+}
+
+.index-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-6) 0 0;
+}
+
+.index-list li {
+  border-bottom: 1px solid var(--paper-2);
+  padding: var(--space-4) 0;
+  margin: 0;
+}
+
+.index-list li:first-child {
+  border-top: 1px solid var(--paper-2);
+}
+
+.index-list li a {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: none;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.index-list li a:hover {
+  color: var(--gold);
+}
+
+.index-list li p {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: var(--leading-normal);
+}
+
+.index-list li time {
+  display: block;
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+/* Compact variant — homepage highlight lists (title only, no border rows) */
+.index-list--compact li {
+  padding: var(--space-2) 0;
+}
+
+.index-list--compact li a {
+  font-size: var(--text-base);
+  font-weight: 500;
+}
+
+.index-list--no-rule li,
+.index-list--no-rule li:first-child {
+  border: none;
+}
+
+/* ------------------------------------------------------------
    Responsive
    ------------------------------------------------------------ */
 @media (max-width: 640px) {

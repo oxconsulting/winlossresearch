@@ -1,9 +1,28 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { PILLAR_SLUGS } from '../../content.config';
 
-const terms = await getCollection('glossary');
-terms.sort((a, b) => a.data.title.localeCompare(b.data.title));
+const [terms, pillarPages] = await Promise.all([
+  getCollection('glossary'),
+  getCollection('pillars'),
+]);
+
+const pillarNames = Object.fromEntries(
+  pillarPages.map((p) => [p.id, p.data.shortTitle]),
+);
+
+const groups = PILLAR_SLUGS.map((slug, i) => ({
+  slug,
+  number: i + 1,
+  name: pillarNames[slug] ?? slug,
+  // Sort by the bare term (what's actually displayed), not the padded
+  // SEO title — the two can differ, so sorting by title could misorder
+  // what the visitor sees in the list. (Preserved from the prior version.)
+  items: terms
+    .filter((term) => term.data.pillar === slug)
+    .sort((a, b) => a.data.term.localeCompare(b.data.term)),
+})).filter((group) => group.items.length > 0);
 ---
 
 <BaseLayout
@@ -11,13 +30,31 @@ terms.sort((a, b) => a.data.title.localeCompare(b.data.title));
   description="Definitions of the key terms used in win/loss research — from selection bias and buyer truth to rep debrief and pattern recognition."
 >
   <h1>Glossary</h1>
-  <p>Precise definitions of the terms practitioners need when evaluating, designing, or running a win/loss research program.</p>
-  <ul>
-    {terms.map((term) => (
-      <li>
-        <a href={`/glossary/${term.id}/`}>{term.data.title}</a>
-        <p>{term.data.description}</p>
-      </li>
-    ))}
-  </ul>
+  <p>Precise definitions of the terms practitioners need when evaluating, designing, or running a win/loss research program, organized by topic.</p>
+
+  <nav class="jump-nav" aria-label="Jump to a topic">
+    <ul>
+      {groups.map((group) => (
+        <li><a href={`#${group.slug}`}>{group.name}</a></li>
+      ))}
+    </ul>
+  </nav>
+
+  {
+    groups.map((group) => (
+      <section class="glossary-group" id={group.slug} aria-labelledby={`${group.slug}-heading`}>
+        <h2 id={`${group.slug}-heading`}>
+          <a href={`/topics/${group.slug}/`}>{group.name}</a>
+        </h2>
+        <ul class="index-list">
+          {group.items.map((term) => (
+            <li>
+              <a href={`/glossary/${term.id}/`}>{term.data.term}</a>
+              <p>{term.data.description}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
 </BaseLayout>

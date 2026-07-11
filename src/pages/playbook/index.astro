@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { PLAYBOOK_PHASES } from '../../content.config';
+
+const plays = await getCollection('playbook');
+
+// Canonical phase order (Scope & Design -> Sustain), then phaseOrder within
+// each phase — the same "use the schema's own canonical order, not
+// alphabetical" approach applied to /topics/ via PILLAR_SLUGS.
+const phaseIndex = Object.fromEntries(PLAYBOOK_PHASES.map((p, i) => [p, i]));
+plays.sort((a, b) => {
+  const phaseDiff = phaseIndex[a.data.phase] - phaseIndex[b.data.phase];
+  return phaseDiff !== 0 ? phaseDiff : a.data.phaseOrder - b.data.phaseOrder;
+});
+---
+
+<BaseLayout
+  title="Playbook"
+  description="Step-by-step guidance for scoping, running, and sustaining a win/loss research program, from first interview to ongoing cadence."
+>
+  <h1>Playbook</h1>
+  <p>Twelve plays covering every phase of a win/loss program, from scoping the first cycle through sustaining it long-term.</p>
+
+  <section class="pillar-grid" aria-label="All plays">
+    <ul class="pillar-grid__list">
+      {
+        plays.map((play) => (
+          <li class="pillar-grid__item">
+            <a href={`/playbook/${play.id}/`}>{play.data.title}</a>
+            <p>{play.data.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <p><a href="/playbook/win-loss-analysis-playbook/">Get the downloadable Playbook →</a></p>
+</BaseLayout>

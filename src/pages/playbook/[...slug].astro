@@ -1,0 +1,90 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_URL } from '../../utils/schema';
+
+export async function getStaticPaths() {
+  const plays = await getCollection('playbook');
+  return plays.map((play) => ({
+    params: { slug: play.id },
+    props: { play },
+  }));
+}
+
+const { play } = Astro.props;
+const { Content } = await render(play);
+
+/**
+ * Derive the HowTo schema's `steps` array (one { name, text } entry per H2)
+ * directly from the play's own markdown body, rather than hand-maintaining
+ * a duplicate summary per play in frontmatter. Single source of truth: the
+ * H2 heading text and the first prose paragraph under it.
+ *
+ * - Splits on H2 boundaries only ("\n## ", not "\n### ", so H3s under
+ *   "## Related" are never mistaken for their own step).
+ * - Skips the "Related" section entirely — it's navigation, not a step.
+ * - Within each H2 section, walks blocks (paragraphs, separated by blank
+ *   lines) and skips fenced code blocks and markdown tables to find the
+ *   first real prose paragraph. Strips **bold**, [links](url), and
+ *   `code` down to plain text.
+ * - Falls back to the heading text itself if a section has no prose
+ *   paragraph at all (e.g. a step that's purely a template/code block,
+ *   such as the sample questionnaire in design-a-win-loss-interview-
+ *   questionnaire.md) — degrades gracefully rather than failing the build.
+ */
+function extractSteps(body: string): Array<{ name: string; text: string }> {
+  const sections = body.split(/\n## /).slice(1);
+  const steps: Array<{ name: string; text: string }> = [];
+
+  for (const section of sections) {
+    const lines = section.split('\n');
+    const heading = lines[0].trim();
+    if (heading.toLowerCase() === 'related') continue;
+
+    const rest = lines.slice(1).join('\n').trim();
+    const blocks = rest.split(/\n\n+/);
+
+    let text = '';
+    for (const block of blocks) {
+      const trimmed = block.trim();
+      if (!trimmed) continue;
+      if (trimmed.startsWith('```')) continue;
+      if (trimmed.startsWith('|')) continue;
+      text = trimmed
+        .replace(/\*\*(.*?)\*\*/g, '$1')
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+        .replace(/`([^`]+)`/g, '$1')
+        .replace(/\n/g, ' ')
+        .trim();
+      break;
+    }
+    if (!text) text = heading;
+
+    steps.push({ name: heading, text });
+  }
+
+  return steps;
+}
+
+const steps = extractSteps(play.body ?? '');
+
+const canonicalUrl = `${SITE_URL}/playbook/${play.id}/`;
+const breadcrumbs = [
+  { name: 'Playbook', url: `${SITE_URL}/playbook/` },
+  { name: play.data.title, url: canonicalUrl },
+];
+---
+
+<BaseLayout
+  title={play.data.title}
+  description={play.data.description}
+  canonicalUrl={canonicalUrl}
+  ogType="article"
+  pageGraphType="playbook"
+  steps={steps}
+  breadcrumbs={breadcrumbs}
+>
+  <article class="playbook">
+    <Content />
+  </article>
+</BaseLayout>

@@ -1,9 +1,29 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { PILLAR_SLUGS } from '../../content.config';
 
-const faqs = await getCollection('faq');
-faqs.sort((a, b) => a.data.title.localeCompare(b.data.title));
+const [faqs, pillarPages] = await Promise.all([
+  getCollection('faq'),
+  getCollection('pillars'),
+]);
+
+// slug -> shortTitle, sourced from the pillars collection itself rather
+// than a second hardcoded name list (avoids the drift risk noted in schema.ts).
+const pillarNames = Object.fromEntries(
+  pillarPages.map((p) => [p.id, p.data.shortTitle]),
+);
+
+// Pillar 1 -> 10, in the canonical order from content.config.ts. Empty
+// groups are dropped rather than shown as a heading with nothing under it.
+const groups = PILLAR_SLUGS.map((slug, i) => ({
+  slug,
+  number: i + 1,
+  name: pillarNames[slug] ?? slug,
+  items: faqs
+    .filter((faq) => faq.data.pillar === slug)
+    .sort((a, b) => a.data.title.localeCompare(b.data.title)),
+})).filter((group) => group.items.length > 0);
 ---
 
 <BaseLayout
@@ -11,12 +31,30 @@ faqs.sort((a, b) => a.data.title.localeCompare(b.data.title));
   description="Answers to the questions GTM leaders ask about win/loss research — methodology, buyer interviews, competitive intelligence, and program design."
 >
   <h1>Frequently Asked Questions</h1>
-  <p>Direct answers to the questions CMOs, VP PMMs, and competitive intelligence leaders ask about win/loss research.</p>
-  <ul>
-    {faqs.map((faq) => (
-      <li>
-        <a href={`/faq/${faq.id}/`}>{faq.data.title}</a>
-      </li>
-    ))}
-  </ul>
+  <p>Direct answers to the questions CMOs, VP PMMs, and competitive intelligence leaders ask about win/loss research, organized by topic.</p>
+
+  <nav class="jump-nav" aria-label="Jump to a topic">
+    <ul>
+      {groups.map((group) => (
+        <li><a href={`#${group.slug}`}>{group.name}</a></li>
+      ))}
+    </ul>
+  </nav>
+
+  {
+    groups.map((group) => (
+      <section class="faq-group" id={group.slug} aria-labelledby={`${group.slug}-heading`}>
+        <h2 id={`${group.slug}-heading`}>
+          <a href={`/topics/${group.slug}/`}>{group.name}</a>
+        </h2>
+        <ul class="index-list index-list--no-rule">
+          {group.items.map((faq) => (
+            <li>
+              <a href={`/faq/${faq.id}/`}>{faq.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
 </BaseLayout>

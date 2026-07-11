@@ -35,7 +35,7 @@ Excludes: Deals still marked "Negotiation" or "Active"
 
 Export the raw result before doing anything else to it. That export is the population the rest of this play works against, and having it as a fixed starting point makes every later exclusion in Step 4 auditable against the original set.
 
-**Reality Check:** A CRM-sourced list removes formal deal-by-deal approval, but reps can still exercise informal control over who ends up reachable: an outdated title, a missing email, or a stale phone number on the buyer who left the angriest voicemail. A criteria-based pull is only as unbiased as the contact data reps chose to keep current. See [why internal win/loss data fails](/topics/why-internal-win-loss-data-fails/). See every structural risk in one place →
+**Reality Check:** A CRM-sourced list removes formal deal-by-deal approval, but reps can still exercise informal control over who ends up reachable: an outdated title, a missing email, or a stale phone number on the buyer who left the angriest voicemail. A criteria-based pull is only as unbiased as the contact data reps chose to keep current. See [why internal win/loss data fails](/topics/why-internal-win-loss-data-fails/).
 
 ## Step 2: Size the List Against the Participation Rate
 

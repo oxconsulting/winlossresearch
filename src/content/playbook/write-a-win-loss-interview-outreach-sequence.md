@@ -5,7 +5,7 @@ phase: "recruit-outreach"
 phaseOrder: 3
 relatedPillars: ["win-loss-research-methodology", "independent-win-loss-research"]
 realityCheck: true
-realityCheckText: "No matter how neutrally the outreach is worded, buyers with the sharpest feedback are still less likely to engage with a sequence that comes from a team affiliated with the vendor than with a request from a genuinely neutral third party. Wording can improve response rates at the margin; it can't fully close the gap between what a buyer will say to someone connected to the company being evaluated and what they'll say to someone with no stake in the outcome."
+realityCheckText: "No matter how neutrally the outreach is worded, buyers with the sharpest feedback are still less likely to engage with a sequence from a team affiliated with the vendor than with a request from a neutral third party. Wording helps at the margin; it can't close the gap between what a buyer says to someone connected to the company and what they'll say to someone with no stake in the outcome."
 realityCheckLinkedPillar: "independent-win-loss-research"
 draft: false
 ---
@@ -83,7 +83,7 @@ makes sense sometime in the next week, grab a time here:
 
 Mention the incentive in the initial invitation and confirm it again once a buyer schedules, not during the interview itself. Frame it as compensation for time given, not payment for a specific answer: "as a thank-you for your time" works; "in exchange for your feedback" doesn't. A modest gift card, sized to read as genuine appreciation rather than a fee for services, is the standard. Skipping the incentive entirely filters the eventual sample toward buyers with the most extreme reactions in either direction, since buyers with more moderate, and often more representative, views have the least reason to give up unpaid time.
 
-**Reality Check:** No matter how neutrally the outreach is worded, buyers with the sharpest feedback are still less likely to engage with a sequence that comes from a team affiliated with the vendor than with a request from a genuinely neutral third party. Wording can improve response rates at the margin; it can't fully close the gap between what a buyer will say to someone connected to the company being evaluated and what they'll say to someone with no stake in the outcome. See [why third-party neutrality changes what buyers will say](/topics/independent-win-loss-research/). See every structural risk in one place →
+**Reality Check:** No matter how neutrally the outreach is worded, buyers with the sharpest feedback are still less likely to engage with a sequence from a team affiliated with the vendor than with a request from a neutral third party. Wording helps at the margin; it can't close the gap between what a buyer says to someone connected to the company and what they'll say to someone with no stake in the outcome. See [why third-party neutrality changes what buyers will say](/topics/independent-win-loss-research/).
 
 ## Step 5: Adjust the Sequence for Win Contacts
 

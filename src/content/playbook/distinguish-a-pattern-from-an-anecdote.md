@@ -5,7 +5,7 @@ phase: "analyze"
 phaseOrder: 2
 relatedPillars: ["win-loss-research-methodology", "why-internal-win-loss-data-fails"]
 realityCheck: true
-realityCheckText: "Judging whether a three-mention theme counts as a pattern is a judgment call regardless of who runs the analysis, but an analyst reviewing losses that implicate their own team's process has a structural reason to read that theme as noise rather than signal, the same interpretive filter that shapes what gets logged as a loss reason in the first place. The threshold set here doesn't remove that judgment call. It only sets the bar the judgment gets applied against."
+realityCheckText: "Judging whether a three-mention theme counts as a pattern is a judgment call regardless of who runs the analysis, but an analyst reviewing losses that implicate their own team has reason to read it as noise, the same filter that shapes what gets logged as a loss reason in the first place. This threshold doesn't remove that judgment call. It only sets the bar it's applied against."
 realityCheckLinkedPillar: "why-internal-win-loss-data-fails"
 draft: false
 ---
@@ -48,7 +48,7 @@ By interview twelve, two more buyers have independently raised the same concern,
 
 A theme sitting right at the three-mention threshold is where analyst judgment matters most, and where it's easiest for that judgment to run in a predictable direction. An analyst weighing whether a borderline theme counts as a pattern is making a genuine judgment call regardless of who's running the analysis, but that judgment isn't immune to the same pressures that shape what gets logged elsewhere in a GTM organization.
 
-**Reality Check:** Judging whether a three-mention theme counts as a pattern is a judgment call regardless of who runs the analysis, but an analyst reviewing losses that implicate their own team's process has a structural reason to read that theme as noise rather than signal, the same interpretive filter that shapes what gets logged as a loss reason in the first place. The threshold set here doesn't remove that judgment call. It only sets the bar the judgment gets applied against. See [why internal teams interpret win/loss data through an existing filter](/topics/why-internal-win-loss-data-fails/). See every structural risk in one place →
+**Reality Check:** Judging whether a three-mention theme counts as a pattern is a judgment call regardless of who runs the analysis, but an analyst reviewing losses that implicate their own team has reason to read it as noise, the same filter that shapes what gets logged as a loss reason in the first place. This threshold doesn't remove that judgment call. It only sets the bar it's applied against. See [why internal teams interpret win/loss data through an existing filter](/topics/why-internal-win-loss-data-fails/).
 
 A useful check on a borderline call: would this theme read as a clear pattern if it implicated a different function than the one doing the analysis. If a three-mention pricing theme would be treated as decisive but a three-mention theme about the sales process is being waved off as coincidence, that asymmetry is worth naming out loud before the finding gets written up either way.
 

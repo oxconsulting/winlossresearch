@@ -5,7 +5,7 @@ phase: "recruit-outreach"
 phaseOrder: 2
 relatedPillars: ["why-internal-win-loss-data-fails", "how-to-build-win-loss-program"]
 realityCheck: true
-realityCheckText: "Executive sponsorship sets the formal rule, but it doesn't automatically stop a rep from quietly steering a difficult buyer away from an outreach list, or flagging a contact as unreachable rather than explaining why they'd rather not have that conversation surface. The boundary between strategic input and deal-level approval only holds if someone with authority is actually watching for it, not just stating it once at kickoff."
+realityCheckText: "Executive sponsorship sets the formal rule, but it doesn't stop a rep from quietly steering a difficult buyer away from an outreach list, or flagging a contact as unreachable rather than explaining why. The boundary between strategic input and deal-level approval only holds if someone is actually watching for it, not just stating it once at kickoff."
 realityCheckLinkedPillar: "why-internal-win-loss-data-fails"
 draft: false
 ---
@@ -60,7 +60,7 @@ Sales leadership stays involved without gaining veto power over individual deals
 | Weigh in on which segments or deal types the program should prioritize | Remove a specific deal because the loss "isn't representative" |
 | Be included among the stakeholders who receive findings in the readout | Filter which contacts get outreach based on how a deal went |
 
-**Reality Check:** Executive sponsorship sets the formal rule, but it doesn't automatically stop a rep from quietly steering a difficult buyer away from an outreach list, or flagging a contact as unreachable rather than explaining why they'd rather not have that conversation surface. The boundary between strategic input and deal-level approval only holds if someone with authority is actually watching for it, not just stating it once at kickoff. See [why internal win/loss data fails](/topics/why-internal-win-loss-data-fails/). See every structural risk in one place →
+**Reality Check:** Executive sponsorship sets the formal rule, but it doesn't stop a rep from quietly steering a difficult buyer away from an outreach list, or flagging a contact as unreachable rather than explaining why. The boundary between strategic input and deal-level approval only holds if someone is actually watching for it, not just stating it once at kickoff. See [why internal win/loss data fails](/topics/why-internal-win-loss-data-fails/).
 
 ## Step 4: Handle the Objections That Come Up in Practice
 

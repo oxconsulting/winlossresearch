@@ -1,9 +1,17 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { PILLAR_SLUGS } from '../../content.config';
 
-const pillars = await getCollection('pillars');
-pillars.sort((a, b) => a.data.title.localeCompare(b.data.title));
+const pillarPages = await getCollection('pillars');
+const pillarsById = Object.fromEntries(pillarPages.map((p) => [p.id, p]));
+
+// Canonical Pillar 1 -> 10 order, matching PILLAR_SLUGS in content.config.ts
+// and the homepage's pillar-grid section, rather than alphabetical (the
+// prior baseline sort). Alphabetical order scrambled the site's intended
+// thematic build-up: foundational argument -> mechanism -> methodology ->
+// applications -> the capstone how-to-build-a-program pillar.
+const pillars = PILLAR_SLUGS.map((slug) => pillarsById[slug]).filter(Boolean);
 ---
 
 <BaseLayout
@@ -12,12 +20,17 @@ pillars.sort((a, b) => a.data.title.localeCompare(b.data.title));
 >
   <h1>Topics</h1>
   <p>Ten pillars covering the full scope of win/loss research methodology, competitive intelligence, and GTM strategy.</p>
-  <ul>
-    {pillars.map((pillar) => (
-      <li>
-        <a href={`/topics/${pillar.id}/`}>{pillar.data.title}</a>
-        <p>{pillar.data.description}</p>
-      </li>
-    ))}
-  </ul>
+
+  <section class="pillar-grid" aria-label="All topics">
+    <ul class="pillar-grid__list">
+      {
+        pillars.map((pillar) => (
+          <li class="pillar-grid__item">
+            <a href={`/topics/${pillar.id}/`}>{pillar.data.title}</a>
+            <p>{pillar.data.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </BaseLayout>

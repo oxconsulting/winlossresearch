@@ -1,19 +1,244 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { AUTHOR_URL, AUTHOR_ORG_URL } from '../utils/schema';
+
+const title = 'Complete Reference for Win/Loss Analysis';
+const description =
+  'The complete reference on win/loss analysis, research, and program design for Executive, PMM, and CI teams at B2B SaaS and technology companies.';
+
+const pillars = [
+  {
+    name: 'Why Internal Win/Loss Data Fails',
+    url: 'https://winlossresearch.com/topics/why-internal-win-loss-data-fails/',
+    description:
+      "CRM notes, call recordings, and internal surveys structurally exclude the buyers with the most important perspectives.",
+  },
+  {
+    name: 'Independent Win/Loss Research',
+    url: 'https://winlossresearch.com/topics/independent-win-loss-research/',
+    description:
+      "Buyers tell a neutral researcher what they won't tell the vendor whose deal is on the line.",
+  },
+  {
+    name: 'Win/Loss Research Methodology',
+    url: 'https://winlossresearch.com/topics/win-loss-research-methodology/',
+    description:
+      'Interview counts, timing windows, and outreach frameworks that separate pattern recognition from anecdote.',
+  },
+  {
+    name: 'B2B Buying Committee Decisions',
+    url: 'https://winlossresearch.com/topics/b2b-buying-committee-decisions/',
+    description:
+      'How consensus buying actually works, and the stakeholders vendors never meet.',
+  },
+  {
+    name: 'Competitive Intelligence',
+    url: 'https://winlossresearch.com/topics/win-loss-competitive-intelligence/',
+    description:
+      "What buyers say about competitors when the vendor isn't in the room.",
+  },
+  {
+    name: 'Product Marketing and Messaging',
+    url: 'https://winlossresearch.com/topics/win-loss-product-marketing/',
+    description:
+      'Whether positioning actually lands with the full buying committee, not just the champion.',
+  },
+  {
+    name: 'Sales Execution',
+    url: 'https://winlossresearch.com/topics/win-loss-sales-execution/',
+    description:
+      'Cross-deal patterns in sales process friction, not individual rep grading.',
+  },
+  {
+    name: 'GTM Strategy',
+    url: 'https://winlossresearch.com/topics/win-loss-gtm-strategy/',
+    description:
+      'Translating findings into board-level answers and cross-functional pivots.',
+  },
+  {
+    name: 'AI and Win/Loss Research',
+    url: 'https://winlossresearch.com/topics/ai-win-loss-research/',
+    description:
+      'Where AI legitimately helps analysis, and where it compounds the same blind spots.',
+  },
+  {
+    name: 'How to Build a Program',
+    url: 'https://winlossresearch.com/topics/how-to-build-win-loss-program/',
+    description:
+      'Internal vs. external programs, vendor evaluation, and getting executive buy-in.',
+  },
+];
+
+const homeFaqs = [
+  {
+    question: 'What is winlossresearch.com?',
+    answer:
+      'winlossresearch.com is the complete reference on win/loss analysis, research, and program design for B2B SaaS and technology companies. Written by Daniel Oxenburgh, founder of Ox Win/Loss.',
+  },
+];
+
+const faqHighlights = [
+  {
+    title: 'Why is CRM win/loss data unreliable?',
+    url: 'https://winlossresearch.com/faq/why-does-crm-data-miss-real-loss-reasons/',
+  },
+  {
+    title: 'How many win/loss interviews do you need?',
+    url: 'https://winlossresearch.com/faq/how-many-win-loss-interviews/',
+  },
+  {
+    title: 'Should I run win/loss research internally or hire a third party?',
+    url: 'https://winlossresearch.com/faq/internal-vs-third-party-win-loss-research/',
+  },
+];
+
+const glossaryHighlights = [
+  {
+    title: 'Win/Loss Research',
+    url: 'https://winlossresearch.com/glossary/win-loss-research/',
+  },
+  {
+    title: 'Selection Bias',
+    url: 'https://winlossresearch.com/glossary/selection-bias/',
+  },
+  {
+    title: 'Buying Committee',
+    url: 'https://winlossresearch.com/glossary/buying-committee/',
+  },
+];
+
+const perspectivesHighlights = [
+  {
+    title: 'Your CRM Is a Sales Story, Not a Buyer Story',
+    url: 'https://winlossresearch.com/perspectives/your-crm-is-a-sales-story/',
+  },
+  {
+    title: "The Honest Debrief You Think You're Getting Is Half the Story",
+    url: 'https://winlossresearch.com/perspectives/honest-debrief-half-the-story/',
+  },
+  {
+    title: 'Your Analyst Was on the Team That Lost the Deal',
+    url: 'https://winlossresearch.com/perspectives/internal-team-conflict-of-interest/',
+  },
+];
 ---
 
 <BaseLayout
-  title="Win/Loss Research"
-  description="Independent research on win/loss methodology for B2B SaaS. Buyer interview frameworks, competitive intelligence, and GTM strategy."
+  title={title}
+  description={description}
   ogType="website"
+  pageGraphType="home"
+  pillars={pillars}
+  faqs={homeFaqs}
 >
-  <h1>Win/Loss Research</h1>
+  <h1>The Complete Reference for Win/Loss Analysis, Research, and Programs</h1>
+
   <p>
-    Independent research on why B2B SaaS companies win and lose deals — 
-    and what to do about it.
+    The complete reference on win/loss analysis, research, and program design.
+    Built for Executive, Product Marketing, and Competitive Intelligence teams
+    at B2B SaaS and technology companies working to sharpen GTM strategy,
+    shape brand perception, improve sales execution, and boost win rates.
+    Written by <a href={AUTHOR_URL}>Daniel Oxenburgh</a>, founder of{' '}
+    <a href={AUTHOR_ORG_URL}>Ox Win/Loss</a>.
   </p>
-  <p>
-    By <a href="/about/">Daniel Oxenburgh</a>, founder of 
-    <a href="https://www.oxwinloss.com" rel="noopener">Ox Win/Loss</a>.
-  </p>
+
+  <nav class="jump-nav" aria-label="Jump to a section">
+    <ul>
+      <li><a href="#pillars-heading">Topics</a></li>
+      <li><a href="#faq-section-heading">FAQ</a></li>
+      <li><a href="#glossary-section-heading">Glossary</a></li>
+      <li><a href="#perspectives-section-heading">Perspectives</a></li>
+      <li><a href="#playbook-section-heading">Playbook</a></li>
+      <li><a href="#site-faq-heading">About This Site</a></li>
+    </ul>
+  </nav>
+
+  <section class="pillar-grid" aria-labelledby="pillars-heading">
+    <h2 id="pillars-heading">Win/Loss Research Topics</h2>
+    <ul class="pillar-grid__list">
+      {
+        pillars.map((pillar) => (
+          <li class="pillar-grid__item">
+            <a href={pillar.url}>{pillar.name}</a>
+            <p>{pillar.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="content-section" aria-labelledby="faq-section-heading">
+    <h2 id="faq-section-heading">FAQ</h2>
+    <p>
+      Direct answers to the specific questions Executive, PMM, and CI teams
+      ask about win/loss research, methodology, and program design. Browse
+      the <a href="https://winlossresearch.com/faq/">full FAQ index</a>.
+    </p>
+    <ul class="index-list index-list--compact index-list--no-rule">
+      {
+        faqHighlights.map((item) => (
+          <li>
+            <a href={item.url}>{item.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="content-section" aria-labelledby="glossary-section-heading">
+    <h2 id="glossary-section-heading">Glossary</h2>
+    <p>
+      Precise definitions for the terms and concepts used throughout win/loss
+      research. Browse the{' '}
+      <a href="https://winlossresearch.com/glossary/">full glossary</a>.
+    </p>
+    <ul class="index-list index-list--compact index-list--no-rule">
+      {
+        glossaryHighlights.map((item) => (
+          <li>
+            <a href={item.url}>{item.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="content-section" aria-labelledby="perspectives-section-heading">
+    <h2 id="perspectives-section-heading">Perspectives</h2>
+    <p>
+      Argument-driven analysis grounded in real buyer interviews, written by
+      Daniel Oxenburgh. Browse{' '}
+      <a href="https://winlossresearch.com/perspectives/">all Perspectives posts</a>.
+    </p>
+    <ul class="index-list index-list--compact index-list--no-rule">
+      {
+        perspectivesHighlights.map((item) => (
+          <li>
+            <a href={item.url}>{item.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="content-section" aria-labelledby="playbook-section-heading">
+    <h2 id="playbook-section-heading">Playbook</h2>
+    <p>
+      Step-by-step, practitioner-voice guidance for running a win/loss
+      program end to end. Browse the{' '}
+      <a href="https://winlossresearch.com/playbook/">Playbook</a>.
+    </p>
+  </section>
+
+  <section class="site-faq" aria-labelledby="site-faq-heading">
+    <h2 id="site-faq-heading">About This Site</h2>
+    {
+      homeFaqs.map((item) => (
+        <>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </>
+      ))
+    }
+  </section>
 </BaseLayout>

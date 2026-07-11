@@ -5,7 +5,7 @@ phase: "interview"
 phaseOrder: 2
 relatedPillars: ["win-loss-research-methodology", "independent-win-loss-research"]
 realityCheck: true
-realityCheckText: "Interview technique can get a buyer to open up more than a poorly run conversation would, but it can't fully close the gap a relationship creates. A buyer who might sell to, or buy from, the interviewer's company again in the future is still managing that relationship in real time, regardless of how skilled the questions are. Genuine neutrality is a property of who's asking, not just how well they ask."
+realityCheckText: "Interview technique can get a buyer to open up more than a poor conversation would, but it can't close the gap a relationship creates. A buyer who might sell to, or buy from, the interviewer's company again is still managing that relationship in real time, regardless of how skilled the questions are. Neutrality is a property of who's asking, not just how well they ask."
 realityCheckLinkedPillar: "independent-win-loss-research"
 draft: false
 ---
@@ -60,7 +60,7 @@ Ask every question as genuine curiosity about what happened, not as a lead-in to
 
 Follow up on the vague or surprising answer in the moment rather than filing it away to ask about later. A buyer who mentions an unnamed stakeholder in passing during Stage 2 is easiest to draw out right then, while the detail is fresh in their own account; circling back to it in Stage 5 after they've moved on mentally rarely recovers the same specificity.
 
-**Reality Check:** Interview technique can get a buyer to open up more than a poorly run conversation would, but it can't fully close the gap a relationship creates. A buyer who might sell to, or buy from, the interviewer's company again in the future is still managing that relationship in real time, regardless of how skilled the questions are. Genuine neutrality is a property of who's asking, not just how well they ask. See [why buyer candor depends on who is asking the question](/topics/independent-win-loss-research/). See every structural risk in one place →
+**Reality Check:** Interview technique can get a buyer to open up more than a poor conversation would, but it can't close the gap a relationship creates. A buyer who might sell to, or buy from, the interviewer's company again is still managing that relationship in real time, regardless of how skilled the questions are. Neutrality is a property of who's asking, not just how well they ask. See [why buyer candor depends on who is asking the question](/topics/independent-win-loss-research/).
 
 ## Step 5: Close the Call and Capture the Follow-Up Thread
 

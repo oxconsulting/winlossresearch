@@ -6,12 +6,21 @@ import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import {
   buildWebSite,
+  buildWebPage,
   buildArticle,
   buildPiece,
   assembleGraph,
 } from '@jdevalk/seo-graph-core';
-import type { BlogPosting, FAQPage, DefinedTerm } from 'schema-dts';
-import { SITE_URL, SITE_NAME, ids } from '../../utils/schema';
+import type { BlogPosting, FAQPage, DefinedTerm, Person } from 'schema-dts';
+import {
+  SITE_URL,
+  SITE_NAME,
+  AUTHOR_NAME,
+  AUTHOR_TITLE,
+  AUTHOR_URL,
+  AUTHOR_ORG_URL,
+  ids,
+} from '../../utils/schema';
 
 type SupportedCollection = 'perspectives' | 'pillars' | 'faq' | 'glossary';
 const SUPPORTED: SupportedCollection[] = ['perspectives', 'pillars', 'faq', 'glossary'];
@@ -42,12 +51,51 @@ export const GET: APIRoute = async ({ params }) => {
     ids,
   );
 
-  let pieces: object[] = [website];
+  // FIX: this Person entity was referenced by website.publisher above but
+  // never actually built or pushed into the graph — the exact cause of the
+  // "Dangling reference in WebSite" warning on all four endpoints.
+  // Mirrors schema.ts's buildSiteWideEntities() Person construction.
+  const person = buildPiece<Person>({
+    '@type': 'Person',
+    '@id': ids.person,
+    name: AUTHOR_NAME,
+    jobTitle: AUTHOR_TITLE,
+    url: AUTHOR_URL,
+    sameAs: ['https://www.linkedin.com/in/danieloxenburgh/', AUTHOR_ORG_URL],
+    worksFor: {
+      '@type': 'Organization',
+      '@id': ids.organization('ox-win-loss'),
+      name: 'Ox Win/Loss',
+      url: AUTHOR_ORG_URL,
+    },
+  });
+
+  let pieces: object[] = [website, person];
 
   for (const entry of entries) {
     const { data, id, body } = entry as any;
     const url = `${SITE_URL}/${collection === 'pillars' ? 'topics' : collection}/${id}/`;
     const articleBody = body?.slice(0, 10000) ?? '';
+
+    // FIX: every type-specific piece below now references this WebPage's
+    // @id via isPartOf, matching the pattern already used in schema.ts.
+    // Previously nothing built a WebPage entity here, which is the likely
+    // cause of the "Dangling reference in Article" warning on pillars.json
+    // (buildArticle() appears to default isPartOf to the page's own URL
+    // when not supplied). Unverified against package source — flagging
+    // this as inferred, not confirmed, mechanism.
+    const webpage = buildWebPage(
+      {
+        url,
+        name: data.title,
+        description: data.description,
+        isPartOf: { '@id': ids.website },
+        author: { '@id': ids.person },
+        inLanguage: 'en-US',
+      },
+      ids,
+    );
+    pieces.push(webpage);
 
     if (collection === 'perspectives') {
       const piece = buildPiece<BlogPosting>({
@@ -62,7 +110,7 @@ export const GET: APIRoute = async ({ params }) => {
         publisher: { '@id': ids.person },
         articleBody,
         inLanguage: 'en-US',
-        isPartOf: { '@id': ids.website },
+        isPartOf: { '@id': ids.webPage(url) },
       });
       pieces.push(piece);
     } else if (collection === 'pillars') {
@@ -73,6 +121,7 @@ export const GET: APIRoute = async ({ params }) => {
           description: data.description,
           author: { '@id': ids.person },
           publisher: { '@id': ids.person },
+          isPartOf: { '@id': ids.webPage(url) },
           inLanguage: 'en-US',
         },
         ids,
@@ -85,6 +134,7 @@ export const GET: APIRoute = async ({ params }) => {
         url,
         name: data.title,
         description: data.description,
+        isPartOf: { '@id': ids.webPage(url) },
         mainEntity: [
           {
             '@type': 'Question',
@@ -98,10 +148,6 @@ export const GET: APIRoute = async ({ params }) => {
       });
       pieces.push(piece);
     } else if (collection === 'glossary') {
-      // FIX: was reading data.description here — now reads data.definition
-      // first, matching the DefinedTerm.description field the glossary
-      // skill specifies. Falls back to data.description only if definition
-      // is somehow absent, so this can't regress to a hard failure.
       const piece = buildPiece<DefinedTerm>({
         '@type': 'DefinedTerm',
         '@id': `${url}#term`,

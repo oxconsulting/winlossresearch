@@ -5,7 +5,7 @@ phase: "scope-design"
 phaseOrder: 1
 relatedPillars: ["win-loss-research-methodology", "how-to-build-win-loss-program", "independent-win-loss-research"]
 realityCheck: true
-realityCheckText: "An hours range shows how much time a scoped program takes to run. It doesn't show whether the team can actually commit that block of hours inside the research window and still produce findings specific enough to act on, or whether an internal interviewer can get the same candor a neutral third party gets by default, since buyers manage what they say to anyone with a stake in the relationship. Neutrality and a genuinely time-bound commitment, not the hours total on its own, are what determine whether a scoped program delivers an actionable answer."
+realityCheckText: "An hours range shows how much time a scoped program takes to run, not whether the team can commit that time inside the window, or whether an internal interviewer gets the same candor a neutral third party gets by default. Neutrality and a real time-bound commitment, not the hours total, determine whether a scoped program delivers an actionable answer."
 realityCheckLinkedPillar: "independent-win-loss-research"
 draft: false
 ---
@@ -72,7 +72,7 @@ Total: roughly 95-150 hours across a 75-to-90-day cycle
 
 Treat this as a planning range, not a precise forecast. Actual hours shift with buying committee complexity, questionnaire length, and how experienced the person running interviews is. The range exists to answer one question before scoping goes further: does the team committing to this program have 95 to 150 hours available across the next 75 to 90 days, spread across the roles above, and can it hold that commitment through the full window without the cycle stalling out. If the answer is no, that's a scoping decision to make now, not a discovery to make in week six.
 
-**Reality Check:** An hours range shows how much time a scoped program takes to run. It doesn't show whether the team can actually commit that block of hours inside the research window and still produce findings specific enough to act on, or whether an internal interviewer can get the same candor a neutral third party gets by default, since buyers manage what they say to anyone with a stake in the relationship. Neutrality and a genuinely time-bound commitment, not the hours total on its own, are what determine whether a scoped program delivers an actionable answer. See [why third-party neutrality changes what buyers will say](/topics/independent-win-loss-research/). See every structural risk in one place →
+**Reality Check:** An hours range shows how much time a scoped program takes to run, not whether the team can commit that time inside the window, or whether an internal interviewer gets the same candor a neutral third party gets by default. Neutrality and a real time-bound commitment, not the hours total, determine whether a scoped program delivers an actionable answer. See [why third-party neutrality changes what buyers will say](/topics/independent-win-loss-research/).
 
 ## Related
 

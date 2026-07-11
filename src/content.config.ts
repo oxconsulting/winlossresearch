@@ -124,7 +124,7 @@ const playbook = defineCollection({
       realityCheck: z.boolean().default(false),
       // Required only when realityCheck is true — enforced below via
       // .refine() rather than left to documentation discipline alone.
-      realityCheckText: z.string().min(20).max(400).optional(),
+      realityCheckText: z.string().min(20).max(450).optional(),
       realityCheckLinkedPillar: pillarSlug.optional(),
       draft: z.boolean().default(false),
     })

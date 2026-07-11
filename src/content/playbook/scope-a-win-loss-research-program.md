@@ -72,7 +72,12 @@ Total: roughly 95-150 hours across a 75-to-90-day cycle
 
 Treat this as a planning range, not a precise forecast. Actual hours shift with buying committee complexity, questionnaire length, and how experienced the person running interviews is. The range exists to answer one question before scoping goes further: does the team committing to this program have 95 to 150 hours available across the next 75 to 90 days, spread across the roles above, and can it hold that commitment through the full window without the cycle stalling out. If the answer is no, that's a scoping decision to make now, not a discovery to make in week six.
 
-**Reality Check:** An hours range shows how much time a scoped program takes to run, not whether the team can commit that time inside the window, or whether an internal interviewer gets the same candor a neutral third party gets by default. Neutrality and a real time-bound commitment, not the hours total, determine whether a scoped program delivers an actionable answer. See [why third-party neutrality changes what buyers will say](/topics/independent-win-loss-research/).
+<div class="callout reality-check">
+<span class="callout-label">Reality Check</span>
+
+An hours range shows how much time a scoped program takes to run, not whether the team can commit that time inside the window, or whether an internal interviewer gets the same candor a neutral third party gets by default. Neutrality and a real time-bound commitment, not the hours total, determine whether a scoped program delivers an actionable answer. See [why third-party neutrality changes what buyers will say](/topics/independent-win-loss-research/).
+
+</div>
 
 ## Related
 

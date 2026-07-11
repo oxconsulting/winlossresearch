@@ -83,7 +83,12 @@ makes sense sometime in the next week, grab a time here:
 
 Mention the incentive in the initial invitation and confirm it again once a buyer schedules, not during the interview itself. Frame it as compensation for time given, not payment for a specific answer: "as a thank-you for your time" works; "in exchange for your feedback" doesn't. A modest gift card, sized to read as genuine appreciation rather than a fee for services, is the standard. Skipping the incentive entirely filters the eventual sample toward buyers with the most extreme reactions in either direction, since buyers with more moderate, and often more representative, views have the least reason to give up unpaid time.
 
-**Reality Check:** No matter how neutrally the outreach is worded, buyers with the sharpest feedback are still less likely to engage with a sequence from a team affiliated with the vendor than with a request from a neutral third party. Wording helps at the margin; it can't close the gap between what a buyer says to someone connected to the company and what they'll say to someone with no stake in the outcome. See [why third-party neutrality changes what buyers will say](/topics/independent-win-loss-research/).
+<div class="callout reality-check">
+<span class="callout-label">Reality Check</span>
+
+No matter how neutrally the outreach is worded, buyers with the sharpest feedback are still less likely to engage with a sequence from a team affiliated with the vendor than with a request from a neutral third party. Wording helps at the margin; it can't close the gap between what a buyer says to someone connected to the company and what they'll say to someone with no stake in the outcome. See [why third-party neutrality changes what buyers will say](/topics/independent-win-loss-research/).
+
+</div>
 
 ## Step 5: Adjust the Sequence for Win Contacts
 

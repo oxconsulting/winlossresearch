@@ -264,12 +264,12 @@ const articleMeta =
           <span class="wordmark">Win/Loss Research</span>
         </a>
         <div class="nav-links">
-          <a href="/topics/">Topics</a>
-          <a href="/perspectives/">Perspectives</a>
-          <a href="/faq/">FAQ</a>
-          <a href="/glossary/">Glossary</a>
-          <a href="/playbook/">Playbook</a>
-          <a href="/about/">About</a>
+          <a href="/topics/" class:list={[{ active: Astro.url.pathname.startsWith('/topics') }]}>Topics</a>
+          <a href="/perspectives/" class:list={[{ active: Astro.url.pathname.startsWith('/perspectives') }]}>Perspectives</a>
+          <a href="/faq/" class:list={[{ active: Astro.url.pathname.startsWith('/faq') }]}>FAQ</a>
+          <a href="/glossary/" class:list={[{ active: Astro.url.pathname.startsWith('/glossary') }]}>Glossary</a>
+          <a href="/playbook/" class:list={[{ active: Astro.url.pathname.startsWith('/playbook') }]}>Playbook</a>
+          <a href="/about/" class:list={[{ active: Astro.url.pathname.startsWith('/about') }]}>About</a>
         </div>
       </nav>
     </header>
@@ -279,7 +279,21 @@ const articleMeta =
     </main>
 
     <footer>
-      <!-- Footer content -->
+      <div class="footer-inner">
+        <a href="/" class="logo">
+          <span class="badge">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M16 5 L8 12 L16 19" stroke="#1B1E22" stroke-width="3.4"
+                    stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </span>
+          <span class="wordmark">Win/Loss Research</span>
+        </a>
+        <p class="footer-note">
+          © {new Date().getFullYear()} Win/Loss Research. An independent resource from
+          <a href="https://oxrevs.com" rel="noopener">Ox Win/Loss</a>.
+        </p>
+      </div>
     </footer>
   </body>
 </html>

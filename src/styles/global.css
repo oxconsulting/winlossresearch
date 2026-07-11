@@ -324,6 +324,26 @@ code {
   border-radius: var(--radius-sm);
 }
 
+/* Fenced code blocks (Shiki/astro-code) — the block-level <pre><code> pair
+   gets its own spacing here. Background/text color are intentionally left
+   alone: Shiki sets those inline per the configured theme (github-dark),
+   and overriding them here would fight the theme the same way the bare
+   `code` rule above was fighting it before this fix. */
+pre {
+  margin: var(--space-6) 0;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  line-height: var(--leading-normal);
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
 /* ------------------------------------------------------------
    Blockquote — buyer quotes (Perspectives, Playbook)
    ------------------------------------------------------------ */

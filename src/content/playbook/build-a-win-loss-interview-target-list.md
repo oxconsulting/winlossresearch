@@ -25,13 +25,14 @@ Query the CRM using the scope criteria already set (segment, deal size range, ge
 
 A sample filter set for a program scoped to Enterprise deals over the last two quarters:
 
-```
-Deal Stage: Closed Won OR Closed Lost
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>Deal Stage: Closed Won OR Closed Lost
 Close Date: Between [180 days ago] and [today]
 Segment: Enterprise
-Deal Size: >= $[minimum threshold]
-Excludes: Deals still marked "Negotiation" or "Active"
-```
+Deal Size: &gt;= $[minimum threshold]
+Excludes: Deals still marked &quot;Negotiation&quot; or &quot;Active&quot;</pre>
+</div>
 
 Export the raw result before doing anything else to it. That export is the population the rest of this play works against, and having it as a fixed starting point makes every later exclusion in Step 4 auditable against the original set.
 
@@ -46,15 +47,16 @@ A CRM-sourced list removes formal deal-by-deal approval, but reps can still exer
 
 Loss interview participation typically runs around 5 percent; win interview participation runs around 10 percent. Multiply the interview target by the inverse of that rate to get the outreach list size the program actually needs, not the interview count itself.
 
-```
-Target: 20 completed loss interviews
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>Target: 20 completed loss interviews
 Participation rate: ~5%
 Required loss-contact list: 20 / 0.05 = 400
 
 Target: 10 completed win interviews
 Participation rate: ~10%
-Required win-contact list: 10 / 0.10 = 100
-```
+Required win-contact list: 10 / 0.10 = 100</pre>
+</div>
 
 If the raw CRM pull from Step 1 doesn't produce a population this large after Step 4's exclusions, that's a scoping decision to revisit now, either by widening the segment or extending the research window, not a gap to discover after outreach is already underway.
 

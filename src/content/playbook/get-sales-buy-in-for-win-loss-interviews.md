@@ -31,12 +31,13 @@ Ask for sponsorship of the program's scope, the research timeframe, segment, and
 
 Put the ask in writing and keep it specific: name the segment and time window, and request one sponsor's approval of that scope as a single decision, not a standing review queue of individual deals as they come up.
 
-```
-Subject: Sponsorship request: win/loss research on [segment] deals
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>Subject: Sponsorship request: win/loss research on [segment] deals
 
 [Sponsor name],
 
-We're scoping a win/loss research program covering [segment] deals closed
+We&#x27;re scoping a win/loss research program covering [segment] deals closed
 between [start date] and [end date], targeting roughly 20-30 buyer
 interviews weighted toward losses. The deal list will be pulled directly
 from the CRM against fixed criteria, not curated deal by deal.
@@ -44,11 +45,11 @@ from the CRM against fixed criteria, not curated deal by deal.
 I need your sponsorship on the scope itself: this segment, this window,
 this criteria set. No individual rep sign-off on specific deals is part
 of this process, and findings will come back as aggregate patterns, not
-deal-by-deal or rep-by-rep breakdowns. You'll be included in the readout
+deal-by-deal or rep-by-rep breakdowns. You&#x27;ll be included in the readout
 once findings are ready.
 
-Can we confirm this by [date]?
-```
+Can we confirm this by [date]?</pre>
+</div>
 
 ## Step 3: Set the Boundary Between Strategic Input and Deal Approval
 
@@ -75,13 +76,14 @@ A third objection shows up less often but stalls a program just as effectively w
 
 A short script works better than a general pitch for the initial ask:
 
-```
-"We're running a win/loss research program on [segment] deals from [date range].
-It's not a review of any rep's individual deals, it's pattern recognition across
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>&quot;We&#x27;re running a win/loss research program on [segment] deals from [date range].
+It&#x27;s not a review of any rep&#x27;s individual deals, it&#x27;s pattern recognition across
 the full set, and everyone shows up in aggregate findings, not by name. I need
 your sponsorship on the scope: this segment, this time window, pulled directly
-from the CRM. You'll be in the readout when findings come back."
-```
+from the CRM. You&#x27;ll be in the readout when findings come back.&quot;</pre>
+</div>
 
 Once sponsorship is confirmed, put the scope, the boundary from Step 3, and the readout commitment in a single follow-up note back to the sponsor. That written record is what the program points to later if a rep raises the "let us flag deals" request again mid-cycle, rather than re-litigating the boundary from scratch each time it comes up.
 

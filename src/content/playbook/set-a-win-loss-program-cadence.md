@@ -27,14 +27,15 @@ Quarterly is too frequent for most programs to get real value from. There isn't 
 
 Before locking in the cadence, confirm the segment actually produces enough closed deals to support it. Use the same list-size math from [how to build a win/loss interview target list](/playbook/build-a-win-loss-interview-target-list/): roughly 400 loss-eligible and 100 win-eligible contacts within the 30-to-180-day research window.
 
-```
-Segment produces ~400 losses + ~100 wins within the window
-  -> Semi-annual cadence is well-supported
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>Segment produces ~400 losses + ~100 wins within the window
+  -&gt; Semi-annual cadence is well-supported
 
 Segment produces meaningfully less
-  -> Widen the segment or extend toward the full 180-day edge
-     of the window before locking in a fixed cadence
-```
+  -&gt; Widen the segment or extend toward the full 180-day edge
+     of the window before locking in a fixed cadence</pre>
+</div>
 
 A segment that comes up short here is the same situation the target-list play's own worked example resolves: extend the window or widen the segment, rather than lowering the interview count or forcing a cadence the deal volume can't actually support.
 
@@ -42,13 +43,14 @@ A segment that comes up short here is the same situation the target-list play's 
 
 Open every readout with a short review of the prior cycle's findings before presenting anything new, checking which ones still hold up against the current interview set.
 
-```
-For each finding presented in the prior cycle's readout:
-[ ] Still holding up against this cycle's interview set?
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>For each finding presented in the prior cycle&#x27;s readout:
+[ ] Still holding up against this cycle&#x27;s interview set?
 [ ] Has anything in the market changed enough to retest it?
 [ ] Retire it, keep it as confirmed, or flag it as needing
-    current-cycle confirmation before anyone acts on it again
-```
+    current-cycle confirmation before anyone acts on it again</pre>
+</div>
 
 A program that only adds new findings each cycle without retiring stale ones ends up with a battlecard or messaging framework built on a mix of current signal and outdated assumption, with no way to tell which is which without checking.
 
@@ -70,13 +72,14 @@ Weight the Step 3 review toward the fast-decaying rows every cycle, and treat th
 
 A dynamic market shift, a pipeline problem, or a competitive change that needs an answer faster than the next scheduled cycle allows is a reason to run a scoped off-cycle refresh, not a reason to move the whole program to quarterly.
 
-```
-Trigger a scoped off-cycle refresh when a specific, already-felt
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>Trigger a scoped off-cycle refresh when a specific, already-felt
 signal moves faster than the next scheduled cycle would catch it:
 a win rate drop in a specific segment, a competitor newly appearing
 in evaluations where it never used to, a major product launch, or
-a pricing change under active consideration.
-```
+a pricing change under active consideration.</pre>
+</div>
 
 The trigger has to be specific, not a general sense that "it's been a while." A refresh scoped around "our Enterprise win rate dropped eight points this quarter" is answerable; a refresh scoped around vague unease isn't, and it usually signals the program needs a clearer objective more than it needs a faster clock.
 

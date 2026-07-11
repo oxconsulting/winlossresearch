@@ -21,14 +21,15 @@ Deliver a win/loss readout as a live, cross-functional meeting, not an emailed r
 
 Build the deck around a small number of synthesized findings, each supported by evidence across multiple interviews, not a folder of individual deal write-ups. A reader who has to page through twenty separate deal summaries to notice a pattern hasn't been given a finding; they've been given raw material and asked to do the analysis themselves, in the room, in real time.
 
-```
-1. Research Scope (deal set, interview count, time window)
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>1. Research Scope (deal set, interview count, time window)
 2. Methodology (interview structure, coding approach)
 3. Finding 1 ([Theme]): supporting evidence, recommendation
 4. Finding 2 ([Theme]): supporting evidence, recommendation
 5. Finding 3 ([Theme]): supporting evidence, recommendation
-6. Cross-Functional Action Summary
-```
+6. Cross-Functional Action Summary</pre>
+</div>
 
 Cap the deck at three to five findings. A readout that tries to present every theme that crossed the pattern threshold buries the most important ones in a long list, and a leadership team can hold three to five specific findings in their heads well enough to act on them; a longer list mostly gets skimmed.
 
@@ -53,14 +54,15 @@ A readout without a senior sponsor in the room tends to produce the same weak fo
 
 Budget the meeting to end with roughly a quarter of its time spent capturing commitments, not just presenting findings. A 60-minute readout structured entirely around walking through the deck leaves no room for the step that actually makes the research worth the time spent producing it.
 
-```
-0:00-0:05  Scope and methodology recap
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>0:00-0:05  Scope and methodology recap
 0:05-0:35  Walk through findings, theme by theme
 0:35-0:50  Open discussion: does this match what functions are
            already seeing, where does it diverge
 0:50-0:60  Capture a specific action item per function, read
-           back out loud before the meeting ends
-```
+           back out loud before the meeting ends</pre>
+</div>
 
 Read each captured action item back to the room before closing. A commitment stated out loud and confirmed in the room is harder to quietly deprioritize afterward than one buried in meeting notes nobody reviews again.
 

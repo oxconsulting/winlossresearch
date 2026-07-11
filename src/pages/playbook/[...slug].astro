@@ -49,6 +49,7 @@ function extractSteps(body: string): Array<{ name: string; text: string }> {
       const trimmed = block.trim();
       if (!trimmed) continue;
       if (trimmed.startsWith('```')) continue;
+      if (trimmed.startsWith('<div class="example-block">')) continue;
       if (trimmed.startsWith('|')) continue;
       text = trimmed
         .replace(/\*\*(.*?)\*\*/g, '$1')

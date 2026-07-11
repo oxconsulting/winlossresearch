@@ -29,18 +29,19 @@ Build the coding pass directly into the post-call routine established in the int
 
 Use the questionnaire's five stages as the top-level structure, so a code maps cleanly back to the question that produced it, but build the specific codes within each stage from what the interviews actually surface rather than adopting a fixed list. The categories below the stage level are illustrative, one plausible set for one hypothetical program, not a standard vocabulary to apply unchanged across every engagement.
 
-```
-Buying Process & Criteria:  Committee-Stakeholder-Objection,
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>Buying Process &amp; Criteria:  Committee-Stakeholder-Objection,
                              Budget-Approval-Friction
 Competitive Landscape:      Competitor-Pricing-Comparison,
                              Feature-Gap-Named
-Product & Messaging:        Demo-Objection,
+Product &amp; Messaging:        Demo-Objection,
                              Onboarding-Concern
 Outcome Drivers:            Price-Cited,
                              Champion-Lost-Internal-Argument
 Other:                      [open tag for anything outside
-                             the categories above]
-```
+                             the categories above]</pre>
+</div>
 
 Where a company already codes losses in its CRM with a reasonably specific set of categories, align the interview taxonomy to those categories rather than building an entirely separate vocabulary. Matching, say, an existing "Pricing/Budget" or "Competitive Loss" field lets the coded interview findings sit directly next to the CRM's own loss-reason distribution once analysis is complete, which is often the clearest way to show where the two diverge, not just that they do. Build new codes only where the interviews surface a theme the CRM's existing categories don't capture at all.
 
@@ -58,11 +59,12 @@ A practical example: interview three gets coded "Pricing-Opacity" and interview 
 
 Maintain a running count of how many interviews carry each code, updated after every coding session rather than reconstructed at the end. A code that reaches three to five independent mentions, unprompted and in the buyer's own words, crosses the threshold that separates a pattern from an anecdote.
 
-```
-Code: Champion-Lost-Internal-Argument
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>Code: Champion-Lost-Internal-Argument
 Interviews: #4, #9, #15, #22
-Frequency: 4 of 20 loss interviews (20%)
-```
+Frequency: 4 of 20 loss interviews (20%)</pre>
+</div>
 
 Watching this count grow in real time, rather than discovering it during a single end-of-cycle analysis pass, surfaces an emerging pattern early enough to probe it more deliberately in the remaining interviews still on the calendar.
 
@@ -70,13 +72,14 @@ Watching this count grow in real time, rather than discovering it during a singl
 
 A standard 20-to-30 interview program doesn't need a dedicated qualitative-analysis platform. A shared spreadsheet with one row per interview and one column per code, marked with a simple count or checkmark, is enough to support the frequency tracking in Step 4 and stays easy for more than one person to work from during analysis.
 
-```
-Interview ID | Type | Onboarding-Concern | Price-Cited | Feature-Gap-Named | ...
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>Interview ID | Type | Onboarding-Concern | Price-Cited | Feature-Gap-Named | ...
 #4           | Loss | -                   | X           | -                  |
 #9           | Loss | X                   | -           | X                  |
 #12          | Loss | X                   | -           | -                  |
-#15          | Loss | X                   | X           | -                  |
-```
+#15          | Loss | X                   | X           | -                  |</pre>
+</div>
 
 Reserve a specialized coding tool for programs running well beyond 30 interviews or maintaining a continuously updated interview set across multiple cycles, where a spreadsheet's manual upkeep starts to outweigh its simplicity.
 

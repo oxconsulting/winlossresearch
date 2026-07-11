@@ -35,15 +35,16 @@ A finding presented in a readout is not the same as a decision changed. The gap 
 
 Maintain one row per finding per cycle, tracking the specific action committed at the readout through to whether it produced a real decision change.
 
-```
-Cycle: Q3 2026
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>Cycle: Q3 2026
 
 Finding                    | Action Committed      | Status  | Decision Changed?
 Competitor X speed         | Battlecard rewrite     | Done    | Yes, talk track live
 Onboarding complexity      | Roadmap evaluation      | Pending | Not yet
 Pricing structure confusion| Messaging test          | Done    | Yes, new page shipped
-Champion-lost objection    | Sales coaching update   | Stalled | No, owner unassigned
-```
+Champion-lost objection    | Sales coaching update   | Stalled | No, owner unassigned</pre>
+</div>
 
 Keep the scorecard cumulative across cycles rather than resetting it each quarter. A finding whose action stalled two cycles running is a different problem than one that stalled once, and only a cumulative record makes that distinction visible. A single-cycle scorecard that gets discarded and rebuilt from scratch every quarter loses exactly the pattern that matters most: whether the same type of action keeps stalling regardless of which finding triggered it.
 

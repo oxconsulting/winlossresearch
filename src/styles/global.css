@@ -829,6 +829,42 @@ article h2 + ul li:last-child {
 }
 
 /* ------------------------------------------------------------
+   Example block — Playbook worked examples and templates.
+   Deliberately not Shiki-highlighted: these render as raw <pre>
+   HTML (not fenced markdown), which bypasses syntax highlighting
+   entirely and stays on the site's own light editorial tokens.
+   ------------------------------------------------------------ */
+.example-block {
+  background: var(--paper-2);
+  border-top: 2px solid var(--gold);
+  border-radius: 0 0 3px 3px;
+  padding: 1.25rem 1.5rem 1.5rem;
+  margin: var(--space-6) 0 var(--space-8);
+}
+
+.example-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 0.875rem;
+}
+
+.example-block pre {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: var(--leading-normal);
+  color: var(--ink);
+  white-space: pre-wrap;
+}
+
+/* ------------------------------------------------------------
    Responsive
    ------------------------------------------------------------ */
 @media (max-width: 640px) {

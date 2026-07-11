@@ -28,12 +28,13 @@ Attach a success criterion to the objective at the same time. A useful test: nam
 
 A scoping worksheet forces this discipline before interview planning starts:
 
-```
-Program Objective: [one sentence naming the specific, already-felt problem]
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>Program Objective: [one sentence naming the specific, already-felt problem]
 Decision This Program Should Inform: [the pricing, messaging, or resourcing call]
 Executive Sponsor: [name, title]
-Target Report Date: [date leadership needs an answer by]
-```
+Target Report Date: [date leadership needs an answer by]</pre>
+</div>
 
 Don't leave the report date blank. A program scoped without one tends to lose the urgency that got it funded in the first place.
 
@@ -59,16 +60,17 @@ Put an executive sponsor's authority behind the pull instead. Sales leadership c
 
 Running a program internally costs real hours, and naming a bounded range before committing avoids a team discovering the true cost mid-cycle. A standard 20-to-30 interview cycle typically requires:
 
-```
-Scoping and executive sponsorship alignment: 5-10 hours
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>Scoping and executive sponsorship alignment: 5-10 hours
 Target list build and outreach: 15-25 hours
 Interview scheduling and coordination: 10-15 hours
 Conducting 20-30 interviews at up to 1.5 hours each, including prep and debrief: 30-45 hours
 Analysis and pattern synthesis: 20-30 hours
 Report drafting and readout prep: 15-25 hours
 
-Total: roughly 95-150 hours across a 75-to-90-day cycle
-```
+Total: roughly 95-150 hours across a 75-to-90-day cycle</pre>
+</div>
 
 Treat this as a planning range, not a precise forecast. Actual hours shift with buying committee complexity, questionnaire length, and how experienced the person running interviews is. The range exists to answer one question before scoping goes further: does the team committing to this program have 95 to 150 hours available across the next 75 to 90 days, spread across the roles above, and can it hold that commitment through the full window without the cycle stalling out. If the answer is no, that's a scoping decision to make now, not a discovery to make in week six.
 

@@ -24,25 +24,27 @@ Conducting a win/loss interview starts with a clear statement of neutrality and 
 
 Restate, in the first minute of the call, what the outreach email already said: the conversation is separate from the sales and account relationship, everything shared stays anonymous in any findings, and the purpose is to understand what actually happened, not to relitigate the decision. A buyer who hears this again at the start of the call, rather than assuming it from the email alone, settles into the conversation faster.
 
-```
-"Thanks for making time. Quick context before we start: this is separate
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>&quot;Thanks for making time. Quick context before we start: this is separate
 from the sales team, nothing you say here gets attributed to you by
-name in any findings, and I'm just trying to understand how the
-decision actually played out. There's no wrong answer here, I'm here
-to listen, not to sell you on anything or defend a decision."
-```
+name in any findings, and I&#x27;m just trying to understand how the
+decision actually played out. There&#x27;s no wrong answer here, I&#x27;m here
+to listen, not to sell you on anything or defend a decision.&quot;</pre>
+</div>
 
 ## Step 2: Pace the Conversation Across the Full Question Set
 
 Hold to the stage timing set in the questionnaire so every interview in the set covers the same ground, which is what makes cross-interview comparison possible later. Watch the clock at each stage transition rather than at the end of the call, since a slow first stage is recoverable if caught at minute ten, but not if it's only noticed at minute thirty with two stages still untouched.
 
-```
-Stage 1: Warm-Up and Context           (3-5 min)
-Stage 2: Buying Process & Criteria     (8-10 min)
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>Stage 1: Warm-Up and Context           (3-5 min)
+Stage 2: Buying Process &amp; Criteria     (8-10 min)
 Stage 3: Competitive Landscape          (8-10 min)
-Stage 4: Product & Messaging Perception (5-7 min)
-Stage 5: Outcome Drivers                (7-10 min)
-```
+Stage 4: Product &amp; Messaging Perception (5-7 min)
+Stage 5: Outcome Drivers                (7-10 min)</pre>
+</div>
 
 If a stage is running long because a buyer is offering genuinely specific, unprompted detail, let it run and trim time from a later stage rather than cutting the buyer off mid-thought. The specificity in Stage 5, where the actual outcome driver usually surfaces, is worth protecting more than strict adherence to the clock.
 
@@ -71,13 +73,14 @@ Interview technique can get a buyer to open up more than a poor conversation wou
 
 End with a specific next step rather than a generic thank-you. Confirm the incentive is on its way, reconfirm anonymity, and ask permission for one short follow-up email if a detail from the call needs clarifying during analysis. A buyer who's agreed to that in advance is far more likely to respond to a two-line clarifying question two weeks later than one who's hearing from the program again out of nowhere.
 
-```
-"That's everything I need, thank you for the time. Your gift card will
+<div class="example-block">
+<span class="example-label">Example</span>
+<pre>&quot;That&#x27;s everything I need, thank you for the time. Your gift card will
 go out within a few days. Everything we discussed stays anonymous in
 any findings. If something comes up during analysis where I need one
 quick clarification, would it be alright to send a short follow-up
-email?"
-```
+email?&quot;</pre>
+</div>
 
 Log the call's specific unresolved threads immediately after hanging up, while they're still easy to distinguish from the next interview's. A note like "unclear which stakeholder raised the compliance objection, follow up if this theme recurs" is far more useful during analysis than trying to reconstruct that ambiguity from a transcript days or weeks later.
 

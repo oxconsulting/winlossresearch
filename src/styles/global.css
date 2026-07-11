@@ -47,6 +47,15 @@
 
   --radius-sm: 3px;
   --radius-md: 6px;
+
+  /* Header/nav — locked visual identity (see visual-identity.md) */
+  --ink:        #1B1E22;
+  --paper:      #EFECE3;
+  --paper-2:    #E4E0D4;
+  --gold:       #C9A227;
+  --muted-nav:  #8B8677;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, monospace;
 }
 
 /* ------------------------------------------------------------
@@ -59,6 +68,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -94,42 +104,124 @@ a:hover {
    Navigation
    ------------------------------------------------------------ */
 header {
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--space-4) var(--space-6);
+  background: var(--ink);
+  border-bottom: none;
+  padding: 0 var(--space-6);
 }
 
 header > nav {
   max-width: var(--width-nav);
   margin: 0 auto;
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  border-bottom: none !important;
+}
+
+.logo .badge {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  background: var(--gold);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo .badge svg {
+  width: 24px;
+  height: 24px;
+}
+
+.logo .wordmark {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+}
+
+.nav-links {
   display: flex;
   align-items: center;
   gap: var(--space-6);
   flex-wrap: wrap;
 }
 
-nav a {
-  color: var(--color-text);
+.nav-links a {
+  font-family: var(--font-mono);
+  color: var(--muted-nav);
   text-decoration: none;
   font-size: var(--text-sm);
   font-weight: 500;
-  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   padding: var(--space-1) 0;
   border-bottom: 2px solid transparent;
-  transition: border-color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-nav a:first-child {
-  font-weight: 700;
-  font-size: var(--text-base);
-  margin-right: var(--space-4);
-  color: var(--color-accent);
-  border-bottom: none;
-}
-
-nav a:hover {
-  color: var(--color-accent);
-  border-bottom-color: var(--color-accent);
+.nav-links a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
   text-decoration: none;
+}
+
+/* ------------------------------------------------------------
+   Jump nav
+   In-page "jump to a topic" list, used on the homepage and the
+   three collection index pages (FAQ, Glossary, Perspectives) so
+   a 10-pillar-long page never requires scrolling to find out a
+   section exists. Each link points at a real #anchor id already
+   present on the section it targets, so the same ids also work
+   as citable fragment URLs.
+   ------------------------------------------------------------ */
+.jump-nav {
+  margin: var(--space-6) 0 var(--space-10);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.jump-nav ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block;
+}
+
+nav.jump-nav ul li {
+  display: inline;
+  margin: 0 !important;
+  border: none !important;
+}
+
+nav.jump-nav ul li:not(:last-child)::after {
+  content: " \00b7 ";
+  color: var(--color-border);
+}
+
+nav.jump-nav ul li a {
+  font-size: var(--text-sm) !important;
+  font-weight: 500 !important;
+  color: var(--color-muted) !important;
+  text-decoration: none !important;
+  letter-spacing: normal !important;
+}
+
+nav.jump-nav ul li a:hover {
+  color: var(--color-accent) !important;
+  text-decoration: underline !important;
 }
 
 /* ------------------------------------------------------------
@@ -347,28 +439,32 @@ article ol + h2 {
 
 /* ------------------------------------------------------------
    Index / listing pages
+   Matches main > ul directly (legacy/back-compat) and .index-list
+   explicitly (used inside the pillar-grouped <section> wrappers on
+   /faq/, /glossary/, /perspectives/, and the homepage's content-type
+   sections, where the <ul> is no longer a direct child of <main>).
    ------------------------------------------------------------ */
 main > ul,
-main > ol {
+.index-list {
   list-style: none;
   padding: 0;
-  margin: var(--space-8) 0 0;
+  margin: var(--space-6) 0 0;
 }
 
 main > ul > li,
-main > ol > li {
+.index-list > li {
   border-bottom: 1px solid var(--color-border);
   padding: var(--space-5) 0;
   margin: 0;
 }
 
 main > ul > li:first-child,
-main > ol > li:first-child {
+.index-list > li:first-child {
   border-top: 1px solid var(--color-border);
 }
 
 main > ul > li a,
-main > ol > li a {
+.index-list > li a {
   font-size: var(--text-lg);
   font-weight: 600;
   text-decoration: none;
@@ -377,12 +473,12 @@ main > ol > li a {
 }
 
 main > ul > li a:hover,
-main > ol > li a:hover {
+.index-list > li a:hover {
   color: var(--color-accent);
 }
 
 main > ul > li p,
-main > ol > li p {
+.index-list > li p {
   margin: var(--space-2) 0 0;
   font-size: var(--text-sm);
   color: var(--color-muted);
@@ -390,10 +486,159 @@ main > ol > li p {
 }
 
 main > ul > li time,
-main > ol > li time {
+.index-list > li time {
   display: block;
   margin-top: var(--space-2);
   font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+/* Compact variant: homepage content-type highlight lists (3 links,
+   title only, no description/time) don't need as much vertical
+   padding as the full pillar-group listings on the index pages. */
+.index-list--compact > li {
+  padding: var(--space-3) 0;
+}
+
+.index-list--compact > li a {
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+/* No-rule variant: for link-only lists (FAQ index rows, homepage
+   compact highlights) a divider line per row with almost nothing
+   between them reads as a picket fence. Whitespace does the
+   separating instead; no border at all. */
+.index-list--no-rule > li {
+  border-bottom: none;
+  padding: var(--space-2) 0;
+}
+
+.index-list--no-rule > li:first-child {
+  border-top: none;
+}
+
+/* Every index list: drop the trailing divider on the last row so
+   it doesn't stack with the next pillar heading's top border and
+   create a double line with dead space in between. */
+.index-list > li:last-child,
+main > ul > li:last-child {
+  border-bottom: none;
+}
+
+/* ------------------------------------------------------------
+   Collection index pages: pillar-grouped sections
+   /faq/, /glossary/, /perspectives/ — same chapter-divider
+   treatment as .pillar h2, so a pillar boundary reads the same
+   way whether you're on a pillar page or a collection index.
+   ------------------------------------------------------------ */
+.faq-group h2,
+.glossary-group h2,
+.perspectives-group h2 {
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-2xl);
+}
+
+/* The first pillar group right after the jump-nav doesn't need its
+   own top border — the jump-nav's bottom border already closes off
+   that space; without this, the two stack into a double line. */
+.faq-group:first-of-type h2,
+.glossary-group:first-of-type h2,
+.perspectives-group:first-of-type h2 {
+  border-top: none;
+  padding-top: 0;
+}
+
+.faq-group h2 a,
+.glossary-group h2 a,
+.perspectives-group h2 a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.faq-group h2 a:hover,
+.glossary-group h2 a:hover,
+.perspectives-group h2 a:hover {
+  color: var(--color-accent);
+}
+
+/* ------------------------------------------------------------
+   Homepage: pillar grid
+   The ten pillars as a responsive card grid rather than a
+   stacked list — this is the page's primary navigational
+   surface, so it gets more visual structure than a plain list.
+   ------------------------------------------------------------ */
+.pillar-grid {
+  margin-top: var(--space-10);
+}
+
+.pillar-grid__list {
+  list-style: none;
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-5);
+}
+
+.pillar-grid__item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+
+.pillar-grid__item a {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.pillar-grid__item a:hover {
+  color: var(--color-accent);
+}
+
+.pillar-grid__item p {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  line-height: var(--leading-normal);
+}
+
+/* ------------------------------------------------------------
+   Homepage: content-type sections (FAQ / Glossary / Perspectives
+   / Playbook). Spacing-only divider, consistent with the rest
+   of the page's restrained hairline-rule language.
+   ------------------------------------------------------------ */
+.content-section {
+  margin-top: var(--space-12);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ------------------------------------------------------------
+   Homepage: site meta-FAQ
+   Reuses the same accent left-border signature already used for
+   the direct-answer block on individual FAQ pages, so the one
+   FAQ-shaped thing on the homepage reads as visually related to
+   the FAQ content type rather than as a new pattern.
+   ------------------------------------------------------------ */
+.site-faq {
+  margin-top: var(--space-12);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border);
+}
+
+.site-faq h3 {
+  font-size: var(--text-lg);
+  margin-top: var(--space-6);
+}
+
+.site-faq h3 + p {
+  padding-left: var(--space-5);
+  border-left: 3px solid var(--color-accent);
   color: var(--color-muted);
 }
 
@@ -435,17 +680,33 @@ article h2 + ul li:last-child {
   }
 
   header {
-    padding: var(--space-3) var(--space-4);
+    padding: 0 var(--space-4);
   }
 
-  nav a:first-child {
-    margin-right: 0;
+  header > nav {
+    min-height: 64px;
+  }
+
+  .logo .wordmark {
+    font-size: var(--text-base);
+  }
+
+  .nav-links {
+    gap: var(--space-4);
   }
 
   .faq-page h1,
   .glossary-term h1,
   .perspectives-post h1 {
     font-size: var(--text-2xl);
+  }
+
+  .jump-nav ul {
+    gap: var(--space-2) var(--space-4);
+  }
+
+  .pillar-grid__list {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -457,4 +718,141 @@ article h2 + ul li:last-child {
     transition: none !important;
     animation: none !important;
   }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   Playbook: jump list
+   The numbered anchor-link list right under the Direct Answer on
+   every play page. Renders as <ol> — needs compact in-page nav
+   styling, not the full index-page link treatment above.
+   ------------------------------------------------------------ */
+main > ol {
+  list-style: decimal;
+  padding-left: var(--space-5);
+  margin: var(--space-5) 0 var(--space-8);
+}
+
+main > ol > li {
+  padding: var(--space-1) 0;
+}
+
+main > ol > li a {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+main > ol > li a:hover {
+  color: var(--color-accent);
+}
+
+/* ------------------------------------------------------------
+   Playbook: template / example blocks
+   Fenced code blocks in play content are plain-text templates and
+   tables, not real code — Shiki's default dark syntax theme reads
+   as an off-brand black box. Override with the site's light,
+   bordered-card treatment. !important is required because Shiki
+   injects color/background as inline styles on <pre> and its
+   child <span> elements.
+   ------------------------------------------------------------ */
+.playbook pre {
+  background-color: #f5f5f4 !important;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  overflow-x: auto;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+.playbook pre code,
+.playbook pre span {
+  background-color: transparent !important;
+  color: var(--color-text) !important;
+  font-family: inherit;
+}
+
+/* ------------------------------------------------------------
+   Playbook: Reality Check callout
+   Matches a paragraph whose first child is bold text — across all
+   12 plays this pattern is unique to "**Reality Check:** ...", so
+   it's a safe structural match even without text-content matching
+   (which plain CSS can't do). If a future play ever opens a
+   paragraph with bold text for an unrelated reason, it would pick
+   up this styling too — worth knowing, not just guessing at.
+   ------------------------------------------------------------ */
+.playbook p:has(> strong:first-child) {
+  margin: var(--space-8) 0;
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-left-width: 4px;
+  border-left-color: var(--color-accent);
+  border-radius: var(--radius-md);
+}
+
+.playbook p:has(> strong:first-child) > strong:first-child {
+  color: var(--color-accent);
+}
+
+/* ------------------------------------------------------------
+   Playbook: Related section links
+   "## Related" is followed by "### Other Plays in This Phase" /
+   "### Next Phase" / "### Relevant Pillars", each immediately
+   followed by a <ul> — h3 + ul, not h2 + ul, so the existing
+   .pillar h2 + ul pattern never matched here. Same compact,
+   borderless treatment, scoped to .playbook specifically rather
+   than widened to every <article> on the site.
+   ------------------------------------------------------------ */
+.playbook h3 + ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-3) 0 var(--space-6);
+}
+
+.playbook h3 + ul li {
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border);
+  margin: 0;
+}
+
+.playbook h3 + ul li:last-child {
+  border-bottom: none;
+}
+
+.playbook h3 + ul li a {
+  font-size: var(--text-base);
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.playbook h3 + ul li a:hover {
+  color: var(--color-accent);
+}
+
+/* ------------------------------------------------------------
+   Playbook: downloadable Playbook CTA
+   Targeted by exact href, not position — this link is hardcoded
+   identically at the bottom of all 12 plays and the Playbook
+   index. Styled as a button everywhere it appears, site-wide.
+   ------------------------------------------------------------ */
+a[href="/playbook/win-loss-analysis-playbook/"] {
+  display: inline-block;
+  margin-top: var(--space-6);
+  padding: var(--space-3) var(--space-6);
+  background-color: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+}
+
+a[href="/playbook/win-loss-analysis-playbook/"]:hover {
+  opacity: 0.85;
 }

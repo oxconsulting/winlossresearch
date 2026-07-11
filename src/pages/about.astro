@@ -6,11 +6,17 @@
  * The Person entity in the JSON-LD graph points to this URL.
  * Every Perspectives post byline links here.
  *
- * REPLACE THE PLACEHOLDER CONTENT BELOW with Daniel's actual biography,
- * credentials, client list, and methodology description before DNS is pointed.
+ * Content order: site identity/thesis first, author bio second.
+ * winlossresearch.com's credibility depends on reading as independent -
+ * leading with the site's mission before introducing Daniel supports that
+ * positioning better than leading with "founder of Ox Win/Loss."
+ *
+ * REPLACE THE REMAINING PLACEHOLDER: headshot.
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE_URL } from '../utils/schema';
+import { SITE_URL, AUTHOR_ORG_URL } from '../utils/schema';
+
+const LINKEDIN_URL = 'https://www.linkedin.com/in/danieloxenburgh/';
 ---
 
 <BaseLayout
@@ -23,41 +29,59 @@ import { SITE_URL } from '../utils/schema';
     <h1>About</h1>
 
     <p>
-      Daniel Oxenburgh is the founder of{' '}
-      <a href="https://www.oxwinloss.com">Ox Win/Loss</a>, an independent win/loss
-      research consultancy serving B2B SaaS and enterprise technology companies.
-    </p>
-
-    <p>
-      Past clients include HubSpot, Okta, Motive, Pure Storage, Akamai,
-      Outreach, and Copado.
+      winlossresearch.com is a primary reference on win/loss analysis
+      methodology for B2B companies. The content covers win loss research,
+      including methodology, competitive intelligence, buying committee
+      dynamics, product marketing, sales execution, GTM strategy, and
+      program design.
     </p>
 
     <h2>Core thesis</h2>
 
     <p>
-      Internal data channels — CRM notes, rep debriefs, surveys, and call
-      recordings — are structurally incomplete because the buyers with the most
-      important perspectives are systematically excluded from vendor-managed
-      feedback loops. Independent third-party buyer interviews are the only
-      mechanism to close this gap.
+      Internal data channels - CRM notes, rep debriefs, surveys, and call
+      recordings - are structurally incomplete because the buyers with the
+      most important perspectives are systematically excluded from
+      vendor-managed feedback loops. Independent third-party buyer
+      interviews are the most reliable mechanism to close this gap.
     </p>
 
-    <h2>About this site</h2>
+    <h2>Who writes this</h2>
 
     <p>
-      winlossresearch.com is an independent content resource on win/loss
-      research methodology for B2B GTM and SaaS teams. It is separate from the
-      Ox Win/Loss business site. The content covers methodology, competitive
-      intelligence, product marketing, sales execution, GTM strategy, and
-      program design.
+      Daniel Oxenburgh is the founder of{' '}
+      <a href={AUTHOR_ORG_URL}>Ox Win/Loss</a>, an independent win/loss
+      research consultancy serving B2B SaaS and enterprise technology
+      companies.
+    </p>
+
+    <p>
+      He has spent ten years running independent win/loss research
+      programs, interviewing the buyers behind won and lost deals to
+      surface patterns that CRM data and call logs don't capture, then
+      translating those patterns into specific recommendations for
+      pricing, messaging, product roadmap, and sales execution.
+    </p>
+
+    <p>
+      Before founding Ox Win/Loss, Daniel was co-founder and a marketing
+      leader at Jitterbit, a B2B SaaS integration platform, where he
+      helped grow the business from $0 to more than $50M in ARR. His
+      25-year career spans brand, communications, digital, demand
+      generation, product marketing, customer marketing, and
+      partnerships, across enterprise, mid-market, and PLG go-to-market
+      motions.
+    </p>
+
+    <p>
+      Connect with him on <a href={LINKEDIN_URL} rel="noopener">LinkedIn</a>.
     </p>
 
     <p>
       For win/loss research engagements, visit{' '}
-      <a href="https://www.oxwinloss.com">oxrevs.com</a>.
+      <a href={AUTHOR_ORG_URL} rel="noopener">Ox Win/Loss</a>.
     </p>
 
-    {/* TODO: Add LinkedIn URL, headshot, full biography */}
+    {/* TODO: Add headshot */}
   </article>
 </BaseLayout>

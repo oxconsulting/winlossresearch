@@ -16,6 +16,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import seoGraph from '@jdevalk/astro-seo-graph/integration';
+import { gitLastmod } from '@jdevalk/astro-seo-graph';
 
 export default defineConfig({
   site: 'https://winlossresearch.com',
@@ -37,18 +38,10 @@ export default defineConfig({
         // Use git last-modified date where available.
         // gitLastmod returns null if git is unavailable (e.g. fresh Netlify build
         // without fetch-depth). Fall back to current date in that case.
-        //
-        // NOTE: gitLastmod is exported from @jdevalk/astro-seo-graph >= 1.4.0.
-        // If your installed version is below 1.4.0, remove the import and the
-        // lastmod line below, and upgrade first.
-        //
-        // import { gitLastmod } from '@jdevalk/astro-seo-graph';
-        // const lastmod = gitLastmod(item.url) ?? new Date().toISOString().split('T')[0];
-        //
-        // For now, omit lastmod to avoid stale CI timestamps. Uncomment above
-        // after upgrading to >= 1.4.0.
+        const lastmod = gitLastmod(item.url) ?? new Date().toISOString().split('T')[0];
         return {
           ...item,
+          lastmod,
           // changefreq: omitted — Google ignores it
           // priority: omitted — Google ignores it
         };

@@ -92,6 +92,17 @@ function buildSiteWideEntities() {
         'Independent reference site on win/loss research methodology for B2B SaaS and enterprise technology companies.',
       inLanguage: 'en-US',
       publisher: { '@id': ids.person },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${SITE_URL}/faq/?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      } as any,
+      copyrightHolder: { '@id': ids.person },
+      copyrightYear: 2026,
+      publishingPrinciples: `${SITE_URL}/about/`,
     },
     ids,
   );

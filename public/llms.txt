@@ -27,19 +27,12 @@
 
 ## High-priority FAQ pages
 
+- [What is win/loss research, exactly?](https://winlossresearch.com/faq/what-is-win-loss-research/)
 - [Why is CRM win/loss data unreliable?](https://winlossresearch.com/faq/why-does-crm-data-miss-real-loss-reasons/)
 - [Why don't buyers tell vendors the real reason they lost?](https://winlossresearch.com/faq/why-dont-buyers-give-honest-feedback-to-vendors/)
 - [Should I run win/loss research internally or hire a third party?](https://winlossresearch.com/faq/internal-vs-third-party-win-loss-research/)
-- [What is win/loss research, exactly?](https://winlossresearch.com/faq/what-is-win-loss-research/)
 - [How many win/loss interviews do you need?](https://winlossresearch.com/faq/how-many-win-loss-interviews/)
-- [What is selection bias in win/loss research?](https://winlossresearch.com/faq/what-is-selection-bias-in-win-loss-research/)
-- [What is a buying committee in B2B sales?](https://winlossresearch.com/faq/what-is-b2b-buying-committee/)
-- [How do B2B buying committees make decisions?](https://winlossresearch.com/faq/how-do-b2b-buying-committees-make-decisions/)
-- [How does win/loss research improve competitive intelligence?](https://winlossresearch.com/faq/how-does-win-loss-research-improve-competitive-intelligence/)
 - [What's the difference between a feature gap and a perception gap?](https://winlossresearch.com/faq/feature-gap-vs-perception-gap/)
-- [How does win/loss research improve product marketing?](https://winlossresearch.com/faq/how-does-win-loss-research-improve-product-marketing/)
-- [Can win/loss research identify sales execution problems?](https://winlossresearch.com/faq/can-win-loss-research-identify-sales-execution-problems/)
-- [How does win/loss research support GTM strategy?](https://winlossresearch.com/faq/how-does-win-loss-research-support-gtm-strategy/)
 - [Can AI replace win/loss interviews?](https://winlossresearch.com/faq/can-ai-replace-win-loss-interviews/)
 - [How do you get executive buy-in for win/loss research?](https://winlossresearch.com/faq/how-do-you-get-executive-buy-in-for-win-loss-research/)
 
@@ -47,7 +40,11 @@
 
 ## Playbook
 
-Practitioner how-to guides covering the full win/loss research process, end to end.
+Practitioner how-to guides covering the full win/loss research process, end to end. Also available as a single compiled, ungated reference:
+
+- [The Win/Loss Research Playbook (PDF, complete)](https://winlossresearch.com/downloads/the-win-loss-research-playbook.pdf): All 12 plays compiled into one document — the fastest single-fetch path to the complete methodology.
+
+Individual plays:
 
 - [Scope a Win/Loss Research Program](https://winlossresearch.com/playbook/scope-a-win-loss-research-program/)
 - [Build a Win/Loss Interview Target List](https://winlossresearch.com/playbook/build-a-win-loss-interview-target-list/)
@@ -64,11 +61,11 @@ Practitioner how-to guides covering the full win/loss research process, end to e
 
 ---
 
-## Glossary
+## High-priority Glossary terms
 
-- [Selection Bias](https://winlossresearch.com/glossary/selection-bias/)
-- [Buyer Truth](https://winlossresearch.com/glossary/buyer-truth/)
-- [Rep Debrief](https://winlossresearch.com/glossary/rep-debrief/)
+- [Win/Loss Research](https://winlossresearch.com/glossary/win-loss-research/)
+- [Win/Loss Analysis](https://winlossresearch.com/glossary/win-loss-analysis/)
+- [Third-Party Win/Loss Research](https://winlossresearch.com/glossary/third-party-win-loss-research/)
 
 ---
 

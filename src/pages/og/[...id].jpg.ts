@@ -29,6 +29,7 @@ const SECTION_LABELS: Record<CollectionName, string> = {
 // -- getStaticPaths: one path per entry across all five collections ---
 export async function getStaticPaths() {
   const paths: { params: { id: string } }[] = [];
+  paths.push({ params: { id: 'home' } });
   for (const collectionName of COLLECTIONS) {
     const entries = await getCollection(collectionName);
     for (const entry of entries) {
@@ -113,6 +114,12 @@ async function lookupTitle(
   collectionName: string,
   entryId: string
 ): Promise<{ title: string; sectionLabel: string }> {
+  if (collectionName === 'home') {
+    return {
+      title: 'Complete Reference for Win/Loss Analysis, Research, and Programs',
+      sectionLabel: '',
+    };
+  }
   if (!COLLECTIONS.includes(collectionName as CollectionName)) {
     return { title: SITE_NAME, sectionLabel: '' };
   }

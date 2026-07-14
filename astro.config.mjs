@@ -28,17 +28,50 @@ export default defineConfig({
       // Split sitemap by collection for easier GSC debugging.
       // Each collection gets its own sitemap file referenced in sitemap-index.xml.
       chunks: {
-        pillars:      (page) => page.url.includes('/topics/'),
-        perspectives: (page) => page.url.includes('/perspectives/'),
-        faq:          (page) => page.url.includes('/faq/'),
-        glossary:     (page) => page.url.includes('/glossary/'),
-        playbook:     (page) => page.url.includes('/playbook/'),
+        // Each function must return the SitemapItem itself (or undefined to
+        // exclude it) per @astrojs/sitemap's type contract — NOT a bare
+        // boolean. Returning true/false here (the original bug) caused every
+        // <loc> in every chunked sitemap to resolve to the literal string
+        // "undefined", since the boolean has no .url property to read.
+        pillars:      (item) => item.url.includes('/topics/') ? item : undefined,
+        perspectives: (item) => item.url.includes('/perspectives/') ? item : undefined,
+        faq:          (item) => item.url.includes('/faq/') ? item : undefined,
+        glossary:     (item) => item.url.includes('/glossary/') ? item : undefined,
+        playbook:     (item) => item.url.includes('/playbook/') ? item : undefined,
       },
       serialize(item) {
-        // Use git last-modified date where available.
-        // gitLastmod returns null if git is unavailable (e.g. fresh Netlify build
-        // without fetch-depth). Fall back to current date in that case.
-        const lastmod = gitLastmod(item.url) ?? new Date().toISOString().split('T')[0];
+        // Map the rendered URL back to the real content file path.
+        // gitLastmod() runs `git log -- <filePath>` and needs an actual
+        // filesystem path — it was previously called with item.url (a
+        // rendered https:// URL), which never matches a tracked file and
+        // silently returned null every time. Fixed here: derive the real
+        // src/content/<collection>/<slug>.md path from the URL for the
+        // five known collection patterns. Note the URL segment 'topics'
+        // maps to the 'pillars' content directory, not 'topics'.
+        const URL_PREFIX_TO_DIR = {
+          '/faq/': 'faq',
+          '/glossary/': 'glossary',
+          '/topics/': 'pillars',
+          '/perspectives/': 'perspectives',
+          '/playbook/': 'playbook',
+        };
+
+        let filePath = null;
+        for (const [urlPrefix, dir] of Object.entries(URL_PREFIX_TO_DIR)) {
+          if (item.url.includes(urlPrefix)) {
+            const slug = item.url.split(urlPrefix)[1]?.replace(/\/$/, '');
+            if (slug) filePath = `src/content/${dir}/${slug}.md`;
+            break;
+          }
+        }
+
+        // Use git last-modified date where available. gitLastmod returns
+        // null if git is unavailable (e.g. fresh Netlify build without
+        // fetch-depth), or if filePath is null (index pages, About,
+        // homepage, and the standalone win-loss-analysis-playbook page —
+        // none of which are single content-collection files). Fall back
+        // to current date in either case.
+        const lastmod = (filePath ? gitLastmod(filePath) : null) ?? new Date().toISOString().split('T')[0];
         return {
           ...item,
           lastmod,

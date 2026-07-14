@@ -153,6 +153,7 @@ export const GET: APIRoute = async ({ params }) => {
         '@id': `${url}#term`,
         name: data.term ?? data.title,
         description: data.definition ?? data.description,
+        articleBody,
         url,
         inDefinedTermSet: {
           '@type': 'DefinedTermSet',

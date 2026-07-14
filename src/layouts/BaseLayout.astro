@@ -96,12 +96,38 @@ interface Props {
   noindex?: boolean;
 }
 
+/**
+ * Maps pageGraphType to the OG route's collection folder name. Only page
+ * types with a per-entry OG image get an entry here -- home/list/404
+ * pages fall through to the static default.jpg.
+ */
+const OG_COLLECTION_BY_PAGE_TYPE: Partial<Record<PageGraphOptions['pageType'], string>> = {
+  article: 'pillars',
+  perspectives: 'perspectives',
+  faq: 'faq',
+  glossary: 'glossary',
+  playbook: 'playbook',
+};
+
+function deriveDynamicOgImageUrl(
+  pageType: PageGraphOptions['pageType'],
+  canonicalUrl: string
+): string | null {
+  const collection = OG_COLLECTION_BY_PAGE_TYPE[pageType];
+  if (!collection) return null;
+  // canonicalUrl ends in /[id]/ -- entry.id is always the last non-empty
+  // segment (confirmed via getStaticPaths across all five collection
+  // templates: params.slug = entry.id in every case, Session C verification).
+  const segments = canonicalUrl.replace(/\/$/, '').split('/');
+  const id = segments[segments.length - 1];
+  return `${SITE_URL}/og/${collection}/${id}.jpg`;
+}
+
 const {
   title,
   description,
   canonicalUrl = Astro.url.href,
   ogType = 'website',
-  ogImageUrl = `${SITE_URL}/og/default.jpg`,
   publishDate,
   modifiedDate,
   breadcrumbs,
@@ -115,6 +141,11 @@ const {
   steps,
   noindex = false,
 } = Astro.props;
+
+const ogImageUrl =
+  Astro.props.ogImageUrl ??
+  deriveDynamicOgImageUrl(pageGraphType, canonicalUrl) ??
+  `${SITE_URL}/og/default.jpg`;
 
 // Build the appropriate graph for this page type
 let graphOptions: PageGraphOptions;
@@ -237,7 +268,7 @@ const articleMeta =
       ogImage={ogImageUrl}
       ogImageAlt={`${title} — Win/Loss Research`}
       ogImageWidth={1200}
-      ogImageHeight={675}
+      ogImageHeight={630}
       siteName={SITE_NAME}
       locale="en_US"
       noindex={noindex}

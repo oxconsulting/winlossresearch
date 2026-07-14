@@ -40,7 +40,7 @@ Competitive perceptions that shaped the decision but were never shared with the 
 ## Related Terms
 
 - [Third-party win/loss research](/glossary/third-party-win-loss-research/)
-- [Third-party neutrality](/glossary/third-party-neutrality/)
+- [Third-party neutrality](/glossary/third-party-win-loss-research/)
 - [Rep debrief](/glossary/rep-debrief/)
 - [Win/loss interview](/glossary/win-loss-interview/)
 

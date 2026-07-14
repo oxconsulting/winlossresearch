@@ -1,5 +1,5 @@
 ---
-title: "Why Internal Win/Loss Data Fails: The Structural Gaps Your CRM Can't Fix"
+title: "Why Internal Win/Loss Data Fails"
 description: "CRM notes, rep debriefs, surveys, and call recordings share a common flaw: the buyers with the most important perspectives never enter vendor-managed feedback loops."
 shortTitle: "Why Internal Data Fails"
 draft: false
@@ -146,13 +146,13 @@ This is not a preference for a particular methodology. It is a structural requir
 - [Why does CRM data miss the real reasons deals are lost?](/faq/why-does-crm-data-miss-real-loss-reasons/)
 - [Why don't buyers give honest feedback to vendors?](/faq/why-dont-buyers-give-honest-feedback-to-vendors/)
 - [What is selection bias in win/loss research?](/faq/what-is-selection-bias-in-win-loss-research/)
-- [Why do win/loss surveys produce unreliable data?](/faq/why-do-win-loss-surveys-produce-unreliable-data/)
-- [What are the limitations of analyzing sales call recordings for win/loss insights?](/faq/limitations-of-sales-call-recording-win-loss/)
-- [Why does AI win/loss analysis fail when applied to CRM data?](/faq/why-ai-win-loss-analysis-fails-crm-data/)
-- [Why do buyers give price as a reason for losses when it wasn't the real factor?](/faq/why-buyers-give-price-as-loss-reason/)
-- [What information do buyers withhold from vendors after a deal?](/faq/what-information-buyers-withhold-from-vendors/)
-- [Why is internal win/loss research a conflict of interest?](/faq/internal-win-loss-conflict-of-interest/)
-- [Why do win/loss loss codes produce misleading data?](/faq/why-win-loss-codes-misleading/)
+- [How is win/loss research different from customer surveys?](/faq/win-loss-research-vs-surveys/)
+- [How is win/loss research different from call recordings?](/faq/win-loss-research-vs-call-recordings/)
+- [Why can't AI analyze my CRM and call recordings for win/loss insights?](/faq/why-cant-ai-analyze-my-crm-and-call-recordings-for-win-loss-insights/)
+- [Why don't buyers give honest feedback to vendors?](/faq/why-dont-buyers-give-honest-feedback-to-vendors/)
+- [Why is running win/loss research internally a conflict of interest?](/faq/why-is-running-win-loss-research-internally-a-conflict-of-interest/)
+- [Why do buyers give price as a loss reason?](/faq/why-buyers-give-price-as-loss-reason/)
+- [Why are win/loss codes misleading?](/faq/why-win-loss-codes-misleading/)
 
 ### Related Perspectives
 

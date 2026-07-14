@@ -49,7 +49,7 @@ The goal is a sample that reflects what actually happened across deals in a defi
 - [Win/Loss Research Methodology](/topics/win-loss-research-methodology/)
 - [Why does CRM data miss the real reasons deals are lost?](/faq/why-does-crm-data-miss-real-loss-reasons/)
 - [Why don't buyers give honest feedback to vendors?](/faq/why-dont-buyers-give-honest-feedback-to-vendors/)
-- [How many win/loss interviews do you need?](/faq/how-many-win-loss-interviews-do-you-need/)
+- [How many win/loss interviews do you need?](/faq/how-many-win-loss-interviews/)
 - [Selection bias](/glossary/selection-bias/)
 - [Participation rate](/glossary/participation-rate/)
 - [Pattern recognition](/glossary/pattern-recognition/)

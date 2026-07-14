@@ -1,5 +1,5 @@
 ---
-title: "Win/Loss Findings Shelf Life"
+title: "Win/Loss Research Findings Shelf Life"
 description: "Win/loss findings shelf life is how long a research finding stays accurate before market shifts make it misleading."
 term: "Win/loss findings shelf life"
 definition: "The period during which a win/loss research finding remains an accurate guide to buyer behavior before market, competitive, or product changes make it misleading."

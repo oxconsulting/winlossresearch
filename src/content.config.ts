@@ -55,7 +55,7 @@ export const PLAYBOOK_PHASES = [
 const playbookPhase = z.enum(PLAYBOOK_PHASES);
 
 const seoTitle = z.string().min(5).max(120);
-const seoDescription = z.string().min(15).max(160);
+const seoDescription = z.string().min(70).max(160);
 const seoDescriptionLong = z.string().min(15).max(300);
 
 // ── Pillars ─────────────────────────────────────────────────────────────

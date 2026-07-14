@@ -1,0 +1,36 @@
+---
+/**
+ * src/pages/playbook/win-loss-analysis-playbook.astro
+ *
+ * Landing page for the compiled Playbook PDF. All 12 individual play
+ * pages, the Playbook index, and Pillar 10 link here. Created in
+ * Session B, Cluster 5 to resolve 12 internal-link 404 warnings.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_URL } from '../../utils/schema';
+---
+<BaseLayout
+  title="Download the Win/Loss Analysis Playbook"
+  description="Download the complete Win/Loss Analysis Playbook as a single PDF, covering all twelve plays from scoping a program to sustaining it long-term."
+  canonicalUrl={`${SITE_URL}/playbook/win-loss-analysis-playbook/`}
+  pageGraphType="list"
+>
+  <article>
+    <h1>The Win/Loss Analysis Playbook</h1>
+    <p>
+      The complete Win/Loss Analysis Playbook compiles all twelve plays
+      into a single reference document, covering every phase of a
+      win/loss research program from scoping the first cycle through
+      sustaining it long-term.
+    </p>
+    <p>
+      <a href="/downloads/the-win-loss-research-playbook.pdf">
+        Download the Playbook PDF
+      </a>
+    </p>
+    <p>
+      Prefer to browse individual plays? Visit the{' '}
+      <a href="/playbook/">Playbook index</a>.
+    </p>
+  </article>
+</BaseLayout>

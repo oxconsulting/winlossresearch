@@ -46,7 +46,6 @@ jobs:
             --exclude '^https?://localhost'
             --exclude '^https?://127\.0\.0\.1'
             --exclude 'linkedin\.com'
-            --exclude-mail
             --no-progress
             ./dist
           fail: true

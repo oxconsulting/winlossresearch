@@ -56,6 +56,7 @@ export default defineConfig({
       validateImageAlt: true,       // All <img> tags must have alt attributes
       validateMetadataLength: true, // Titles 30–65 chars, descriptions 70–200 chars
       validateInternalLinks: true,  // Internal links must not 404
+      markdownAlternate: true,      // Serve .md alternates + <link rel="alternate" type="text/markdown">
 
       // Auto-generate /llms.txt from content collections.
       // Remove this block if you are using the static public/llms.txt file instead.

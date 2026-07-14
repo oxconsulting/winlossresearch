@@ -1,0 +1,54 @@
+name: External link check
+
+# Two triggers:
+#   1. Push to draft when content changes — catches new dead outbound links
+#      before they merge to main.
+#   2. Weekly Sunday 09:00 UTC — catches link rot on external sites that
+#      moved or disappeared after content was already published.
+#
+# Follows the official lychee docs recipe for Astro sites: build first,
+# then point lychee at the built dist/ HTML rather than raw markdown
+# source, so relative links, generated OG/schema URLs, and anything
+# templated at build time are checked as they'll actually render.
+# https://lychee.cli.rs/github_action_recipes/pull-requests/
+on:
+  push:
+    branches: [draft]
+    paths:
+      - 'src/content/**'
+  schedule:
+    - cron: '0 9 * * 0'
+  workflow_dispatch: {}
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.12.0'  # matches engines.node in package.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --root-dir ${{ github.workspace }}/dist
+            --exclude '^https?://localhost'
+            --exclude '^https?://127\.0\.0\.1'
+            --exclude 'linkedin\.com'
+            --exclude-mail
+            --no-progress
+            ./dist
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

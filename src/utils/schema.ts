@@ -253,7 +253,7 @@ export function buildPageGraph(options: PageGraphOptions): object {
           {
             url: options.imageUrl,
             width: 1200,
-            height: 675,
+            height: 630,
             pageUrl: options.url,
           },
           ids,
@@ -291,7 +291,7 @@ export function buildPageGraph(options: PageGraphOptions): object {
           {
             url: options.imageUrl,
             width: 1200,
-            height: 675,
+            height: 630,
             pageUrl: options.url,
           },
           ids,

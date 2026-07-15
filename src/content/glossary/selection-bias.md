@@ -49,3 +49,4 @@ The goal is a sample where the deal pool and participant set reflect what actual
 - [Win/Loss Research Methodology](/topics/win-loss-research-methodology/)
 - [What is selection bias in win/loss research?](/faq/what-is-selection-bias-in-win-loss-research/)
 - [Why does CRM data miss the real reasons deals are lost?](/faq/why-does-crm-data-miss-real-loss-reasons/)
+

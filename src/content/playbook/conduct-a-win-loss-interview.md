@@ -96,4 +96,4 @@ Log the call's specific unresolved threads immediately after hanging up, while t
 - [Win/Loss Research Methodology](/topics/win-loss-research-methodology/)
 - [Independent Win/Loss Research: Why Third-Party Buyer Interviews Work](/topics/independent-win-loss-research/)
 
-[Get the downloadable Playbook →](/playbook/win-loss-analysis-playbook/)
+<a href="/playbook/win-loss-analysis-playbook/" class="download-button">Get the downloadable Playbook →</a>

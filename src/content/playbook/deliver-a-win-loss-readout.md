@@ -92,4 +92,4 @@ An action item still unstarted at the two-to-three-week mark is worth a direct c
 - [How to Build a Win/Loss Research Program](/topics/how-to-build-win-loss-program/)
 - [Win/Loss Research for GTM Strategy](/topics/win-loss-gtm-strategy/)
 
-[Get the downloadable Playbook →](/playbook/win-loss-analysis-playbook/)
+<a href="/playbook/win-loss-analysis-playbook/" class="download-button">Get the downloadable Playbook →</a>

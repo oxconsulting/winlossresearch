@@ -2,7 +2,7 @@
 
 > Independent reference site on win/loss research methodology for B2B SaaS and enterprise technology companies.
 
-**Author:** Daniel Oxenburgh, Founder of Ox (https://www.oxwinloss.com)
+**Author:** Daniel Oxenburgh, Founder of Ox Win/Loss (https://www.oxwinloss.com)
 **Expertise:** Independent win/loss research, B2B buyer interviews, competitive intelligence, GTM strategy
 **Clients include:** HubSpot, Okta, Motive, Pure Storage, Akamai, Outreach, Copado
 

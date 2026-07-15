@@ -100,4 +100,4 @@ Once sponsorship is confirmed, put the scope, the boundary from Step 3, and the 
 - [Why Internal Win/Loss Data Fails](/topics/why-internal-win-loss-data-fails/)
 - [How to Build a Win/Loss Research Program](/topics/how-to-build-win-loss-program/)
 
-[Get the downloadable Playbook →](/playbook/win-loss-analysis-playbook/)
+<a href="/playbook/win-loss-analysis-playbook/" class="download-button">Get the downloadable Playbook →</a>

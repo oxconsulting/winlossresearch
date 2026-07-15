@@ -71,4 +71,4 @@ A second, simpler check works alongside the first: have someone outside the func
 - [Win/Loss Research Methodology](/topics/win-loss-research-methodology/)
 - [Why Internal Win/Loss Data Fails](/topics/why-internal-win-loss-data-fails/)
 
-[Get the downloadable Playbook →](/playbook/win-loss-analysis-playbook/)
+<a href="/playbook/win-loss-analysis-playbook/" class="download-button">Get the downloadable Playbook →</a>

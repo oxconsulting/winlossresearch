@@ -94,4 +94,4 @@ Reserve a specialized coding tool for programs running well beyond 30 interviews
 ### Relevant Pillars
 - [Win/Loss Research Methodology](/topics/win-loss-research-methodology/)
 
-[Get the downloadable Playbook →](/playbook/win-loss-analysis-playbook/)
+<a href="/playbook/win-loss-analysis-playbook/" class="download-button">Get the downloadable Playbook →</a>

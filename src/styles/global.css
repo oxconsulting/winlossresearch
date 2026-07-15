@@ -916,3 +916,32 @@ article h2 + ul li:last-child {
     animation: none !important;
   }
 }
+
+/* ------------------------------------------------------------
+   Download button — filled CTA, the one exception to the
+   underline-only link rule. Shared version for Playbook index
+   and play-page bottom links. (The PDF landing page itself uses
+   its own scoped copy of these same values.)
+   ------------------------------------------------------------ */
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 15px 26px;
+  border-radius: var(--radius-sm);
+  border-bottom: none;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.download-button:hover {
+  background: var(--ink);
+  color: var(--paper);
+}

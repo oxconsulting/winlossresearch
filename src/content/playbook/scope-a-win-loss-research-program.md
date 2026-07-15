@@ -91,4 +91,4 @@ An hours range shows how much time a scoped program takes to run, not whether th
 - [How to Build a Win/Loss Research Program](/topics/how-to-build-win-loss-program/)
 - [Independent Win/Loss Research: Why Third-Party Buyer Interviews Work](/topics/independent-win-loss-research/)
 
-[Get the downloadable Playbook →](/playbook/win-loss-analysis-playbook/)
+<a href="/playbook/win-loss-analysis-playbook/" class="download-button">Get the downloadable Playbook →</a>

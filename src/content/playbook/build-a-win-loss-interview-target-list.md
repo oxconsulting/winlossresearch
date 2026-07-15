@@ -91,4 +91,4 @@ Keep a short exclusion log alongside the final list: how many records came out o
 - [Why Internal Win/Loss Data Fails](/topics/why-internal-win-loss-data-fails/)
 - [Win/Loss Research Methodology](/topics/win-loss-research-methodology/)
 
-[Get the downloadable Playbook →](/playbook/win-loss-analysis-playbook/)
+<a href="/playbook/win-loss-analysis-playbook/" class="download-button">Get the downloadable Playbook →</a>

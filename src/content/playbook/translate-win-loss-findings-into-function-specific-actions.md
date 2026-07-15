@@ -121,4 +121,4 @@ Keep the completed matrix from each cycle rather than overwriting it with the ne
 - [Win/Loss Research for GTM Strategy](/topics/win-loss-gtm-strategy/)
 - [How to Build a Win/Loss Research Program](/topics/how-to-build-win-loss-program/)
 
-[Get the downloadable Playbook →](/playbook/win-loss-analysis-playbook/)
+<a href="/playbook/win-loss-analysis-playbook/" class="download-button">Get the downloadable Playbook →</a>

@@ -43,6 +43,7 @@ jobs:
         with:
           args: >-
             --root-dir ${{ github.workspace }}/dist
+            --remap "^https://winlossresearch\.com file://${{ github.workspace }}/dist"
             --exclude '^https?://localhost'
             --exclude '^https?://127\.0\.0\.1'
             --exclude 'linkedin\.com'

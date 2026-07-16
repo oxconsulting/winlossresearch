@@ -105,11 +105,15 @@ export default defineConfig({
       //   1. DNS is pointed to winlossresearch.com
       //   2. You have generated a key (any UUID or 32-char hex string)
       //   3. You have deployed the key verification route (see src/pages/[key].txt.ts)
-      // indexNow: {
-      //   key: 'YOUR_INDEXNOW_KEY_HERE',
-      //   // Only submit from production builds — never from preview deploys
-      //   enabled: process.env.CONTEXT === 'production',
-      // },
+      // indexNow is only constructed as an object when building in
+      // production — the plugin submits whenever `indexNow` is truthy,
+      // it does not read an `enabled` flag itself, so gating has to
+      // happen here rather than inside the options object.
+      indexNow: process.env.CONTEXT === 'production' ? {
+        key: '3f242644736125cc9ad5ad1af498a155',
+        host: 'winlossresearch.com',
+        siteUrl: 'https://winlossresearch.com',
+      } : undefined,
     }),
   ],
 

@@ -64,6 +64,7 @@ import type {
   HowToStep,
   Person,
   ItemList,
+  SoftwareApplication,
 } from 'schema-dts';
 
 // ─── Site-wide constants ─────────────────────────────────────────────────────
@@ -203,6 +204,15 @@ export type PageGraphOptions =
        */
       steps: Array<{ name: string; text: string }>;
       breadcrumbs?: Array<{ name: string; url: string }>;
+    }
+  | {
+      pageType: 'tool';
+      url: string;
+      name: string;
+      description: string;
+      /** Plain-text summary of what the tool does, for the SoftwareApplication description field. */
+      applicationDescription: string;
+      breadcrumbs?: Array<{ name: string; url: string }>;
     };
 
 // ─── Main builder ─────────────────────────────────────────────────────────────
@@ -230,7 +240,8 @@ export function buildPageGraph(options: PageGraphOptions): object {
       options.pageType === 'faq' ||
       options.pageType === 'glossary' ||
       options.pageType === 'perspectives' ||
-      options.pageType === 'playbook') &&
+      options.pageType === 'playbook' ||
+      options.pageType === 'tool') &&
     options.breadcrumbs?.length
   ) {
     const breadcrumb = buildBreadcrumbList(
@@ -375,6 +386,27 @@ export function buildPageGraph(options: PageGraphOptions): object {
       ),
     });
     pieces.push(howTo);
+  }
+
+  // SoftwareApplication schema for the free CRM diagnostic tool.
+  // Client-side, free, no login — reflected in offers/price below.
+  if (options.pageType === 'tool') {
+    const softwareApp = buildPiece<SoftwareApplication>({
+      '@type': 'SoftwareApplication',
+      '@id': `${options.url}#software`,
+      name: options.name,
+      description: options.applicationDescription,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      url: options.url,
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      } as any,
+      author: { '@id': ids.person },
+    });
+    pieces.push(softwareApp);
   }
 
   // ItemList of the ten pillars, homepage only

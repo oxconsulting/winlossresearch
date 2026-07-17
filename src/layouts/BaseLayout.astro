@@ -93,6 +93,10 @@ interface Props {
   faqs?: Array<{ question: string; answer: string }>;
   /** Playbook-specific: one entry per H2 on the page, in order, for the HowTo schema's step array. */
   steps?: Array<{ name: string; text: string }>;
+  /** Tool-specific: plain-text description of what the tool does, for SoftwareApplication schema. */
+  applicationDescription?: string;
+  /** Opts this page into a wider <main> (.main--wide in global.css). Default false — every other page keeps the 720px prose width. */
+  wide?: boolean;
   noindex?: boolean;
 }
 
@@ -139,6 +143,8 @@ const {
   pillars,
   faqs,
   steps,
+  applicationDescription,
+  wide = false,
   noindex = false,
 } = Astro.props;
 
@@ -212,6 +218,15 @@ if (pageGraphType === 'faq' && faqQuestion && faqAnswer) {
     pillars,
     faqs,
   };
+} else if (pageGraphType === 'tool' && applicationDescription) {
+  graphOptions = {
+    pageType: 'tool',
+    url: canonicalUrl,
+    name: title,
+    description,
+    applicationDescription,
+    breadcrumbs,
+  };
 } else {
   graphOptions = {
     pageType: 'list',
@@ -232,7 +247,8 @@ const isContentPage =
   pageGraphType === 'faq' ||
   pageGraphType === 'glossary' ||
   pageGraphType === 'perspectives' ||
-  pageGraphType === 'playbook';
+  pageGraphType === 'playbook' ||
+  pageGraphType === 'tool';
 const titleTemplate = isContentPage ? '%s' : `%s | ${SITE_NAME}`;
 
 // For Perspectives posts and dated Article pages: build OG article metadata.
@@ -280,6 +296,7 @@ const articleMeta =
         { rel: 'alternate', type: 'application/rss+xml', href: '/feed.xml', title: `${SITE_NAME} — Perspectives` },
       ]}
     />
+    <slot name="head" />
     <ClientRouter defaultStrategy="viewport" />
   </head>
   <body>
@@ -305,7 +322,7 @@ const articleMeta =
       </nav>
     </header>
 
-    <main>
+    <main class:list={[{ 'main--wide': wide }]}>
       <slot />
     </main>
 

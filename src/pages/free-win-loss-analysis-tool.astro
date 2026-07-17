@@ -1,0 +1,70 @@
+---
+/**
+ * src/pages/free-win-loss-analysis-tool.astro
+ *
+ * Static output only (astro.config.mjs has no `output: 'server'`, and this
+ * page doesn't need one) — the H1, kicker, and direct-answer paragraph
+ * below render server-side like every other page on the site, so they're
+ * crawlable and citable. Only the interactive tool itself is a
+ * client:only="react" island; there's no server-rendered state to
+ * hydrate-mismatch against, since the tool is pure client-side CSV
+ * parsing/analysis with nothing persisted.
+ *
+ * Not part of any content collection (no src/content/tool/ — this is a
+ * single standalone page, not a repeatable content type), so it's a plain
+ * .astro file under src/pages/ rather than a [...slug].astro template.
+ *
+ * `wide` opts this page into a wider `<main>` (see BaseLayout.astro and
+ * global.css's `.main--wide` rule) — the tool needs more horizontal room
+ * than prose does, and this is an explicit per-page opt-in so no other
+ * page's layout changes.
+ *
+ * The `#tool-answer` id on the direct-answer paragraph below is a hook for
+ * WinLossAnalyzer.jsx: once the person moves past the Upload step, the
+ * component hides that paragraph client-side to reclaim vertical space.
+ * The paragraph itself stays in the static, server-rendered HTML either
+ * way — collapsing it is a client-side visual behavior for people actually
+ * using the tool, not a change to what search engines or answer engines
+ * see in the initial markup.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WinLossAnalyzer from '../components/win-loss-tool/WinLossAnalyzer.jsx';
+import { SITE_URL } from '../utils/schema';
+
+const title = 'Win/Loss Analysis: What Your CRM Data Is Actually Telling You';
+const description = 'Upload your CRM export to see win rates, loss patterns, and data quality gaps instantly, then get ranked interview hypotheses for your win/loss research.';
+const applicationDescription = 'A free, client-side tool that maps a CRM export to a standard win/loss schema, runs coverage and win-rate diagnostics, and generates a ranked list of interview hypotheses. Nothing is uploaded to a server; all processing happens in the browser.';
+
+const canonicalUrl = `${SITE_URL}/free-win-loss-analysis-tool/`;
+const breadcrumbs = [
+  { name: title, url: canonicalUrl },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogType="website"
+  pageGraphType="tool"
+  applicationDescription={applicationDescription}
+  breadcrumbs={breadcrumbs}
+  wide
+>
+  <link
+    slot="head"
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css"
+  />
+  <article class="tool-page">
+    <p class="kicker">Free Tool</p>
+    <h1>{title}</h1>
+    <p id="tool-answer">
+      This free tool analyzes your CRM export directly in your browser, surfacing win rate
+      patterns, loss attribution gaps, and CRM data quality issues before you commit to formal
+      win/loss research. Upload a CSV, map your fields, and get ranked interview hypotheses in
+      minutes. Nothing leaves your device.
+    </p>
+    <WinLossAnalyzer client:only="react" />
+  </article>
+</BaseLayout>

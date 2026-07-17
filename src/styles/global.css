@@ -63,6 +63,7 @@
 
   --width-prose: 720px;
   --width-nav:   1100px;
+  --width-tool:  1040px;
 
   --radius-sm: 3px;
   --radius-md: 6px;
@@ -199,6 +200,13 @@ main {
   max-width: var(--width-prose);
   margin: 0 auto;
   padding: var(--space-12) var(--space-6);
+}
+
+/* Opt-in wider main for pages that need more horizontal room than
+   prose does (currently just the tool page). Applied via BaseLayout's
+   `wide` prop, not a global change. */
+main.main--wide {
+  max-width: var(--width-tool);
 }
 
 /* ------------------------------------------------------------
@@ -944,4 +952,111 @@ article h2 + ul li:last-child {
 .download-button:hover {
   background: var(--ink);
   color: var(--paper);
+}
+
+/* ------------------------------------------------------------
+   Direct-answer block — tool page variant.
+   Same declarations as .faq-page/.glossary-term h1 + p (see above);
+   duplicated under its own selector rather than added to that shared
+   rule because this page isn't a FAQ or glossary page, and piggybacking
+   on those class names would be misleading if either template changes
+   independently later.
+   ------------------------------------------------------------ */
+.tool-page {
+  max-width: var(--width-tool);
+  margin: 0 auto;
+}
+
+.tool-page h1 + p {
+  padding-left: var(--space-5);
+  border-left: 3px solid var(--gold);
+  font-family: var(--font-serif);
+  font-size: var(--text-lg); /* 19px */
+  line-height: var(--leading-normal);
+  color: var(--text-answer-color);
+  border-bottom: 1px solid var(--paper-2);
+  padding-bottom: 2.25rem; /* 36px */
+  margin-bottom: var(--space-8);
+}
+
+/* ------------------------------------------------------------
+   Win/Loss Analysis Tool — scoped tokens and base element styles
+   for /free-win-loss-analysis-tool/.
+
+   Everything below is scoped under .win-loss-tool (the tool's React
+   root renders this class) so none of it can affect any other page or
+   component on the site. The one deliberate exception to the site's
+   gold-only single-accent rule (visual-identity.md, Section 2) lives
+   here: coverage meters, win/loss tags, and hypothesis-strength flags
+   in this diagnostic UI need danger/warning/success color, which
+   nothing else on the site currently does. Values match the tool's own
+   working-artifact palette exactly (warm, desaturated versions of the
+   site's ink/paper family, not saturated red/yellow/green) so they read
+   as part of the same system rather than a bolted-on component library.
+   ------------------------------------------------------------ */
+.win-loss-tool {
+  --tool-border-secondary: #C8C4B8;
+  --tool-border-tertiary: #D8D4C8;
+  --tool-text-secondary: #4A4640;
+  --tool-danger-bg: #E6DDD5;
+  --tool-danger-border: #9B6248;
+  --tool-danger-fg: #8B3020;
+  --tool-warning-bg: #EDE9DC;
+  --tool-warning-fg: #7A6220;
+  --tool-success-bg: #EBE9D8;
+  --tool-success-border: #A8A060;
+  --tool-success-fg: #5A5C28;
+  --tool-info-bg: #EDE7CB;
+
+  font-family: var(--font-serif);
+}
+
+/* Base button reset — the rest of the site has no bare <button>
+   elements (its one CTA, .download-button, is an anchor styled to look
+   like a button), so this scope is genuinely new territory rather than
+   an override of something that already exists elsewhere. */
+.win-loss-tool button {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--tool-border-secondary);
+  background: var(--paper-2);
+  color: var(--tool-text-secondary);
+  cursor: pointer;
+  line-height: 1.4;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.win-loss-tool button:not(:disabled):hover {
+  background: var(--paper-2);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.win-loss-tool button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.win-loss-tool select {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--tool-border-secondary);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  appearance: auto;
+}
+
+.win-loss-tool table {
+  border-collapse: collapse;
 }

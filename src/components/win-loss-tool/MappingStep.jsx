@@ -28,9 +28,6 @@ function MappingStep({ filename, headers, rows, onConfirm, onReset }) {
 
   return (
     <div>
-      <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "var(--tool-info-bg)", borderRadius: "var(--radius-sm)", padding: "5px 12px", fontFamily: "var(--font-mono)", fontSize: 11, fontWeight: 500, letterSpacing: "0.06em", color: "var(--ink)", marginBottom: 20 }}>
-        <i className="ti ti-file-text" aria-hidden="true" style={{ fontSize: 16 }} />{filename}
-      </div>
       <div style={{ display: "flex", gap: 12, marginBottom: 28, flexWrap: "wrap" }}>
         <StatChip label="Total rows" value={rows.length.toLocaleString()} />
         <StatChip label="Columns detected" value={headers.length} />

@@ -8,7 +8,7 @@
  */
 import { useState } from 'react';
 import { filterAndNormalize } from '../../lib/win-loss-tool/dataProcessing';
-import { StatChip, SectionLabel, Tag } from './Primitives';
+import { StatChip, SectionLabel, Tag, Flag } from './Primitives';
 
 const WINDOW_OPTIONS = [30, 60, 90, 180, 365];
 
@@ -40,15 +40,9 @@ function FilterStep({ filename, mapping, rows, onAnalyze, onReset }) {
 
   return (
     <div>
-      <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "var(--tool-info-bg)", borderRadius: "var(--radius-sm)", padding: "5px 12px", fontFamily: "var(--font-mono)", fontSize: 11, fontWeight: 500, letterSpacing: "0.06em", color: "var(--ink)", marginBottom: 20 }}>
-        <i className="ti ti-file-text" aria-hidden="true" style={{ fontSize: 16 }} />{filename}
-      </div>
-      <div style={{ marginBottom: 20, padding: "10px 14px", background: "var(--paper-2)", borderRadius: "var(--radius-sm)", fontSize: 17, color: "var(--tool-text-secondary)", display: "flex", alignItems: "center", gap: 8 }}>
-        <i className="ti ti-calendar" aria-hidden="true" style={{ fontSize: 16, color: "var(--gold)", flexShrink: 0 }} />
-        <span>Date format detected: <strong style={{ fontFamily: "var(--font-mono)" }}>{detectedFormat.replace("_ambiguous", "")}</strong>
-          {detectedFormat.includes("ambiguous") && <span style={{ color: "var(--tool-warning-fg)", marginLeft: 8 }}><i className="ti ti-alert-triangle" aria-hidden="true" style={{ marginRight: 4, fontSize: 17 }} />MM/DD ambiguous — defaulting to MM/DD/YYYY (US format)</span>}
-        </span>
-      </div>
+      {detectedFormat.includes("ambiguous") && (
+        <Flag color="warning">MM/DD ambiguous in this file — defaulting to MM/DD/YYYY (US format).</Flag>
+      )}
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24, flexWrap: "wrap" }}>
         <span style={{ fontSize: 18, color: "var(--tool-text-secondary)", fontWeight: 500 }}>Date window:</span>
         {WINDOW_OPTIONS.map(d => (

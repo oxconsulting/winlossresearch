@@ -1060,3 +1060,22 @@ article h2 + ul li:last-child {
 .win-loss-tool table {
   border-collapse: collapse;
 }
+
+/* One-line instruction below the step indicator, specific to whichever
+   step is active. Muted serif rather than the mono/uppercase treatment
+   used for UI labels elsewhere in the tool (SectionLabel, kicker) —
+   this is a sentence meant to be read, not a data label. */
+/* Boxed treatment — same visual weight as the tool's other inline
+   callouts (e.g. the coverage/date-window boxes), so the instruction
+   reads as a distinct helper line rather than faint caption text. */
+.win-loss-tool .step-instruction {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: var(--leading-normal);
+  background: var(--paper-2);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin: 0 0 20px;
+}

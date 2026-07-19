@@ -44,7 +44,7 @@ function UploadStep({ onParsed }) {
         <i className="ti ti-upload" aria-hidden="true" style={{ fontSize: 28, color: "var(--ink)", display: "block", marginBottom: 12 }} />
         <p style={{ fontWeight: 500, fontSize: 17, color: "var(--ink)", margin: "0 0 6px" }}>Drop your CRM export here</p>
         <p style={{ fontSize: 18, color: "var(--tool-text-secondary)", margin: "0 0 20px" }}>Accepts .csv files from any CRM</p>
-        <button style={{ background: "var(--gold)", color: "var(--ink)", borderColor: "var(--gold)", fontFamily: "var(--font-mono)", fontSize: 11, fontWeight: 600, letterSpacing: "0.08em" }}>Choose file</button>
+        <button style={{ background: "var(--gold)", color: "var(--ink)", borderColor: "var(--gold)", fontSize: 18 }}>Choose file</button>
         <p style={{ fontFamily: "var(--font-serif)", fontSize: 17, color: "var(--muted)", textAlign: "center", maxWidth: 380, margin: "16px auto 0", lineHeight: 1.65 }}>
           <i className="ti ti-lock" aria-hidden="true" style={{ fontSize: 18, color: "var(--muted)", marginRight: 5, verticalAlign: -1 }} />
           Your data never leaves your browser. When you upload your CRM export, the file is read directly on your device — the same way you'd open a spreadsheet locally. Nothing is sent to a server, stored in a database, or visible to anyone other than you. The moment you close or refresh this page, the session resets and nothing is saved.

@@ -258,7 +258,7 @@ function AnalysisStep({ included, onReset }) {
         <div style={{ marginTop: 4, marginBottom: 8 }}>
           <button
             onClick={() => setShowHypotheses(true)}
-            style={{ background: "var(--gold)", color: "var(--ink)", border: "1px solid var(--gold)", cursor: "pointer", padding: "10px 20px", fontFamily: "var(--font-mono)", fontSize: 11, fontWeight: 600, letterSpacing: "0.08em" }}
+            style={{ background: "var(--gold)", color: "var(--ink)", border: "1px solid var(--gold)", cursor: "pointer", fontSize: 18 }}
           >
             <i className="ti ti-bulb" aria-hidden="true" style={{ marginRight: 7 }} />
             Generate hypotheses

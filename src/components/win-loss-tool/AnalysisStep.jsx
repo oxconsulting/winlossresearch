@@ -14,6 +14,7 @@
 import { useState } from 'react';
 import { runAnalysis } from '../../lib/win-loss-tool/analysisEngine';
 import { generateHypotheses } from '../../lib/win-loss-tool/hypothesisEngine';
+import { MIN_RECORDS_REQUIRED } from '../../lib/win-loss-tool/dataProcessing';
 import { StatChip, Tag, AnalysisBlock, DimensionSection, ReasonRow, CoverageMeter } from './Primitives';
 
 // ─── Hypothesis display component ─────────────────────────────────────────────
@@ -86,13 +87,13 @@ function AnalysisStep({ included, onReset }) {
   if (!a) return <div style={{ padding: 24, color: "var(--tool-text-secondary)" }}>No records to analyze.</div>;
 
   // ── Minimum record threshold ──
-  if (included.length < 20) {
+  if (included.length < MIN_RECORDS_REQUIRED) {
     return (
       <div>
         <div style={{ padding: "20px 24px", background: "var(--tool-danger-bg)", border: "1px solid var(--tool-danger-border)", borderRadius: "var(--radius-sm)", fontSize: 16, color: "var(--tool-danger-fg)", lineHeight: 1.6 }}>
           <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
             <i className="ti ti-alert-circle" aria-hidden="true" style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }} />
-            <span>Your dataset contains fewer than 20 records after filtering. This is insufficient for reliable win/loss analysis. Expand your date range or review your filter criteria before running the analysis.</span>
+            <span>Your dataset contains fewer than {MIN_RECORDS_REQUIRED} records after filtering. This is insufficient for reliable win/loss analysis. Expand your date range or review your filter criteria before running the analysis.</span>
           </div>
         </div>
         <button onClick={onReset} style={{ fontSize: 17, marginTop: 16 }}>

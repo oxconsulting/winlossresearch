@@ -46,7 +46,7 @@ function StatChip({ label, value, accent, sub }) {
   );
 }
 
-function Tag({ children, color = "secondary" }) {
+function Tag({ children, color = "secondary", style = {} }) {
   const map = {
     danger:    ["var(--tool-danger-bg)",  "var(--tool-danger-fg)"],
     warning:   ["var(--tool-warning-bg)", "var(--tool-warning-fg)"],
@@ -56,7 +56,7 @@ function Tag({ children, color = "secondary" }) {
   };
   const [bg, fg] = map[color] || map.secondary;
   return (
-    <span style={{ display: "inline-block", fontFamily: "var(--font-mono)", fontSize: 10, fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", padding: "2px 8px", borderRadius: 2, background: bg, color: fg, whiteSpace: "nowrap" }}>
+    <span style={{ display: "inline-block", fontFamily: "var(--font-mono)", fontSize: 10, fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", padding: "2px 8px", borderRadius: 2, background: bg, color: fg, whiteSpace: "nowrap", ...style }}>
       {children}
     </span>
   );

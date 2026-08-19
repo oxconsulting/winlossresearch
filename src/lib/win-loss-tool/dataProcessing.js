@@ -7,6 +7,12 @@
  * Filter & normalize sections) — no logic changes.
  */
 
+// Minimum record count for statistically meaningful win/loss analysis.
+// Single source of truth: referenced by the raw-upload row-count check in
+// UploadStep, the panel copy in UploadStep, and the post-filter record-count
+// gate in AnalysisStep.
+const MIN_RECORDS_REQUIRED = 20;
+
 // ─── Date parsing ─────────────────────────────────────────────────────────────
 
 function detectDateFormat(values) {
@@ -57,14 +63,22 @@ function detectDateFormat(values) {
 
 // ─── Outcome normalization ────────────────────────────────────────────────────
 
-const WIN_PATTERNS  = /^(won|win|closed[\s\-]?won|closed[\s\-]?win|w)$/i;
-const LOSS_PATTERNS = /^(lost?|loss|closed[\s\-]?los[st]|closed[\s\-]?loss|l)$/i;
+// Token matching (not raw substring/anchor matching) so real-world stage
+// values like "Stage 9 - Closed Lost" are recognized: punctuation is
+// stripped, then \b-bounded tokens are checked so "winter" doesn't
+// false-positive on "win". A value matching both or neither is left
+// unrecognized (null) rather than guessed — see normalizeOutcome's caller,
+// which already surfaces null outcomes in the exclusion/data-quality report.
+const WIN_TOKENS_RE  = /\b(won|win|closed won)\b/;
+const LOSS_TOKENS_RE = /\b(lost|loss|closed lost)\b/;
 
 function normalizeOutcome(raw) {
   if (!raw) return null;
-  const v = raw.trim();
-  if (WIN_PATTERNS.test(v))  return "Win";
-  if (LOSS_PATTERNS.test(v)) return "Loss";
+  const cleaned = raw.trim().toLowerCase().replace(/[_\-]/g, " ").replace(/\s+/g, " ").trim();
+  const isWin = WIN_TOKENS_RE.test(cleaned);
+  const isLoss = LOSS_TOKENS_RE.test(cleaned);
+  if (isWin && !isLoss) return "Win";
+  if (isLoss && !isWin) return "Loss";
   return null;
 }
 
@@ -122,4 +136,4 @@ function filterAndNormalize(rows, mapping, windowDays) {
   return { included, excluded, detectedFormat };
 }
 
-export { detectDateFormat, normalizeOutcome, parseDealValue, filterAndNormalize };
+export { MIN_RECORDS_REQUIRED, detectDateFormat, normalizeOutcome, parseDealValue, filterAndNormalize };

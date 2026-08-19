@@ -47,7 +47,6 @@ const STEPS = { UPLOAD: 'upload', MAPPING: 'mapping', FILTER: 'filter', ANALYSIS
 // step is active. Centralized here (rather than duplicated inside each of
 // the four step components) since WinLossAnalyzer already tracks `step`.
 const STEP_INSTRUCTIONS = {
-  [STEPS.UPLOAD]: 'Export recent opportunities as CSV. 6 required fields: Close Date, Outcome, Reason, Value, Competitor, Email.',
   [STEPS.MAPPING]: 'Match each CRM column to a field below — a preview of your data appears as you map.',
   [STEPS.FILTER]: 'Choose a date window. Opportunities closed outside this range are excluded from analysis.',
   [STEPS.ANALYSIS]: 'Review the win/loss breakdown, then generate hypotheses to prioritize interview targets.',
@@ -97,7 +96,7 @@ function WinLossAnalyzer() {
           );
         })}
       </div>
-      <p className="step-instruction">{STEP_INSTRUCTIONS[step]}</p>
+      {step !== STEPS.UPLOAD && <p className="step-instruction">{STEP_INSTRUCTIONS[step]}</p>}
       {step === STEPS.UPLOAD   && <UploadStep onParsed={handleParsed} />}
       {step === STEPS.MAPPING  && fileData && <MappingStep filename={fileData.filename} headers={fileData.headers} rows={fileData.rows} onConfirm={handleConfirm} onReset={handleReset} />}
       {step === STEPS.FILTER   && fileData && confirmedMapping && <FilterStep filename={fileData.filename} mapping={confirmedMapping} rows={fileData.rows} onAnalyze={handleAnalyze} onReset={handleReset} />}

@@ -32,14 +32,13 @@ const breadcrumbs = [
   modifiedDate={entry.data.modifiedDate}
   breadcrumbs={breadcrumbs}
 >
-  <article class="perspectives-post">
-    <header class="post-header">
+    <article class="perspectives-post">
+    <div class="post-header">
       <p class="byline">
         By <a href={AUTHOR_URL}>{AUTHOR_NAME}</a>,
-        {AUTHOR_TITLE} —
-        <a href={AUTHOR_ORG_URL} rel="noopener">Ox Win/Loss</a>
+        <a href={AUTHOR_ORG_URL} rel="noopener">{AUTHOR_TITLE}</a>
       </p>
-    </header>
+    </div>
     <Content />
   </article>
 </BaseLayout>

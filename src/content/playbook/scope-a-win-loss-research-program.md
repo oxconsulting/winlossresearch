@@ -86,6 +86,9 @@ An hours range shows how much time a scoped program takes to run, not whether th
 ### Next Phase
 - [How to Build a Win/Loss Interview Target List](/playbook/build-a-win-loss-interview-target-list/)
 
+### Related Guide
+- [How to Build Win/Loss Research Into Your Annual Plan](/playbook/build-win-loss-research-into-your-annual-plan/)
+
 ### Relevant Pillars
 - [Win/Loss Research Methodology](/topics/win-loss-research-methodology/)
 - [How to Build a Win/Loss Research Program](/topics/how-to-build-win-loss-program/)

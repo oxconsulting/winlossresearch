@@ -1,0 +1,309 @@
+---
+/**
+ * src/pages/playbook/build-win-loss-research-into-your-annual-plan.astro
+ *
+ * CONTENT page for the Annual Plan Guide — the full guide, read here on the
+ * site. Restructured (same day) into a two-tier flow at Daniel's request:
+ * other site pages -> this content page -> the PDF download page at
+ * /playbook/build-win-loss-research-into-your-annual-plan/pdf/ (new sibling
+ * file, src/pages/playbook/build-win-loss-research-into-your-annual-plan/pdf.astro).
+ * No page other than this one should link directly to the PDF download page.
+ *
+ * Previously this single file also carried the PDF-preview/download box
+ * directly (mirroring win-loss-analysis-playbook.astro's structure wholesale).
+ * That box moved out to the new dedicated download page; this page now has
+ * a slim CTA linking there instead.
+ *
+ * Not a `playbook` content-collection entry — this is a one-off resource,
+ * same category as the compiled PDF's own landing page and the About page.
+ * Schema: plain WebPage via pageGraphType="list" (see content-architecture.md,
+ * "Annual Plan Guide — Standalone Landing Page" subsection, Section 8).
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_URL } from '../../utils/schema';
+
+const canonicalUrl = `${SITE_URL}/playbook/build-win-loss-research-into-your-annual-plan/`;
+---
+<BaseLayout
+  title="How to Build Win/Loss Research Into Your Annual Plan"
+  description="Win/loss research pays off most before the plan locks - miss that window, anchor it to a known trigger, and choose internal vs. external by deal volume."
+  canonicalUrl={canonicalUrl}
+  pageGraphType="list"
+>
+  <article class="playbook-guide">
+    <p class="kicker">Playbook &middot; Guide</p>
+    <h1>How to Build Win/Loss Research Into Your Annual Plan</h1>
+
+    <p class="direct-answer">
+      Win/loss research earns the most influence when it lands before the annual plan locks, since findings that arrive after that point can only explain the plan's gaps rather than shape its contents. This guide covers when to run it, how to choose internal versus external by deal volume, what each path costs, and how to turn the decision into a line item. Read it below, or download the PDF. No email required.
+    </p>
+
+    <ol class="jump-list">
+      <li><a href="#time-it-to-shape-the-plan-first">Time It to Shape the Plan First</a></li>
+      <li><a href="#build-around-known-and-unknown-triggers">Build Around Known and Unknown Triggers</a></li>
+      <li><a href="#decide-internal-vs-external-by-deal-volume">Decide Internal vs. External by Deal Volume</a></li>
+      <li><a href="#resource-whichever-path-you-choose">Resource Whichever Path You Choose</a></li>
+      <li><a href="#turn-the-decision-into-a-line-item">Turn the Decision Into a Line Item</a></li>
+    </ol>
+
+    <div class="guide-pdf-cta">
+      <p>
+        Prefer a PDF? <a class="download-button" href="/playbook/build-win-loss-research-into-your-annual-plan/pdf/">Get the PDF version →</a>
+      </p>
+    </div>
+
+    <h2 id="time-it-to-shape-the-plan-first">Time It to Shape the Plan First</h2>
+    <p>
+      The highest-value moment for win/loss research is before the plan is finalized, not after. Findings that land before the plan locks can shape what goes into it: pricing assumptions, messaging bets, the roadmap items leadership is betting the year on. Findings that land after the plan locks can't change any of that. They can only tell you where the plan is already off, which is still useful, but it is a smaller win than getting there first.
+    </p>
+    <p>
+      Work backward from the planning deadline to find the latest date this can start. An external engagement runs about 60 days from kickoff to findings, so count back 60 days from the date the plan needs to be locked. Internal research looks faster on paper, since there's no kickoff call and no procurement cycle to clear. That speed is an illusion for most teams. The reasons an internal program hasn't gotten off the ground before now, whether that's bandwidth, competing priorities, or nobody clearly owning it, don't disappear during a planning sprint. They get worse, because the same people closing out the current quarter are the ones being asked to run a research project on top of it.
+    </p>
+
+    <h2 id="build-around-known-and-unknown-triggers">Build Around Known and Unknown Triggers</h2>
+    <p>
+      Missed the pre-plan window? Two triggers are still worth building a program around, and they carry different urgency.
+    </p>
+    <p>
+      The first is anything already on the roadmap: a product launch, a rebrand, new messaging or new packaging. These are known in advance, so plan the research deliberately around them, roughly six months before and six months after. The first round captures the buyer's perspective going in. The second captures what actually changed once the buyer lived with the new version of the product or the pitch.
+    </p>
+    <p>
+      The second trigger can't be scheduled. A competitor ships something new, changes pricing, a new entrant shows up, or the market shifts under an acquisition. These are exactly the moments when the assumptions the plan was built on are most likely to be wrong, and they don't wait for a quarter boundary. Run win/loss research when they happen, whether or not it was on the calendar going in.
+    </p>
+    <p>
+      A third, informal trigger worth naming: many teams work backward from their own year-kickoff presentation, since having real buyer evidence in hand for that moment is a low-effort way to open the year with something other than assumptions.
+    </p>
+
+    <h2 id="decide-internal-vs-external-by-deal-volume">Decide Internal vs. External by Deal Volume</h2>
+    <p>
+      Once the timing question is settled, the only real question left is how to run it. That comes down to a single number: how many opportunities, won and lost combined, close in a typical quarter.
+    </p>
+    <p>
+      Under roughly 200 combined closed opportunities a quarter, run the program internally, using real buyer interviews rather than a review of existing CRM notes. Above that line, an independent program earns the line item. Either path involves the same underlying work: someone talks to the buyer directly, not a summary of what the buyer supposedly said.
+    </p>
+
+    <aside class="reality-check">
+      <span class="callout-label">Reality Check</span>
+      <p>
+        The 200-closed-opportunities line sorts programs by volume, not by whether an internal team can get a guarded buyer past the polite version of events. A well-resourced internal program can still fall short of that candor, since the gap closes by way of who is asking, not how much time or budget sits behind them. <a href="/topics/independent-win-loss-research/">Read why third-party neutrality changes what buyers will say</a>. See every structural risk in one place: <a href="/playbook/win-loss-analysis-playbook/">get the full Playbook</a>.
+      </p>
+    </aside>
+
+    <h2 id="resource-whichever-path-you-choose">Resource Whichever Path You Choose</h2>
+    <p>
+      Budget and time requirements differ sharply between the two paths. Plan against real numbers rather than an optimistic guess in either direction.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Internal</th>
+          <th>External</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Participation</td>
+          <td>Under 5% of lost opportunities, roughly 10% of won customers agree to an interview</td>
+          <td>Managed by the researcher as part of the engagement</td>
+        </tr>
+        <tr>
+          <td>Incentive</td>
+          <td>Roughly $100 per completed interview</td>
+          <td>Included in the engagement cost</td>
+        </tr>
+        <tr>
+          <td>Time</td>
+          <td>About 50 hours a quarter from one team member</td>
+          <td>No internal hours beyond coordination</td>
+        </tr>
+        <tr>
+          <td>Budget</td>
+          <td>Incentive plus staff time, no external fee</td>
+          <td>$30,000&ndash;$50,000 per engagement, scaled to 20&ndash;30 interviews</td>
+        </tr>
+        <tr>
+          <td>Cadence</td>
+          <td>Repeat every cycle, even informally</td>
+          <td>Two engagements a year, spaced 6&ndash;9 months apart</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Run actual CRM numbers before committing hours or budget to either path. A free win/loss analysis tool can translate typical participation rates into the interview volume a given deal count would really produce, which is a better planning input than assuming last year's numbers still hold.
+    </p>
+    <p>
+      At internal volume, expect the output to be directional rather than statistically reliable. Pattern recognition needs at least 15 loss and 5 win interviews before a finding is a pattern rather than a hypothesis. Treat anything below that threshold accordingly, and repeat the exercise each cycle rather than treating one round as a permanent system.
+    </p>
+
+    <h2 id="turn-the-decision-into-a-line-item">Turn the Decision Into a Line Item</h2>
+    <p>
+      Four decisions turn all of the above into something that actually lands in the plan, regardless of which function is asking.
+    </p>
+    <ol>
+      <li><strong>Commit to win/loss.</strong> Ideally it informs the current plan. At minimum, it belongs in next year's plan as a resourced line item, not a maybe.</li>
+      <li><strong>Decide the right fit.</strong> Apply the 200-closed-opportunities line from above: internal below it, external above it.</li>
+      <li><strong>Plan the resourcing.</strong> Internal means budgeting the incentive, the interview time, and roughly 50 hours a quarter from someone on the team. External means budgeting for engagements at $30,000&ndash;$50,000 each, split roughly 6&ndash;9 months apart, whether tied to a known trigger, held in reserve for an unknown one, or run as a standing cadence.</li>
+      <li><strong>Put it in the plan.</strong> Not as a maybe. As a resourced, timed line item, the same as any other GTM initiative.</li>
+    </ol>
+    <p>
+      The number behind that case is concrete. Rigorous, ongoing win/loss programs see up to a 50% improvement in win rate and a 15&ndash;30% increase in revenue, per Gartner research from its &ldquo;Tech Go-to-Market&rdquo; report. A line item with that kind of return earns a spot in the plan on its own merits, not as a placeholder waiting to get scoped in time.
+    </p>
+
+    <p class="bottom-links">
+      From the Playbook:{' '}
+      <a href="/playbook/scope-a-win-loss-research-program/">How to Scope a Win/Loss Research Program</a>,{' '}
+      <a href="/playbook/build-a-win-loss-interview-target-list/">How to Build a Win/Loss Interview Target List</a>, or{' '}
+      <a href="/playbook/win-loss-analysis-playbook/">get the full Playbook</a>.
+      Relevant pillars:{' '}
+      <a href="/topics/how-to-build-win-loss-program/">How to Build a Win/Loss Research Program</a> and{' '}
+      <a href="/topics/win-loss-gtm-strategy/">Win/Loss Research for GTM Strategy</a>.
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .direct-answer {
+    padding-left: var(--space-5);
+    border-left: 3px solid var(--gold);
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    line-height: var(--leading-normal);
+    color: var(--text-answer-color);
+    margin-bottom: var(--space-6);
+  }
+
+  .jump-list {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    border-bottom: 1px solid var(--paper-2);
+    padding-bottom: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  .jump-list li {
+    margin-bottom: var(--space-2);
+  }
+
+  .guide-pdf-cta {
+    background: var(--paper-2);
+    border-radius: var(--radius-md);
+    padding: var(--space-6) var(--space-8);
+    margin-bottom: var(--space-10);
+  }
+
+  .guide-pdf-cta p {
+    margin: 0;
+  }
+
+  .download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 15px 26px;
+    border-radius: var(--radius-sm);
+    border-bottom: none;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .download-button:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .download-button svg {
+    width: 16px;
+    height: 16px;
+    flex: none;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-6) 0 var(--space-8);
+    font-size: var(--text-sm);
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--paper-2);
+    vertical-align: top;
+  }
+
+  th {
+    font-family: var(--font-mono);
+    font-size: 0.71875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  td:first-child {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .bottom-links {
+    margin-top: var(--space-10);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--paper-2);
+    font-size: var(--text-sm);
+    color: var(--muted);
+    font-family: var(--font-mono);
+  }
+
+  .bottom-links a {
+    color: var(--muted);
+    border-bottom: 1px solid var(--muted);
+  }
+
+  .bottom-links a:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  @media (max-width: 640px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+
+    thead {
+      display: none;
+    }
+
+    td {
+      border-bottom: none;
+      padding: var(--space-1) 0;
+    }
+
+    tr {
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--paper-2);
+      margin-bottom: var(--space-4);
+    }
+
+    td:first-child {
+      color: var(--gold);
+      font-family: var(--font-mono);
+      font-size: 0.71875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+  }
+</style>

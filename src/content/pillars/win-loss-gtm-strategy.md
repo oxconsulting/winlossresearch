@@ -112,3 +112,6 @@ The most practical way to track this over time is a running decision log maintai
 ### Related Topics
 - [How to Build a Win/Loss Research Program](/topics/how-to-build-win-loss-program/)
 - [Win/Loss Research for Competitive Intelligence](/topics/win-loss-competitive-intelligence/)
+
+### Related Guide
+- [How to Build Win/Loss Research Into Your Annual Plan](/playbook/build-win-loss-research-into-your-annual-plan/)

@@ -87,6 +87,9 @@ Keep a short exclusion log alongside the final list: how many records came out o
 ### Next Phase
 - [How to Design a Win/Loss Interview Questionnaire](/playbook/design-a-win-loss-interview-questionnaire/)
 
+### Related Guide
+- [How to Build Win/Loss Research Into Your Annual Plan](/playbook/build-win-loss-research-into-your-annual-plan/)
+
 ### Relevant Pillars
 - [Why Internal Win/Loss Data Fails](/topics/why-internal-win-loss-data-fails/)
 - [Win/Loss Research Methodology](/topics/win-loss-research-methodology/)

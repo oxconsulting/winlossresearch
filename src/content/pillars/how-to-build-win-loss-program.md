@@ -125,3 +125,6 @@ This is a reason to build a periodic review into the program itself, not just a 
 - [Independent Win/Loss Research: Why Third-Party Buyer Interviews Work](/topics/independent-win-loss-research/)
 - [Win/Loss Research Methodology](/topics/win-loss-research-methodology/)
 - [Win/Loss Research for GTM Strategy](/topics/win-loss-gtm-strategy/)
+
+### Related Guide
+- [How to Build Win/Loss Research Into Your Annual Plan](/playbook/build-win-loss-research-into-your-annual-plan/)

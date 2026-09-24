@@ -1,0 +1,197 @@
+---
+/**
+ * src/pages/playbook/build-win-loss-research-into-your-annual-plan/pdf.astro
+ *
+ * PDF download page for the Annual Plan Guide. Short, download-focused,
+ * structurally mirroring src/pages/playbook/win-loss-analysis-playbook.astro
+ * (the compiled 12-play Playbook PDF's own landing page): kicker, H1,
+ * direct-answer block, a PDF preview/download box, a link back to the
+ * content page. No full guide content repeated here — that lives at the
+ * parent content page, /playbook/build-win-loss-research-into-your-annual-plan/.
+ *
+ * Flow (Daniel's explicit spec, Session 34 build step 2): other site pages
+ * -> the content page -> this download page. No page other than the
+ * content page should link directly here.
+ *
+ * Ungated direct download — no email form, same rationale as the compiled
+ * Playbook PDF (see content-architecture.md, PDF Download Landing Page
+ * section). Not a `playbook` content-collection entry.
+ *
+ * PDF file: /downloads/build-win-loss-into-gtm-plan.pdf (Daniel uploads
+ * this directly to the downloads directory — not part of this build).
+ *
+ * Open item: cover image referenced below
+ * (/images/playbook/build-win-loss-into-gtm-plan-cover.png) does not exist
+ * yet — same pending-visual-identity dependency as the compiled Playbook
+ * PDF's own cover. Swap in the real path once that work is done, or drop
+ * the <img> and adjust the .pdf-preview layout if no cover is planned.
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE_URL } from '../../../utils/schema';
+
+const canonicalUrl = `${SITE_URL}/playbook/build-win-loss-research-into-your-annual-plan/pdf/`;
+---
+<BaseLayout
+  title="Download the Annual Plan Guide (PDF)"
+  description="Download How to Build Win/Loss Research Into Your Annual Plan as a single PDF, free, no email required."
+  canonicalUrl={canonicalUrl}
+  pageGraphType="list"
+>
+  <article class="playbook-gate">
+    <p class="kicker">Playbook &middot; Free Download</p>
+    <h1>Download the Annual Plan Guide</h1>
+
+    <p class="direct-answer">
+      This is the free PDF version of <a href="/playbook/build-win-loss-research-into-your-annual-plan/">How to Build Win/Loss Research Into Your Annual Plan</a>, built for handing to a planning committee or an exec sponsor without asking them to click through the site. Download it directly below. No email required.
+    </p>
+
+    <div class="pdf-preview">
+      <img
+        class="pdf-preview__image"
+        src="/images/playbook/build-win-loss-into-gtm-plan-cover.png"
+        width="569"
+        height="737"
+        alt="Cover of How to Build Win/Loss Research Into Your Annual Plan, by Daniel Oxenburgh"
+        loading="eager"
+      />
+      <div class="pdf-preview__copy">
+        <h3>What's in the PDF</h3>
+        <p class="pdf-preview__meta">Guide &middot; 5 sections</p>
+        <p>
+          When to time win/loss research to your annual plan, the known-trigger and unknown-trigger fallback, how to choose internal versus external by deal volume, what each path actually costs, and how to turn the decision into a resourced line item.
+        </p>
+        <a class="download-button" href="/downloads/build-win-loss-into-gtm-plan.pdf">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 3V15M12 15L7 10M12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 17V19C4 20.1046 4.89543 21 6 21H18C19.1046 21 20 20.1046 20 19V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Download the PDF
+        </a>
+        <p class="download-note">PDF &middot; No email required</p>
+      </div>
+    </div>
+
+    <p class="bottom-links">
+      Prefer to read it on the site first? Go back to{' '}
+      <a href="/playbook/build-win-loss-research-into-your-annual-plan/">How to Build Win/Loss Research Into Your Annual Plan</a>.
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .direct-answer {
+    padding-left: var(--space-5);
+    border-left: 3px solid var(--gold);
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    line-height: var(--leading-normal);
+    color: var(--text-answer-color);
+    border-bottom: 1px solid var(--paper-2);
+    padding-bottom: 2.25rem;
+    margin-bottom: var(--space-8);
+  }
+
+  .pdf-preview {
+    display: flex;
+    gap: var(--space-8);
+    align-items: flex-start;
+    background: var(--paper-2);
+    border-radius: var(--radius-md);
+    padding: var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+
+  .pdf-preview__image {
+    flex: 0 0 200px;
+    width: 200px;
+    height: auto;
+    border: 1px solid var(--muted);
+    border-radius: var(--radius-sm);
+  }
+
+  .pdf-preview__copy {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pdf-preview__copy h3 {
+    margin-top: 0;
+  }
+
+  .pdf-preview__meta {
+    font-family: var(--font-mono);
+    font-size: 0.71875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin: 0 0 var(--space-4);
+  }
+
+  .download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 15px 26px;
+    border-radius: var(--radius-sm);
+    border-bottom: none;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .download-button:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .download-button svg {
+    width: 16px;
+    height: 16px;
+    flex: none;
+  }
+
+  .download-note {
+    font-family: var(--font-mono);
+    font-size: 0.71875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-top: var(--space-3);
+    margin-bottom: 0;
+  }
+
+  .bottom-links {
+    margin-top: var(--space-10);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--paper-2);
+    font-size: var(--text-sm);
+    color: var(--muted);
+    font-family: var(--font-mono);
+  }
+
+  .bottom-links a {
+    color: var(--muted);
+    border-bottom: 1px solid var(--muted);
+  }
+
+  .bottom-links a:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  @media (max-width: 640px) {
+    .pdf-preview {
+      flex-direction: column;
+    }
+
+    .pdf-preview__image {
+      flex: none;
+      width: 140px;
+    }
+  }
+</style>
